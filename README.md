@@ -1,2 +1,2 @@
-# st-isabel-website
-Schoo website
+# ST-Isabel-Website
+School Website
