@@ -39,19 +39,98 @@
                                 </li>
                                 <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="#level1_1">Level One</a>
-                                        <li><a>Level One<span class="fa fa-chevron-down"></span></a>
+                                        <li><a href="#level1_1">Level One</a></li> 
+                                        <li><a>The School<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="level2.html">Level Two</a>
+                                                <li class="sub_menu"><a href="#">Who We Are</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                                </ul>
                                                 </li>
-                                                <li><a href="#level2_1">Level Two</a>
+                                                <li class="sub_menu"><a href="#">Director's Message</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                                </ul>
                                                 </li>
-                                                <li><a href="#level2_2">Level Two</a>
+                                                <li class="sub_menu"><a href="#">Aims and Objectives</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2/a>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                                </ul>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="#level1_2">Level One</a>
+                                        <li><a>Academics<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                </ul>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Nursery/Primary</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                </ul>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">College</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                </ul>
                                         </li>
+                                            </ul>
+                                            <li><a>Our Facilities<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="#">School Laboratories</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                                </ul>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">School Library</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                <li class="sub_menu"><a href="#">Number3</a>
+                                                </ul>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Hostel</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">Number1</a>
+                                                <li class="sub_menu"><a href="#">Number2</a>
+                                                <li class="sub_menu"><a href="#">Number3</a>
+                                                </ul>
+                                            </li>
+                                            </ul>
+                                            <li><a>Admission<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Number2</a>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                            </li>
+                                            </ul>
+                                            <li><a>Online Portal<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="#">Number1</a>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Number3</a>
+                                            </li>
+                                            </ul>
                                     </ul>
                                 </li>   
                             </ul>
