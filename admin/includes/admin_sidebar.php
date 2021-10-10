@@ -39,7 +39,7 @@
                                 </li>
                                 <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="#level1_1">Level One</a></li> 
+                                        <!-- <li><a href="#level1_1">Level One</a></li>  -->
                                         <li><a>The School<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="#">Who We Are</a>
@@ -131,6 +131,33 @@
                                                 <li class="sub_menu"><a href="#">Number3</a>
                                             </li>
                                             </ul>
+                                            <li><a>Events and Gallery<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="#">Events</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                                </ul>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Gallery</a>
+                                                <ul class="nav child-menu" >
+                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">number2</a>
+                                                <li class="sub_menu"><a href="#">number3</a>
+                                                </ul>
+                                                </li>
+                                            </ul>
+                                            <li><a>Contacts<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="#">Location</a>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Email Address</a>
+                                                </li>
+                                                <li class="sub_menu"><a href="#">Get in Touch</a>
+                                            </li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>   
                             </ul>
