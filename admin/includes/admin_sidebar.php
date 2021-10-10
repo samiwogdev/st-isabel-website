@@ -44,24 +44,13 @@
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="#">Who We Are</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2</a>
-                                                <li class="sub_menu"><a href="#">number3</a>
+                                                <li class="sub_menu"><a href="#">About Demo College</a>
+                                                <li class="sub_menu"><a href="#">Image</a>
                                                 </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">Director's Message</a>
-                                                <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2</a>
-                                                <li class="sub_menu"><a href="#">number3</a>
-                                                </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">Aims and Objectives</a>
-                                                <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2/a>
-                                                <li class="sub_menu"><a href="#">number3</a>
-                                                </ul>
                                                 </li>
                                             </ul>
                                         </li>
@@ -69,23 +58,26 @@
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="#">Creche</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">Creche</a>
-                                                <li class="sub_menu"><a href="#">Creche</a>
-                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Our Creche info</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Why choose our Creche</a>
                                                 </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">Nursery/Primary</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">Creche</a>
-                                                <li class="sub_menu"><a href="#">Creche</a>
-                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">Nursery/Primary Info</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Curriculum</a>
                                                 </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">College</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">Creche</a>
-                                                <li class="sub_menu"><a href="#">Creche</a>
-                                                <li class="sub_menu"><a href="#">Creche</a>
+                                                <li class="sub_menu"><a href="#">College info</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Junior Secondary School Intro</a>
+                                                <li class="sub_menu"><a href="#">JSS Subjects</a>
+                                                <li class="sub_menu"><a href="#">Senior Secondary School Intro</a>
+                                                <li class="sub_menu"><a href="#">SSS Subjects</a>
                                                 </ul>
                                         </li>
                                             </ul>
@@ -93,33 +85,33 @@
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="#">School Laboratories</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2</a>
-                                                <li class="sub_menu"><a href="#">number3</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Science Lab Info</a>
+                                                <li class="sub_menu"><a href="#">Types of School Lab</a>
                                                 </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">School Library</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2</a>
-                                                <li class="sub_menu"><a href="#">Number3</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Library Features</a>
+                                                <li class="sub_menu"><a href="#">LIbrary Info</a>
                                                 </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">Hostel</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">Number1</a>
-                                                <li class="sub_menu"><a href="#">Number2</a>
-                                                <li class="sub_menu"><a href="#">Number3</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Hostel Features</a>
+                                                <li class="sub_menu"><a href="#">Hotels Info</a>
                                                 </ul>
                                             </li>
                                             </ul>
                                             <li><a>Admission<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="#">number1</a>
+                                                <li class="sub_menu"><a href="#">Image</a>
                                                 </li>
-                                                <li class="sub_menu"><a href="#">Number2</a>
+                                                <li class="sub_menu"><a href="#">Enrolment</a>
                                                 </li>
-                                                <li class="sub_menu"><a href="#">number3</a>
+                                                <li class="sub_menu"><a href="#">iframe</a>
                                             </li>
                                             </ul>
                                             <li><a>Online Portal<span class="fa fa-chevron-down"></span></a>
@@ -133,18 +125,21 @@
                                             </ul>
                                             <li><a>Events and Gallery<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="#">Events</a>
+                                                <li class="sub_menu"><a href="#">News</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2</a>
-                                                <li class="sub_menu"><a href="#">number3</a>
+                                                <li class="sub_menu"><a href="#">Image</a>
+                                                <li class="sub_menu"><a href="#">Best Student Award Day Info</a>
+                                                <li class="sub_menu"><a href="#">Notice Board</a>
+                                                <li class="sub_menu"><a href="#">Recent News</a>
+                                                <li class="sub_menu"><a href="#">Recent Tags</a>
                                                 </ul>
                                                 </li>
                                                 <li class="sub_menu"><a href="#">Gallery</a>
                                                 <ul class="nav child-menu" >
-                                                <li class="sub_menu"><a href="#">number1</a>
-                                                <li class="sub_menu"><a href="#">number2</a>
-                                                <li class="sub_menu"><a href="#">number3</a>
+                                                <li class="sub_menu"><a href="#">Info</a>
+                                                <li class="sub_menu"><a href="#">Image Slider</a>
+                                                <li class="sub_menu"><a href="#">Academic Session School Prefects</a>
+                                                <li class="sub_menu"><a href="#">School Prefects Image Slider</a>
                                                 </ul>
                                                 </li>
                                             </ul>

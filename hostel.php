@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php'
 ?>
-<!-- Start Breadcrumbs --> hostel1
+<!-- Start Breadcrumbs --> 
 <section class="breadcrumbs overlay" style="background-image: url('images/facilities/hostel1.jpg')">
     <div class="container">
         <div class="row">

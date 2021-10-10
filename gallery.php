@@ -76,7 +76,7 @@
                             <!-- Single Faq -->
                             <div class="faq-heading border-3" id="FaqTitle3">
                                 <h4 class="faq-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq3"> 2020/2021 Academic Session Scool Prefects</a>
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq3"> 2020/2021 Academic Session School Prefects</a>
                                 </h4>
                             </div>
                             <div id="faq3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="FaqTitle3">
