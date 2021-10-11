@@ -67,7 +67,7 @@ class Slider extends Connection {
 
     public function add() {
         $sql = "INSERT INTO " . $this->table_name . " (title, description, slider_image) VALUES(:title, :description, :slider_image)";
-        $statement = $this->getConnection()->prepare($sql);
+        $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
         $statement->bindParam(":slider_image", $this->slider_image);
@@ -76,27 +76,42 @@ class Slider extends Connection {
 
     public function update() {
         $sql = "UPDATE " . $this->table_name . " SET title = :title, description = :description, slider_image = :slider_image  WHERE id = :id";
-        $statement = $this->getConnection()->prepare($sql);
+        $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":id", $this->id);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
         $statement->bindParam(":slider_image", $this->slider_image);
-        return $statement->execute();
+        $statement->execute();
+        return TRUE;
     }
 
     public function delete() {
         $sql = "DELETE FROM " . $this->table_name . " WHERE id = :id ";
-        $statement = $this->getConnection()->prepare($sql);
+        $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":id", $this->id);
         return $statement->execute();
     }
 
     public function getAll() {
         $sql = "SELECT * FROM " . $this->table_name;
-        $statement = $this->getConnection()->prepare($sql);
+        $statement = $this->getDbConnection()->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll();
         return $result;
+    }
+
+    public function getById() {
+        $sql = "SELECT * FROM " . $this->table_name . " WHERE id = :id";
+        $statement = $this->getDbConnection()->prepare($sql);
+        $statement->bindParam(":id", $this->id);
+        $result = $statement->execute();
+        $count = $statement->rowCount();
+        if ($count > 0) {
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } else {
+            return FALSE;
+        }
     }
 
 }
