@@ -64,6 +64,7 @@
 <script src="../admin-assets/vendors/jszip/dist/jszip.min.js"></script>
 <script src="../admin-assets/vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="../admin-assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="../admin-assets/vendors/sweetalert2/sweetalert2.min.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="../admin-assets/build/js/custom.min.js"></script>

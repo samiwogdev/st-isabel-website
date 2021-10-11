@@ -159,8 +159,6 @@
                                                 a well equipped ICT centre, wide playing ground for sports and recreational activities, drinkable
                                                 water supply, constant power supply, school farm and others.</p>
                                             <p class=""  >Our curriculum, in line with the stipulation of Federal agencies, has been painstakingly customized to meet the present needs as well as the present trends in technology advancement .</p>
-
-
                                             <a href="#" class="btn btn-danger mt-4 " >Learn More</a>
                                         </div>
                                     </div>
