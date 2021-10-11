@@ -37,24 +37,47 @@
                                     <ul class="nav child_menu">
                                         <li><a>Who we are<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="#">Banner</a></li>
-                                                <li><a href="#">page Info</a></li>
+                                                <li class="sub_menu"><a href="../school_page/banner">Banner</a></li>
+                                                <li><a href="../school_page/page_info">Page Info</a></li>
                                             </ul>
                                         </li>
                                         <li><a>The Director<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="#">Banner</a> </li>
-                                                <li><a href="#">page Info</a> </li>
+                                                <li class="sub_menu"><a href="../school_page/director_banner">Banner</a> </li>
+                                                <li><a href="../school_page/director_page_info">Page Info</a> </li>
                                             </ul>
                                         </li>
                                         <li><a>Aims & Objective<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="#">Banner</a></li>
-                                                <li><a href="#">page Info</a></li>
+                                                <li class="sub_menu"><a href="../school_page/objective_banner">Banner</a></li>
+                                                <li><a href="../school_page/objective_page_info">Page Info</a></li>
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>   
+                                </li>
+                                <li><a><i class="fa fa-sitemap"></i> Academics <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a>Creche<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="../academics_page/creche_banner">Banner</a></li>
+                                                <li><a href="../academics_page/creche_page_info">Page Info</a></li>
+                                                <li><a href="../academics_page/creche_page_info_ext">Page Info Ext</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a>Nursery/Primary<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="../academics_page/nursery_primary_banner">Banner</a> </li>
+                                                <li><a href="../academics_page/nursery_primary_page_info">Page Info</a> </li>
+                                            </ul>
+                                        </li>
+                                        <li><a>College<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu"><a href="../school_page/objective_banner">Banner</a></li>
+                                                <li><a href="../school_page/objective_page_info">Page Info</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>  
                             </ul>
                         </div>
                     </div>
