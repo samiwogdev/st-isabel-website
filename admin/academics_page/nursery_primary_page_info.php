@@ -87,9 +87,7 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Nursery/Primary</td>
-                                                <td>The key part of the children curriculum focuses on Cognitive, Psychomotor and Affective domains of education.</td>
+
                                                 <!-- <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td> -->
                                                 <td>
                                                     <div class="text-center">
