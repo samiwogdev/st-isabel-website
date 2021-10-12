@@ -8,7 +8,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>The Director</h3>
+                <h3>Slider</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -16,7 +16,7 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><small>Add new Banner Information</small></h2>
+                        <h2><small>Add new Slider Information</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -37,7 +37,7 @@ include_once '../includes/admin_navbar.php';
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
+                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Slider Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
                                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
@@ -58,7 +58,7 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2> <small>Update Banner Information</small></h2>
+                        <h2> <small>Update Slider Information</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
                         </ul>
@@ -77,12 +77,10 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>WELCOME</td>
+                                                <td>Condusive Rooms</td>
                                                 <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
@@ -91,6 +89,19 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Hostel Facilities</td>
+                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
+                                                <td>
+                                                    <div class="text-center">
+                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
+                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!--  -->
                                         </tbody>
                                     </table>
                                 </div>

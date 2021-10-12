@@ -8,7 +8,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Slider</h3>
+                <h3>Enrolment</h3>
             </div>
         </div>
         <div class="clearfix"></div>

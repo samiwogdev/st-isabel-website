@@ -85,13 +85,9 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Our Creche</td>
-                                                <td>Based on our first core value, which is child-centredness, we have added creche to our list of educational services. Demo School was established in 1985; however, our creche in Ibadan was opened to the public on Monday 7 September 2015. The creche is equipped with ultra-modern facilities and caters to the needs of babies and toddlers, thereby giving parents the satisfaction</td>
+
                                                 <!-- <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td> -->
                                                 <td>
                                                     <div class="text-center">
