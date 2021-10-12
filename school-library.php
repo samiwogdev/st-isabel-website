@@ -6,10 +6,10 @@ include 'includes/header.php'
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>School Laboratories</h2>
+                <h2>School Library</h2>
                 <ul class="bread-list">
                     <li><a href="#">Facilities<i class="fa fa-angle-right"></i></a></li>
-                    <li class="active"><a href="#">School Laboratories  </a></li>
+                    <li class="active"><a href="#">School Library  </a></li>
                 </ul>
             </div>
         </div>

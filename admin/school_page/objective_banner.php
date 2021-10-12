@@ -91,28 +91,7 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>ST ISABEL COLLEGE</td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>MEETING</td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <!-- -->
                                         </tbody>
                                     </table>
                                 </div>

@@ -8,7 +8,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>The Director</h3>
+                <h3>Laboratories</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -82,7 +82,7 @@ include_once '../includes/admin_navbar.php';
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>WELCOME</td>
+                                                <td>School Laboratories</td>
                                                 <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
@@ -91,6 +91,7 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <!--  -->
                                         </tbody>
                                     </table>
                                 </div>

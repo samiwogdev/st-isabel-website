@@ -8,7 +8,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Aims and Objectives</h3>
+                <h3>College</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -43,14 +43,14 @@ include_once '../includes/admin_navbar.php';
                                     <input type="text" name="description" name="last-name" required="required" class="form-control">
                                 </div>
                             </div>
-                            <div class="item form-group">
+                            <!-- <div class="item form-group">
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Page Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
                                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
@@ -81,7 +81,7 @@ include_once '../includes/admin_navbar.php';
                                                 <th>SN</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
-                                                <th>Picture</th>
+                                                <!-- <th>Picture</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -90,9 +90,9 @@ include_once '../includes/admin_navbar.php';
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>WELCOME</td>
-                                                <td>To ST Isabel School</td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
+                                                <td>Aims & Objectives</td>
+                                                <td>Demo College aims at developing the total child in a world of inconsistencies and frustration. A child’s life is modeled by the education he receives especially at the early state of life.</td>
+                                                <!-- <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td> -->
                                                 <td>
                                                     <div class="text-center">
                                                         <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
@@ -100,30 +100,7 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>ST ISABEL COLLEGE</td>
-                                                <td>Renaissance of Quality Education</td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>MEETING</td>
-                                                <td>Academic Needs of every child</td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <!--  -->
                                         </tbody>
                                     </table>
                                 </div>
