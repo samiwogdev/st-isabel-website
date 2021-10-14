@@ -100,7 +100,7 @@ class Enrolment extends Connection {
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
         $statement->bindParam(":enrol_title", $this->enrol_title);
-        $statement->bindParam(":desc", $this->desc);
+        $statement->bindParam(":enrol_desc", $this->enrol_desc);
         $statement->execute();
         return TRUE;
     }
