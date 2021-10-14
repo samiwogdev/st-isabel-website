@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -27,19 +34,19 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
+                        <form class="form-horizontal form-label-left" action="../controller/add_school_qualities.php" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">School quality <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="title" required="required" class="form-control " placeholder="please Enter School Quality">
+                                    <input type="text" name="qualities" required="required" class="form-control " placeholder="please Enter School Quality">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_school_qualities" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -68,50 +75,24 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                        <?php
+                                            $school_qualities = School_qualities::getInstance();
+                                            $count = 1;
+                                            $school_qualitiesInfos = $school_qualities->getAll();
+                                            foreach ($school_qualitiesInfos as $school_qualitiesInfo) {
+                                                ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Facilities</td>
+                                            <td> <?php echo $count ?></td>
+                                            <td> <?php echo $school_qualitiesInfo['qualities'] ?> </td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                        <a href="update_school_qualities?auth=<?php echo $school_qualitiesInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                        <a href="../controller/delete_school_qualities?auth=<?php echo $school_qualitiesInfo['id']?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Morals & Discipline</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>
-                                                    School Curriculum</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Sports</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                         <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -126,3 +107,64 @@ include_once '../includes/admin_navbar.php';
 <!-- /page content -->
 
 <?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>

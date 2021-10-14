@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -8,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Slider Extension </h3>
+                <h3>School Song </h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -27,10 +34,10 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
+                        <form class="form-horizontal form-label-left" action="../controller/add_school_song.php" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="title" required="required" class="form-control ">
@@ -40,13 +47,13 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" name="last-name" required="required" class="form-control">
+                                    <input type="text" name="description" required="required" class="form-control">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_school_song" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -76,26 +83,25 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                        <?php
+                                            $school_song = School_song::getInstance();
+                                            $count = 1;
+                                            $school_songInfos = $school_song->getAll();
+                                            foreach ($school_songInfos as $school_songInfo) {
+                                                ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Schoo Song</td>
-                                                <td>Demo , Demo,
-                                                    We are the success Model
-                                                    We are the Peculiar Students
-                                                    We are the Future Leaders
-                                                    We are the Future Heroes
-                                                    In all areas of Life
-                                                    We are the Best</td>
+                                                <td> <?php echo $count ?></td>
+                                                <td> <?php echo $school_songInfo ['title'] ?> </td>
+                                                <td> <?php echo $school_songInfo ['description']?> </td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                        <a href="update_school_song?auth=<?php echo $school_songInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                        <a href="../controller/delete_school_song?auth=<?php echo $school_songInfo['id']?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                        <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -110,3 +116,64 @@ include_once '../includes/admin_navbar.php';
 <!-- /page content -->
 
 <?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>

@@ -1,7 +1,7 @@
 <?php
 include_once '../configuration.php';
 if (!isset($_GET['auth'])) {
-    header("location: slider?info=failed");
+    header("location: slider_ext?info=failed");
     exit;
 } else {
     $auth = $_GET['auth'];
@@ -16,7 +16,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Update Slider</h3>
+                <h3>Slider Extension</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -33,38 +33,30 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $slider = Slider::getInstance();
-                        $auths = Slider::sanitize_input($auth);
-                        $slider->setId($auths);
-                        $sliderInfo = $slider->getById();
+                        $slider_ext = Slider_ext::getInstance();
+                        $auths = Slider_ext::sanitize_input($auth);
+                        $slider_ext->setId($auths);
+                        $slider_extInfo = $slider_ext->getById();
                         ?>
-                        <form class="form-horizontal form-label-left" action="../controller/update_slider?auth=<?php echo $auths ?>" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" action="../controller/update_slider_ext?auth=<?php echo $auths ?>" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="title" value="<?php echo $sliderInfo['title'] ?>" required="required" class="form-control ">
+                                    <input type="text" name="title" value="<?php echo $slider_extInfo['title'] ?>" required="required" class="form-control ">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" value="<?php echo $sliderInfo['description'] ?>"   required="required" class="form-control">
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Slider Image</label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <div class="form-group">
-                                        <input type="file" name="slider_image" value="<?php echo $sliderInfo['slider_image'] ?>"   class="form-control-file">
-                                    </div>
+                                    <input type="text" name="description" value="<?php echo $slider_extInfo['description'] ?>"   required="required" class="form-control">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" name="update_slider" class="btn btn-success">Update</button>
+                                    <button type="submit" name="update_slider_ext" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </form>

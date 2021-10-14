@@ -5,19 +5,18 @@
  *
  * @author samiwog
  */
-class Slider extends Connection {
+class School_song extends Connection {
 
     private $id;
     private $title;
     private $description;
-    private $slider_image;
-    private $table_name = "slider";
+    private $table_name = "school_song";
     private static $instance;
 
     public static function getInstance() {
         if (!isset(self::$instance) || is_null(self::$instance)) {
             try {
-                self::$instance = new Slider();
+                self::$instance = new School_song();
             } catch (Exception $ex) {
                 return $error . ": " . $ex->getMessage();
             }
@@ -37,10 +36,6 @@ class Slider extends Connection {
         return $this->description;
     }
 
-    public function getSlider_image() {
-        return $this->slider_image;
-    }
-
     public function setId($id): void {
         $this->id = $id;
     }
@@ -53,10 +48,6 @@ class Slider extends Connection {
         $this->description = $description;
     }
 
-    public function setSlider_image($slider_image): void {
-        $this->slider_image = $slider_image;
-    }
-
     public static function sanitize_input($data) {
         $data = stripslashes($data); //Returns a string with backslashes stripped off
         $data = strip_tags($data); //Strip HTML and PHP tags from a string
@@ -66,28 +57,26 @@ class Slider extends Connection {
     }
 
     public function add() {
-        $sql = "INSERT INTO " . $this->table_name . " (title, description, slider_image) VALUES(:title, :description, :slider_image)";
+        $sql = "INSERT INTO " . $this->table_name . " (title, description) VALUES(:title, :description)";
         $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
-        $statement->bindParam(":slider_image", $this->slider_image);
         return $statement->execute();
     }
 
     public function update() {
-        $sql = "UPDATE " . $this->table_name . " SET title = :title, description = :description, slider_image = :slider_image  WHERE id = :id";
+        $sql = "UPDATE " . $this->table_name . " SET title = :title, description = :description  WHERE id = :id";
         $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":id", $this->id);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
-        $statement->bindParam(":slider_image", $this->slider_image);
         $statement->execute();
         return TRUE;
     }
 
-    public function delete(){
+    public function delete() {
         $sql = "DELETE FROM " . $this->table_name . " WHERE id = :id ";
-        $statement = $this -> getDbConnection()->prepare($sql);
+        $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":id", $this->id);
         return $statement->execute();
     }
