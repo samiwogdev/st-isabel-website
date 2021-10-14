@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `school_song` (
 `description` varchar(250) NOT NULL
 );
 
-/*SCHOOL SONG*/
+/*SLIDER_EXT*/
 CREATE TABLE IF NOT EXISTS `slider_ext` (
  `id` int(11) primary key auto_increment NOT NULL,
 `title` varchar(250) NOT NULL,
