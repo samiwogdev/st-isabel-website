@@ -15,6 +15,7 @@ if (isset($_POST['update_enrolment'])) {
     if (empty($_POST['title']) || empty($_POST['description']) || empty($_POST['enrol_title']) || empty($_POST['enrol_desc'])){
         header("location: ../home_page/enrolment?info=failed");
  } else {
+     
      //sanitize data 
      $id = Enrolment::sanitize_input($auth);
      $title = Enrolment::sanitize_input($_POST['title']);
@@ -59,6 +60,7 @@ if (isset($_POST['update_enrolment'])) {
     $enrolment->setEnrol_desc($enrol_desc);
 
     //update form input to database & check if it successful
+
 
     if($enrolment->update()){
         header("location: ../home_page/enrolment?info=complete");

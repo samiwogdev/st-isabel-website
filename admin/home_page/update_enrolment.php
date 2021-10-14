@@ -40,7 +40,7 @@ include_once '../includes/admin_navbar.php';
                         $enrolment->setId($auths);
                         $enrolmentInfo = $enrolment->getById();
                         ?>
-                        <form class="form-horizontal form-label-left" action="../controller/update_enrolment?auth=<?php echo $auths ?>" method="post"enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" action="../controller/update_enrolment?auth=<?php echo $auths ?>" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Background Image</label>
                                 <div class="col-md-6 col-sm-6 ">

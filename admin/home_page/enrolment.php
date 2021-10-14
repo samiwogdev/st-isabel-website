@@ -104,29 +104,31 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Desc</th>
                                                 <th>Enrol. Title</th>
                                                 <th>Enrol. Desc</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
+                                            <?php
                                             $enrolment = Enrolment::getInstance();
                                             $count = 1;
                                             $enrolmentInfos = $enrolment->getAll();
                                             foreach ($enrolmentInfos as $enrolmentInfo) {
                                                 ?>
-                                            <tr>
-                                                <td><?php echo $count ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $enrolmentInfo['bg_image'] ?>" width="30px"></td>
-                                                <td><?php echo $enrolmentInfo['title']?></td>
-                                                <td class="text-center"><?php echo $enrolmentInfo['description'] ?></td>
-                                                <td><?php echo $enrolmentInfo['enrol_title'] ?></td>
-                                                <td><?php echo $enrolmentInfo['enrol_desc'] ?></td>
-                                        <div class="text-center">
-                                            <a href="update_enrolment?auth=<?php echo $enrolmentInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                            <a href="../controller/delete_enrolment?auth=<?php echo $enrolmentInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
-                                        </div>
-                                        </td>
-                                        </tr>
-                                        <?php } ?>
+                                                <tr>
+                                                    <td><?php echo $count ?></td>
+                                                    <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $enrolmentInfo['bg_image'] ?>" width="30px"></td>
+                                                    <td><?php echo $enrolmentInfo['title'] ?></td>
+                                                    <td class="text-center"><?php echo $enrolmentInfo['description'] ?></td>
+                                                    <td><?php echo $enrolmentInfo['enrol_title'] ?></td>
+                                                    <td><?php echo $enrolmentInfo['enrol_desc'] ?></td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <a href="update_enrolment?auth=<?php echo $enrolmentInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="../controller/delete_enrolment?auth=<?php echo $enrolmentInfo['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -171,7 +173,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "del") { ?>
+<?php } if (isset($info) && $info == "del") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
@@ -186,7 +188,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "complete") { ?>
+<?php } if (isset($info) && $info == "complete") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
