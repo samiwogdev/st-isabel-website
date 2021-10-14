@@ -1,7 +1,7 @@
 <?php
 include_once '../configuration.php';
 if (!isset($_GET['auth'])) {
-    header("location: slider?info=failed");
+    header("location: school_song?info=failed");
     exit;
 } else {
     $auth = $_GET['auth'];
@@ -16,7 +16,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Update Slider</h3>
+                <h3>School Song</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -24,7 +24,7 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><small>Update Slider Information</small></h2>
+                        <h2><small>Update School Song Information</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         </ul>
@@ -33,38 +33,30 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $slider = Slider::getInstance();
-                        $auths = Slider::sanitize_input($auth);
-                        $slider->setId($auths);
-                        $sliderInfo = $slider->getById();
+                        $school_song = School_song::getInstance();
+                        $auths = School_song::sanitize_input($auth);
+                        $school_song->setId($auths);
+                        $school_songInfo = $school_song->getById();
                         ?>
-                        <form class="form-horizontal form-label-left" action="../controller/update_slider?auth=<?php echo $auths ?>" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" action="../controller/update_school_song?auth=<?php echo $auths ?>" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="title" value="<?php echo $sliderInfo['title'] ?>" required="required" class="form-control ">
+                                    <input type="text" name="title" value="<?php echo $school_songInfo['title'] ?>" required="required" class="form-control ">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" value="<?php echo $sliderInfo['description'] ?>"   required="required" class="form-control">
-                                </div>
-                            </div>
-                            <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Slider Image</label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <div class="form-group">
-                                        <input type="file" name="slider_image" value="<?php echo $sliderInfo['slider_image'] ?>"   class="form-control-file">
-                                    </div>
+                                    <input type="text" name="description" value="<?php echo $school_songInfo['description'] ?>"   required="required" class="form-control">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" name="update_slider" class="btn btn-success">Update</button>
+                                    <button type="submit" name="update_school_song" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </form>

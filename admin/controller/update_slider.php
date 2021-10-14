@@ -21,7 +21,7 @@ if (isset($_POST['update_slider'])) {
         $title = Slider::sanitize_input($_POST['title']);
         $description = Slider::sanitize_input($_POST['description']);
 
-        //process formm Image
+        //process form Image
         try {
             // Check if image was uploaded without errors
             if (isset($_FILES["slider_image"]) && $_FILES["slider_image"]["error"] == 0) {
@@ -49,7 +49,7 @@ if (isset($_POST['update_slider'])) {
         //get an Instance of slider class
         $slider = Slider::getInstance();
 
-        //initialize class propperties
+        //initialize class properties
 
         $slider->setId($auth);
         $slider->setTitle($title);

@@ -1,12 +1,11 @@
 <?php
 include_once '../configuration.php';
 if (!isset($_GET['auth'])) {
-    header("location: slider?info=failed");
+    header("location: enrolment?info=failed");
     exit;
 } else {
     $auth = $_GET['auth'];
 }
-
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -16,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Update Slider</h3>
+                <h3>Update Enrolment</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -24,47 +23,65 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><small>Update Slider Information</small></h2>
+                        <h2><small>Add new Enrolment Information</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+<!--                            <li><a class="close-link"><i class="fa fa-close"></i></a>-->
+                            </li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <br />
                         <?php
-                        $slider = Slider::getInstance();
-                        $auths = Slider::sanitize_input($auth);
-                        $slider->setId($auths);
-                        $sliderInfo = $slider->getById();
+                        $enrolment = Enrolment::getInstance();
+                        $auths = Enrolment::sanitize_input($auth);
+                        $enrolment->setId($auths);
+                        $enrolmentInfo = $enrolment->getById();
                         ?>
-                        <form class="form-horizontal form-label-left" action="../controller/update_slider?auth=<?php echo $auths ?>" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" action="../controller/update_enrolment?auth=<?php echo $auths ?>" method="post"enctype="multipart/form-data">
+                            <div class="item form-group">
+                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Background Image</label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <div class="form-group">
+                                        <input type="file" name="bg_image" value="<?php echo $enrolmentInfo['bg_image'] ?>"  class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="title" value="<?php echo $sliderInfo['title'] ?>" required="required" class="form-control ">
+                                    <input type="text" name="title" required="required" value="<?php echo $enrolmentInfo['title'] ?>" class="form-control ">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" value="<?php echo $sliderInfo['description'] ?>"   required="required" class="form-control">
+                                    <input type="text" name="description" required="required" value="<?php echo $enrolmentInfo['description'] ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Slider Image</label>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="enrol_title">Enrolment Title <span class="required">*</span>
+                                </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <div class="form-group">
-                                        <input type="file" name="slider_image" value="<?php echo $sliderInfo['slider_image'] ?>"   class="form-control-file">
-                                    </div>
+                                    <input type="text" name="enrol_title" required="required" value="<?php echo $enrolmentInfo['enrol_title'] ?>" class="form-control ">
                                 </div>
                             </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="enrol_desc">Enrolment Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" name="enrol_desc" required="required" value="<?php echo $enrolmentInfo['enrol_desc'] ?>" class="form-control">
+                                </div>
+                            </div>
+
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" name="update_slider" class="btn btn-success">Update</button>
+                                    <button type="submit" name="update_enrolment" class="btn btn-success">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -107,7 +124,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-<?php } if (isset($info) && $info == "del") { ?>
+    <?php } if (isset($info) && $info == "del") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
@@ -119,6 +136,21 @@ include_once '../includes/admin_navbar.php';
             Toast.fire({
                 icon: 'success',
                 title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
             })
         });
     </script> 
