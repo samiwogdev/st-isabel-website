@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -27,7 +34,7 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
+                        <form class="form-horizontal form-label-left" action="../controller/add_contact_us.php" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
@@ -46,7 +53,7 @@ include_once '../includes/admin_navbar.php';
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_contact_us" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -76,42 +83,25 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                            <?php
+                                                $contact_us = contact_us::getInstance();
+                                                $count = 1;
+                                                $contact_usInfos = $contact_us->getAll();
+                                                foreach ($contact_usInfos as $contact_usInfo){ 
+                                            ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Location</td>
-                                                <td>Demo international College, Ibadan,Oyo State.</td>
+                                                <td><?php echo $count?></td>
+                                                <td><?php echo $contact_usInfo['title']?></td>
+                                                <td><?php echo $contact_usInfo['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    <a href="update_contact_us?auth=<?php echo $contact_usInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_contact_us?auth=<?php echo $contact_usInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Email Address</td>
-                                                <td>demo_01@yahoo.co.uk</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Get in Touch</td>
-                                                <td>+ (234) 803 324 0047</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -125,4 +115,66 @@ include_once '../includes/admin_navbar.php';
 </div>
 <!-- /page content -->
 
+
 <?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>

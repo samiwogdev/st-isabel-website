@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -27,7 +34,7 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
+                        <form class="form-horizontal form-label-left" action="../controller/add_director_banner.php" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
@@ -40,17 +47,16 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        <input type="file" class="form-control-file" name="director_image" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_director_banner" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
-
                         </form>
                     </div>
                 </div>
@@ -77,20 +83,25 @@ include_once '../includes/admin_navbar.php';
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                        <?php
+                                                $director_banner = Director_banner::getInstance();
+                                                $count = 1;
+                                                $director_bannerInfos = $director_banner->getAll();
+                                                foreach ($director_bannerInfos as $director_bannerInfo){ 
+                                        ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>WELCOME</td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td>
+                                                <td><?php echo $count ?></td>
+                                                <td><?php echo $director_bannerInfo['title'] ?></td>
+                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $director_bannerInfo['director_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    <a href="update_director_banner?auth=<?php echo $director_bannerInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_director_banner?auth=<?php echo $director_bannerInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -105,3 +116,64 @@ include_once '../includes/admin_navbar.php';
 <!-- /page content -->
 
 <?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>

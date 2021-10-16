@@ -78,8 +78,8 @@
                                                 <li class="sub_menu"><a href="../academics_page/college_page_info">Page Info</a></li>
                                                 <li class="sub_menu"><a href="../academics_page/junior_infoExt">Junior Info Ext</a></li>
                                                 <li class="sub_menu"><a href="../academics_page/senior_infoExt">Senior Info Ext</a></li>
-                                                <li class="sub_menu"><a href="../academics_page/junior_college_subject">JSS Subjects</a></li>
-                                                <li class="sub_menu"><a href="../academics_page/senior_college_subject">SSS Subjects</a></li>
+                                                <li class="sub_menu"><a href="../academics_page/junior_subject">JSS Subjects</a></li>
+                                                <li class="sub_menu"><a href="../academics_page/senior_subject">SSS Subjects</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -91,7 +91,7 @@
                                                 <li class="sub_menu"><a href="../facilities_page/laboratories_banner">Banner</a></li>
                                                 <li><a href="../facilities_page/laboratories_slider">Slider</a></li>
                                                 <li><a href="../facilities_page/laboratories_info_page">Page Info </a></li>
-                                                <li><a href="../facilities_page/laboratories_list_page">List of Laboratories </a></li>
+                                                <li><a href="../facilities_page/laboratories_list">List of Laboratories </a></li>
                                             </ul>
                                         </li>
                                         <li><a>Library<span class="fa fa-chevron-down"></span></a>
@@ -99,7 +99,7 @@
                                                 <li class="sub_menu"><a href="../facilities_page/library_banner">Banner</a> </li>
                                                 <li><a href="../facilities_page/library_slider">Slider</a> </li>
                                                 <li><a href="../facilities_page/library_info_page">Page Info</a> </li>
-                                                <li><a href="../facilities_page/library_features">Features</a> </li>
+                                                <li><a href="../facilities_page/library_feature">Feature</a> </li>
                                             </ul>
                                         </li>
                                         <li><a>Hostel<span class="fa fa-chevron-down"></span></a>
@@ -107,7 +107,7 @@
                                                 <li class="sub_menu"><a href="../facilities_page/hostel_banner">Banner</a></li>
                                                 <li class="sub_menu"><a href="../facilities_page/hostel_slider">Slider</a></li>
                                                 <li class="sub_menu"><a href="../facilities_page/hostel_info_page">Page Info</a></li>
-                                                <li class="sub_menu"><a href="../facilities_page/hostel_features">Features</a></li>
+                                                <li class="sub_menu"><a href="../facilities_page/hostel_feature">Feature</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -118,7 +118,7 @@
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="../admission_page/admission_banner">Banner</a></li>
                                                 <li><a href="../admission_page/admission_info_page">Page Info </a></li>
-                                                <li><a href="../admission_page/enrolment">Enrolment </a></li>
+                                                <li><a href="../admission_page/admission_enrolment">Enrolment </a></li>
                                             </ul>
                                         </li>
                                     </ul>

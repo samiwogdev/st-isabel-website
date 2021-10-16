@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -8,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Nursery and Primary</h3>
+                <h3>Nursery and Primary Subject</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -16,30 +23,30 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><small>Add new Nursery/Primary Subjects</small></h2>
+                        <h2><small>Add new Subject</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
-<!--                            <li><a class="close-link"><i class="fa fa-close"></i></a>-->
                             </li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
-
+                        
+                        <form class="form-horizontal form-label-left" action="../controller/add_nursery_primarysubject.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Subjects <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Subject <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="title" required="required" class="form-control ">
                                 </div>
                             </div>
+                            
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_nursery_primarysubject" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -50,7 +57,7 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2> <small>Update Nursery/Primary Subjects</small></h2>
+                        <h2> <small>Update Subject</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
                         </ul>
@@ -64,225 +71,28 @@ include_once '../includes/admin_navbar.php';
                                         <thead>
                                             <tr>
                                                 <th>SN</th>
-                                                <th>Subjects</th>
-                                                <th>Actions</th>
+                                                <th>Subject</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                            <?php
+                                                $nursery_primarysubject = Nursery_primarysubject::getInstance();
+                                                $count = 1;
+                                                $nursery_primarysubjectInfos = $nursery_primarysubject->getAll();
+                                                foreach ($nursery_primarysubjectInfos as $nursery_primarysubjectInfo){ 
+                                            ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>English</td>
+                                                <td><?php echo $count?></td>
+                                                <td><?php echo $nursery_primarysubjectInfo['title']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    <a href="update_nursery_primarysubject?auth=<?php echo $nursery_primarysubjectInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_nursery_primarysubject?auth=<?php echo $nursery_primarysubjectInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Mathematics</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>13</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>14</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>15</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>16</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>17</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>19</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>20</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>21</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>22</td>
-                                                <td>English</td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
-                                            <!--  -->
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -297,3 +107,66 @@ include_once '../includes/admin_navbar.php';
 <!-- /page content -->
 
 <?php include_once '../includes/admin_footer.php'; ?>
+
+<?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>
