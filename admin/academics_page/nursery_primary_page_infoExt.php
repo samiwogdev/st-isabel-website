@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -27,8 +34,8 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
-
+                        
+                        <form class="form-horizontal form-label-left" action="../controller/add_nursery_primary_page_infoExt.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
                                 </label>
@@ -43,18 +50,10 @@ include_once '../includes/admin_navbar.php';
                                     <input type="text" name="description" name="last-name" required="required" class="form-control">
                                 </div>
                             </div>
-                            <!-- <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Page Image</label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <div class="form-group">
-                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_nursery_primary_page_infoExt" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -81,27 +80,28 @@ include_once '../includes/admin_navbar.php';
                                                 <th>SN</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
-                                                <!-- <th>Picture</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                            <?php
+                                                $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
+                                                $count = 1;
+                                                $nursery_primary_page_infoExtInfos = $nursery_primary_page_infoExt->getAll();
+                                                foreach ($nursery_primary_page_infoExtInfos as $nursery_primary_page_infoExtInfo){ 
+                                            ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Curriculum</td>
-                                                <td>The school curriculum is very broad and quite stimulating. The adoption of a broad-based curriculum is predicted on the focus that pupils attending Grace Children School are being prepared for competitive qualifying examinations into secondary schools home and abroad. Subjects taught in the school include the following:</td>
-                                                <!-- <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td> -->
+                                                <td><?php echo $count?></td>
+                                                <td><?php echo $nursery_primary_page_infoExtInfo['title']?></td>
+                                                <td><?php echo $nursery_primary_page_infoExtInfo['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    <a href="update_nursery_primary_page_infoExt?auth=<?php echo $nursery_primary_page_infoExtInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_nursery_primary_page_infoExt?auth=<?php echo $nursery_primary_page_infoExtInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            
-                                            <!--  -->
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -116,3 +116,66 @@ include_once '../includes/admin_navbar.php';
 <!-- /page content -->
 
 <?php include_once '../includes/admin_footer.php'; ?>
+
+<?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>

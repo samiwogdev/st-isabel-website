@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -20,15 +27,14 @@ include_once '../includes/admin_navbar.php';
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
-<!--                            <li><a class="close-link"><i class="fa fa-close"></i></a>-->
                             </li>
                         </ul>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
-
+                        
+                        <form class="form-horizontal form-label-left" action="../controller/add_laboratories_info_page.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
                                 </label>
@@ -40,21 +46,13 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" name="last-name" required="required" class="form-control">
+                                    <input type="text" name="description" required="required" class="form-control">
                                 </div>
                             </div>
-                            <!-- <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Page Image</label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <div class="form-group">
-                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_laboratories_info_page" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -81,26 +79,28 @@ include_once '../includes/admin_navbar.php';
                                                 <th>SN</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
-                                                <!-- <th>Picture</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                            <?php
+                                                $laboratories_info_page = Laboratories_info_page::getInstance();
+                                                $count = 1;
+                                                $laboratories_info_pageInfos = $laboratories_info_page->getAll();
+                                                foreach ($laboratories_info_pageInfos as $laboratories_info_pageInfo){ 
+                                            ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Science Laboratories</td>
-                                                <td>Students of Demo College are exposed to a series of well-articulated practical sessions in the course of their study.</td>
-                                                <!-- <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td> -->
+                                                <td><?php echo $count?></td>
+                                                <td><?php echo $laboratories_info_pageInfo['title']?></td>
+                                                <td><?php echo $laboratories_info_pageInfo['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    <a href="update_laboratories_info_page?auth=<?php echo $laboratories_info_pageInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_laboratories_info_page?auth=<?php echo $laboratories_info_pageInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <!--  -->
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -114,4 +114,66 @@ include_once '../includes/admin_navbar.php';
 </div>
 <!-- /page content -->
 
+
 <?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>

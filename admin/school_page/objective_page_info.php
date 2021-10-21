@@ -1,4 +1,11 @@
 <?php
+include_once '../configuration.php';
+if (!isset($_GET['info'])) {
+    $info = "";
+} else {
+    $info = ($_GET['info']);
+}
+
 include_once '../includes/admin_header.php';
 include_once '../includes/admin_sidebar.php';
 include_once '../includes/admin_navbar.php';
@@ -8,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>College</h3>
+                <h3>Aims and Objectives</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -27,7 +34,7 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left" action="" method="post">
+                        <form class="form-horizontal form-label-left" action="../controller/add_objective_page_info.php" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
@@ -43,18 +50,10 @@ include_once '../includes/admin_navbar.php';
                                     <input type="text" name="description" name="last-name" required="required" class="form-control">
                                 </div>
                             </div>
-                            <!-- <div class="item form-group">
-                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Page Image</label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <div class="form-group">
-                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_objective_page_info" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -81,26 +80,28 @@ include_once '../includes/admin_navbar.php';
                                                 <th>SN</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
-                                                <!-- <th>Picture</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                            <?php
+                                                $objective_page_info = Objective_page_info::getInstance();
+                                                $count = 1;
+                                                $objective_page_infoInfos = $objective_page_info->getAll();
+                                                foreach ($objective_page_infoInfos as $objective_page_infoInfo){ 
+                                        ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Aims & Objectives</td>
-                                                <td>Demo College aims at developing the total child in a world of inconsistencies and frustration. A child’s life is modeled by the education he receives especially at the early state of life.</td>
-                                                <!-- <td class="text-center"><img src="../admin-assets/images/media.jpg" width="30px"></td> -->
+                                                <td><?php echo $count?></td>
+                                                <td><?php echo $objective_page_infoInfo['title']?></td>
+                                                <td><?php echo $objective_page_infoInfo['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span>
-                                                        <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span>
+                                                    <a href="update_objective_page_info?auth=<?php echo $objective_page_infoInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_objective_page_info?auth=<?php echo $objective_page_infoInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <!--  -->
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -115,3 +116,64 @@ include_once '../includes/admin_navbar.php';
 <!-- /page content -->
 
 <?php include_once '../includes/admin_footer.php'; ?>
+<?php if (isset($info) && $info == "success") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Info Uploaded successfully"
+            })
+        });
+    </script> 
+<?php } if (isset($info) && $info == "failed") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'error',
+                title: "Something went wrong, try again"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "del") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Record deleted Successfully"
+            })
+        });
+    </script> 
+    <?php } if (isset($info) && $info == "complete") { ?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        $(document).ready(function () {
+            Toast.fire({
+                icon: 'success',
+                title: "Records updated Successfully"
+            })
+        });
+    </script> 
+<?php } ?>
