@@ -16,6 +16,14 @@ CREATE TABLE IF NOT EXISTS `slider` (
 -- `user_type` int(1) comment '1 => user, 2 => admin 3 => superAdmin'
 );
 
+CREATE TABLE IF NOT EXISTS `slider_ext` (
+ `id` int(11) primary key auto_increment NOT NULL,
+`title` varchar(250) NOT NULL,
+`description` varchar(250) NOT NULL
+);
+ALTER TABLE slider_ext ADD COLUMN bg_color VARCHAR(50) AFTER description
+ALTER TABLE slider_ext ADD COLUMN header_color VARCHAR(50) AFTER bg_color
+
 /*Enrolment*/
 CREATE TABLE IF NOT EXISTS `enrolment` (
  `id` int(11) primary key auto_increment NOT NULL,
@@ -63,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `page_info` (
 `description` varchar(250) NOT NULL
 `page_image` varchar(250) NOT NULL
 );
+ALTER TABLE page_info MODIFY COLUMN description Text
 
  /* DIRECTOR_BANNER*/
 CREATE TABLE IF NOT EXISTS `director_banner` (

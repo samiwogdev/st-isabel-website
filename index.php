@@ -1,4 +1,8 @@
-<?php include 'includes/header.php' ?>		
+<?php
+include_once 'admin/configuration.php';
+include_once 'includes/header.php';
+?>	
+
 <!--  -->		
 <section>
     <div class="container-fluid pl-0 pr-0"  >
@@ -66,67 +70,41 @@
         </div>
 
 </section>
-
+<?php
+$slider_ext = Slider_ext::getInstance();
+$result = $slider_ext->getAll();
+?>
 <section class="ftco-services ftco-no-pb">
     <div class="container-wrap">
         <div class="row no-gutters">
-            <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-light border-3">
-                <div class="media block-6 d-block text-center shadow" data-aos="zoom-out" >
-                    <div class="icon d-flex justify-content-center align-items-center border-3" data-aos="zoom-out" >
-                        <span class="flaticon-reading "></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading text-dark">Special Education</h3>
-                        <p class="txt-dark">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                    </div>
-                </div>    
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4  bg-fifth ">
-                <div class="media block-6 d-block text-center shadow" data-aos="zoom-out">
-                    <div class="icon d-flex justify-content-center align-items-center border-3" data-aos="zoom-out" >
-                        <span class="flaticon-teacher"></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading ">Certified Teachers</h3>
-                        <p class="txt-white">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                    </div>
-                </div>      
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-quarternary ">
-                <div class="media block-6 d-block text-center shadow" data-aos="zoom-out" >
-                    <div class="icon d-flex justify-content-center align-items-center border-3" data-aos="zoom-out" >
-                        <span class="flaticon-diploma "></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading">Certification</h3>
-                        <p class="txt-white">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                    </div>
-                </div>      
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-light border-3">
-                <div class="media block-6 d-block text-center shadow" data-aos="zoom-out" >
-                    <div class="icon d-flex justify-content-center align-items-center border-3" data-aos="zoom-out" >
-                        <span class="flaticon-books"></span>
-                    </div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading text-dark">Book &amp; Library</h3>
-                        <p class="txt-dark">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                    </div>
-                </div>      
-            </div>
-
+<?php foreach ($result as $row) { ?>
+                <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate <?php echo $row['bg_color'] ?> border-3">
+                    <div class="media block-6 d-block text-center shadow" data-aos="zoom-out" >
+                        <div class="icon d-flex justify-content-center align-items-center border-3" data-aos="zoom-out" >
+                            <span class="flaticon-reading "></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading <?php echo $row['header_color'] ?>"><?php echo $row['title'] ?></h3>
+                            <p class="<?php echo $row['text_color']; ?>"><?php echo $row['description'] ?></p>
+                        </div>
+                    </div>    
+                </div>
+<?php } ?>
         </div>
     </div>
 </section>
 
 <!--/  About page -->
 <section class="courses single section" style="background-color: #f5f5ff">
-
+    <?php
+    $page_info = Page_info::getInstance();
+    $row = $page_info->getAll();
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-12" data-aos="zoom-out">
                 <div class="section-title">
-                    <h2>About Demo College</h2>                                       
+                    <h2><?php echo $row['title'] ?></h2>                                       
                 </div>
             </div>
         </div>
@@ -134,12 +112,11 @@
             <div class="col-12">
                 <div class="single-main shadow-lg">
                     <div class="row">
-
                         <div class="col-lg-6 col-12 ">
                             <!-- Single Course -->
                             <div class="single-course">
                                 <div class="course-head" data-aos="fade-right">		
-                                    <img src="images/home.png"  alt="#" style="height: 250px">
+                                    <img src="admin/uploads/raw/<?php echo $row['page_image'] ?>"  alt="#" style="height: 250px">
                                 </div>			
                             </div>
                             <!--/ End Single Course -->
@@ -151,18 +128,10 @@
                                 <div class="container ">
                                     <div class="row">
                                         <div class="col-12" style="text-align: justify" data-aos="fade-left">
-                                            <p class="">Demo College, Ibadan is an integral part of the community both educationally and socially.
-                                                The school looks bright and welcoming. We have a better learning environment 
-                                                for students. The school offers wide range of favourable learning environments for students. </p>
-                                            <p class="" >
-                                                We have a well equipped science laboratory, library, hostel accommodation, transport facilities,
-                                                a well equipped ICT centre, wide playing ground for sports and recreational activities, drinkable
-                                                water supply, constant power supply, school farm and others.</p>
-                                            <p class=""  >Our curriculum, in line with the stipulation of Federal agencies, has been painstakingly customized to meet the present needs as well as the present trends in technology advancement .</p>
-                                            <a href="#" class="btn btn-danger mt-4 " >Learn More</a>
+                                            <p class=""><?php echo $row['description'] ?></p>
+                                            <a href="about" class="btn btn-danger mt-4 " >Learn More</a>
                                         </div>
                                     </div>
-
                                 </div>
                             </section>
                             <!-- End About Heading -->

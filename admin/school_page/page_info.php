@@ -47,7 +47,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description"  required="required" class="form-control">
+                                    <textarea name="description" required="required" class="form-control" name="message" data-parsley-trigger="keyup" rows="10" cols="10"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -58,7 +58,6 @@ include_once '../includes/admin_navbar.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
                                     <button type="submit" name="add_page_info" class="btn btn-success">Submit</button>
@@ -96,22 +95,20 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $page_info = Page_info::getInstance();
                                                 $count = 1;
-                                                $page_infoInfos = $page_info->getAll();
-                                                foreach ($page_infoInfos as $page_infoInfo){ 
+                                                $row = $page_info->getAll(); 
                                         ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $page_infoInfo['title']?></td>
-                                                <td><?php echo $page_infoInfo['description']?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $page_infoInfo['page_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['page_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_page_info?auth=<?php echo $page_infoInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_page_info?auth=<?php echo $page_infoInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_page_info?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
