@@ -49,8 +49,8 @@ include_once '../includes/admin_navbar.php';
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" value="<?php echo $page_infoInfo['description'] ?>"   required="required" class="form-control">
+                                  <div class="col-md-6 col-sm-6 ">
+                                    <textarea name="description" value="<?php echo $page_infoInfo['description'] ?>" required="required" class="form-control" name="message" data-parsley-trigger="keyup" rows="10" cols="10"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
