@@ -37,7 +37,7 @@ include_once '../includes/admin_navbar.php';
                         <form class="form-horizontal form-label-left" action="../controller/add_school_qualities.php" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">School quality <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="qualities">School quality <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="qualities" required="required" class="form-control " placeholder="please Enter School Quality">

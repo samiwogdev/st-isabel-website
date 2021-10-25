@@ -46,7 +46,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" name="last-name" required="required" class="form-control">
+                                    <textarea name="description" required="required" class="form-control" name="message" data-parsley-trigger="keyup" rows="10" cols="10"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -94,22 +94,22 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $director_page_info = Director_page_info::getInstance();
                                                 $count = 1;
-                                                $director_page_infoInfos = $director_page_info->getAll();
-                                                foreach ($director_page_infoInfos as $director_page_infoInfo){ 
+                                                $row = $director_page_info->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $director_page_infoInfo['title']?></td>
-                                                <td><?php echo $director_page_infoInfo['description']?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $director_page_infoInfo['page_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['page_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_director_page_info?auth=<?php echo $director_page_infoInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_director_page_info?auth=<?php echo $director_page_infoInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_director_page_info?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_director_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

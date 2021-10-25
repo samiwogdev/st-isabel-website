@@ -46,7 +46,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" required="required" class="form-control">
+                                    <textarea cols="30" rows="10" type="text" name="description" required="required" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -86,21 +86,20 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                                 $library_info_page = Library_info_page::getInstance();
                                                 $count = 1;
-                                                $library_info_pageInfos = $library_info_page->getAll();
-                                                foreach ($library_info_pageInfos as $library_info_pageInfo){ 
+                                                $row = $library_info_page->getAll();
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $library_info_pageInfo['title']?></td>
-                                                <td><?php echo $library_info_pageInfo['description']?></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_library_info_page?auth=<?php echo $library_info_pageInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_library_info_page?auth=<?php echo $library_info_pageInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_library_info_page?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_library_info_page?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

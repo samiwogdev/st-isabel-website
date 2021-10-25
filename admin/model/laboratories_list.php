@@ -9,6 +9,7 @@ class Laboratories_list extends Connection {
     private $id;
     private $title;
     private $description;
+    private $numbers;
     private $table_name ="laboratories_list";
     private static $instance;
 
@@ -34,6 +35,9 @@ class Laboratories_list extends Connection {
     public function getDescription() {
         return $this->description;
     }
+    public function getNumbers() {
+        return $this->numbers;
+    }
 
     
 
@@ -46,6 +50,9 @@ class Laboratories_list extends Connection {
     public function setDescription($description): void {
         $this->description = $description;
     }
+    public function setNumbers($numbers): void {
+        $this->numbers = $numbers;
+    }
     
 
     public static function sanitize_input($data) {
@@ -57,19 +64,21 @@ class Laboratories_list extends Connection {
     }
 
     public function add() {
-        $sql = "INSERT INTO " . $this->table_name . " (title, description) VALUES(:title, :description)";
+        $sql = "INSERT INTO " . $this->table_name . " (title, description, numbers) VALUES(:title, :description, :numbers)";
         $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
+        $statement->bindParam(":numbers", $this->numbers);
         return $statement->execute();
     }
 
     public function update() {
-        $sql = "UPDATE " . $this->table_name . " SET title = :title, description = :description  WHERE id = :id";
+        $sql = "UPDATE " . $this->table_name . " SET title = :title, description = :description, numbers = :numbers  WHERE id = :id";
         $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":id", $this->id);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
+        $statement->bindParam(":numbers", $this->numbers);
         $statement->execute();
         return TRUE;
     }

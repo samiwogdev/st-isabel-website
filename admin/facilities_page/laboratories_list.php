@@ -43,10 +43,17 @@ include_once '../includes/admin_navbar.php';
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">List of Laboratories <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Name of Laboratories <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="description" required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Number of Laboratories <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" name="numbers" required="required" class="form-control">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -78,7 +85,8 @@ include_once '../includes/admin_navbar.php';
                                             <tr>
                                                 <th>SN</th>
                                                 <th>Title</th>
-                                                <th>Description</th>
+                                                <th>Name of Lab</th>
+                                                <th>Numbers</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -93,6 +101,7 @@ include_once '../includes/admin_navbar.php';
                                                 <td><?php echo $count?></td>
                                                 <td><?php echo $laboratories_listInfo['title']?></td>
                                                 <td><?php echo $laboratories_listInfo['description']?></td>
+                                                <td><?php echo $laboratories_listInfo['numbers']?></td>
                                                 <td>
                                                     <div class="text-center">
                                                     <a href="update_laboratories_list?auth=<?php echo $laboratories_listInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>

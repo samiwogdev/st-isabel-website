@@ -1,4 +1,5 @@
 <?php
+include_once 'admin/configuration.php';
 include 'includes/header.php'
 ?>
 
@@ -19,14 +20,19 @@ include 'includes/header.php'
 <!--/ End Breadcrumbs -->
 
 <section class="about-us section mt-4" style="padding: 0px; mb-0">
+            <?php 
+            $nursery_primary_page_info = Nursery_primary_page_info::getInstance();
+            $row = $nursery_primary_page_info -> getAll();
+            ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-12" style="text-align: justify">
                 <div class="about-text">
-                    <h2>Nursery / Primary</h2>
-                    <p class="font-weight-bold">The key part of the children curriculum focuses on Cognitive, Psychomotor and Affective domains of education.</p>
+                    <h2><?php echo $row['title']?></h2>
+                    <p class="font-weight-500"><?php echo $row['description']?></p>
+                    <!-- <p class="font-weight-bold">The key part of the children curriculum focuses on Cognitive, Psychomotor and Affective domains of education.</p>
                     <p>School is regarded as one of the best elementary schools in Nigeria.
-                        We operate a wider curriculum tailored adequately to prepare our pupils for the Nigerian Common Entrance Examinations.</p>
+                        We operate a wider curriculum tailored adequately to prepare our pupils for the Nigerian Common Entrance Examinations.</p> -->
                 </div>
 
             </div>
@@ -124,32 +130,34 @@ include 'includes/header.php'
         </div>
     </section>
     <div class="container">
+        <?php
+            $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
+            $row = $nursery_primary_page_infoExt->getAll();
+        ?>
         <div class="row">
             <div class="col-lg-12 col-12" style="text-align: justify">
                 <div class="about-text">
-                    <h2 class="mt-4">Curriculum</h2>
-                    <p>The school curriculum is very broad and quite stimulating. The adoption of a broad-based curriculum is predicted on the focus that pupils attending Grace Children School are being prepared for competitive qualifying examinations into secondary schools home and abroad. Subjects taught in the school include the following:</p>
+                <h2 class="mt-4"><?php echo $row['title']?></h2>
+                    <!-- <h2 class="mt-4">Curriculum</h2> -->
+                    <p><?php echo $row['description']?></p>
+                    <!-- <p>The school curriculum is very broad and quite stimulating. The adoption of a broad-based curriculum is predicted on the focus that pupils attending Grace Children School are being prepared for competitive qualifying examinations into secondary schools home and abroad. Subjects taught in the school include the following:</p> -->
                      
                 </div>
 
             </div>
         </div>
-        
+        <!-- NURSERY/ PRIMARY SUBJECTS -->
         <div class="row ml-3">
+            <?php
+                $nursery_primarysubject = Nursery_primarysubject::getInstance();
+                $result = $nursery_primarysubject -> getAll();
+            ?>
+             
             <div class="col-lg-4 col-12" style="text-align: justify">
                 <div class="about-text">
+               <?php foreach ($result as $row) { ?>
                       <ul>
-                        <li "><span class="fa fa-pencil mr-2"></span>English</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Mathematics</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Phonetics</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Quantitative Aptitude</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Moral Education</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Home Economics</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>French</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Social Studies</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Computer Education</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Writing</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Reading</li>
+                        <li ><span class="fa fa-pencil mr-2"></span><?php echo $row['title'] ?></li>
                       </ul>
                 </div>
 
@@ -157,18 +165,10 @@ include 'includes/header.php'
             <div class="col-lg-4 col-12" style="text-align: justify">
                 <div class="about-text">
                     <ul>
-                        <li "><span class="fa fa-pencil mr-2"></span>Etiquette</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Yoruba</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Art and Craft</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Physical/Health Education</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Internet</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Music</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Elementary Science</li>
-                        <li "><span class="fa fa-pencil mr-2"></span> Current Affairs</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Verbal Aptitude</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Religious Knowledge</li>
-                        <li "><span class="fa fa-pencil mr-2"></span>Literature</li>
+                        <!-- <li "><span class="fa fa-pencil mr-2"></span>Etiquette</li> -->
+             
                       </ul>
+                      <?php } ?>  
                 </div>
             </div>
             <div class="col-lg-4 col-12" style="text-align: justify"></div>

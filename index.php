@@ -143,6 +143,10 @@ $result = $slider_ext->getAll();
                         <div class="col-12 mt-2">
                             <!-- ======= Features Section ======= -->
                             <section id="features" class="features mt-5">
+                                <?php
+                                    $school_qualities = School_qualities::getInstance();
+                                    $result =$school_qualities -> getAll();
+                                ?>
                                 <div class="container">
 
                                     <div class="section-title">
@@ -152,30 +156,15 @@ $result = $slider_ext->getAll();
                                     </div>
 
                                     <div class="row">
+                                <?php foreach ($result as $row) { ?>
                                         <div class="col-lg-3 col-md-4 ">
                                             <div class="icon-box shadow border" data-aos="zoom-out">
-                                                <i class="ri-building-line" style="color: #dc3545;"></i>
-                                                <h3><a href="">Facilities</a></h3>
+                                                <i class="<?php echo $row['icons']; ?>" style="color: #dc3545;"></i>
+                                                <h3><a href=""><?php echo $row ['qualities']?></a></h3>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                                            <div class="icon-box shadow" data-aos="zoom-out">
-                                                <i class="ri-user-add-line" style="color: #dc3545;"></i>
-                                                <h3><a href="">Morals & Discipline</a></h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                                            <div class="icon-box shadow " data-aos="zoom-out">
-                                                <i class="ri-calendar-todo-line" style="color: #dc3545;"></i>
-                                                <h3><a href="">School Curriculum</a></h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-                                            <div class="icon-box shadow " data-aos="zoom-out">
-                                                <i class="ri-football-line" style="color: #dc3545;"></i>
-                                                <h3><a href="">Sports</a></h3>
-                                            </div>
-                                        </div>     
+        
+                                <?php } ?>  
                                     </div>
                                 </div>
                             </section><!-- End Features Section -->

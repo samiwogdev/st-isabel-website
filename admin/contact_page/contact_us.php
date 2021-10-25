@@ -85,7 +85,7 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $contact_us = contact_us::getInstance();
+                                                $contact_us = Contact_us::getInstance();
                                                 $count = 1;
                                                 $contact_usInfos = $contact_us->getAll();
                                                 foreach ($contact_usInfos as $contact_usInfo){ 

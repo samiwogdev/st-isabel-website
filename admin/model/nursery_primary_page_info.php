@@ -85,7 +85,7 @@ class Nursery_primary_page_info extends Connection {
         $sql = "SELECT * FROM " . $this->table_name;
         $statement = $this->getDbConnection()->prepare($sql);
         $statement->execute();
-        $result = $statement->fetchAll();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
 
