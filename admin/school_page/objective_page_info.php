@@ -47,7 +47,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" name="last-name" required="required" class="form-control">
+                                    <textarea name="description" required="required" class="form-control" name="message" data-parsley-trigger="keyup" rows="10" cols="10"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -87,21 +87,20 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                                 $objective_page_info = Objective_page_info::getInstance();
                                                 $count = 1;
-                                                $objective_page_infoInfos = $objective_page_info->getAll();
-                                                foreach ($objective_page_infoInfos as $objective_page_infoInfo){ 
+                                                $row = $objective_page_info->getAll();
                                         ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $objective_page_infoInfo['title']?></td>
-                                                <td><?php echo $objective_page_infoInfo['description']?></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_objective_page_info?auth=<?php echo $objective_page_infoInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_objective_page_info?auth=<?php echo $objective_page_infoInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_objective_page_info?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_objective_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

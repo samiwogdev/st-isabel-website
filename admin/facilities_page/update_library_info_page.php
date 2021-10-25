@@ -50,7 +50,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" value="<?php echo $library_info_pageInfo['description'] ?>"   required="required" class="form-control">
+                                    <textarea cols="30" rows="10" type="text" name="description" value="<?php echo $library_info_pageInfo['description'] ?>"   required="required" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

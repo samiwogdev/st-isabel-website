@@ -46,7 +46,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" required="required" class="form-control">
+                                    <textarea cols="30" rows="10" type="text" name="description" required="required" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -86,21 +86,21 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                                 $senior_infoExt = Senior_infoExt::getInstance();
                                                 $count = 1;
-                                                $senior_infoExtInfos = $senior_infoExt->getAll();
-                                                foreach ($senior_infoExtInfos as $senior_infoExtInfo){ 
+                                                $row= $senior_infoExt->getAll();
+                                                
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $senior_infoExtInfo['title']?></td>
-                                                <td><?php echo $senior_infoExtInfo['description']?></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_senior_infoExt?auth=<?php echo $senior_infoExtInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_senior_infoExt?auth=<?php echo $senior_infoExtInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_senior_infoExt?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_senior_infoExt?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

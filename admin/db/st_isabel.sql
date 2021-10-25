@@ -80,7 +80,7 @@ CREATE TABLE `college_banner` (
 CREATE TABLE `college_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+    `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -128,8 +128,9 @@ CREATE TABLE `creche_banner` (
 CREATE TABLE `creche_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,7 @@ CREATE TABLE `creche_page_info` (
 CREATE TABLE `creche_page_info_ext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -164,12 +165,18 @@ CREATE TABLE `director_banner` (
 CREATE TABLE `director_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL,
+  `description` text DEFAULT NULL,
   `page_image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+--
+-- Dumping data for table `director_page_info`
+--
 
+INSERT INTO `director_page_info` (`id`, `title`, `description`, `page_image`) VALUES
+(1, 'Directors Message', 'Demo College is an integral part of the community both educationally and socially. The school looks bright and welcoming. We have a better learning environment for students. The school offers wide range of favourable learning environments for students. We have a well equipped science laboratory, library, hostel accommodation, transport facilities, a well equipped ICT centre, wide playing ground for sports and recreational activities, drinkable water supply, constant power supply, school farm and others.  The school is multicultural and co-educational for both male and female students. Our main concern is not all about the educational needs of the students alone, which is of paramount importance to us. We are also deeply concern about the moral and character formation of the students. One of our vision is to help our students discover their potentials, develop and maximize them.', 'director.jpg');
+-- --------------------------------------------------------
 --
 -- Table structure for table `enrolment`
 --
@@ -223,7 +230,8 @@ CREATE TABLE `hostel_banner` (
 CREATE TABLE `hostel_feature` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `feature` varchar(250) NOT NULL
+  `feature` varchar(250) NOT NULL,
+  `icons` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -235,7 +243,7 @@ CREATE TABLE `hostel_feature` (
 CREATE TABLE `hostel_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+   `description` text DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -294,7 +302,8 @@ CREATE TABLE `laboratories_banner` (
 CREATE TABLE `laboratories_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+    `description` text DEFAULT NULL
+    `icons` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -307,6 +316,7 @@ CREATE TABLE `laboratories_list` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL
+  `numbers` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -342,7 +352,8 @@ CREATE TABLE `library_banner` (
 CREATE TABLE `library_feature` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `feature` varchar(250) NOT NULL
+  `feature` varchar(250) NOT NULL,
+  `icons` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -354,7 +365,7 @@ CREATE TABLE `library_feature` (
 CREATE TABLE `library_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -410,10 +421,10 @@ CREATE TABLE `nursery_primary_banner` (
 -- Table structure for table `nursery_primary_page_info`
 --
 
-CREATE TABLE `nursery_primary_page_info` (
+CCREATE TABLE `nursery_primary_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -425,7 +436,7 @@ CREATE TABLE `nursery_primary_page_info` (
 CREATE TABLE `nursery_primary_page_infoext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+     `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -449,7 +460,7 @@ CREATE TABLE `objective_banner` (
 CREATE TABLE `objective_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `description` text DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -496,6 +507,15 @@ CREATE TABLE `school_qualities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
+--
+-- Dumping data for table `school_qualities`
+--
+
+INSERT INTO `slider_ext` (`id`, `description`, `icons`) VALUES
+(3, 'Facilities', 'ri-building-line'),
+(4, 'Morals & Discipline', 'ri-user-add-line'),
+(5, 'School Curriculum', 'ri-calendar-todo-line'),
+(6, 'Sports', 'ri-footbal-line');
 
 --
 -- Table structure for table `school_song`
@@ -512,7 +532,7 @@ CREATE TABLE `school_song` (
 --
 
 INSERT INTO `school_song` (`id`, `title`, `description`) VALUES
-(1, 'poiu', '[poi');
+(1, 'poiu', 'poi');
 
 -- --------------------------------------------------------
 
@@ -523,7 +543,7 @@ INSERT INTO `school_song` (`id`, `title`, `description`) VALUES
 CREATE TABLE `senior_infoext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -844,6 +864,13 @@ ALTER TABLE `slider`
 --
 ALTER TABLE `slider_ext`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `school_qualities`
+--
+ALTER TABLE `school_qualities`
+ADD 'icons' varchar(255);
+
 
 --
 -- AUTO_INCREMENT for dumped tables

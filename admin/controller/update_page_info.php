@@ -54,7 +54,7 @@ if (isset($_POST['update_page_info'])) {
         $page_info->setId($auth);
         $page_info->setTitle($title);
         $page_info->setDescription($description);
-        $page_info->setpage_image($page_image);
+        $page_info->setPage_image($page_image);
 
         //update form input to database & check if it successful
         if ($page_info->update()) {

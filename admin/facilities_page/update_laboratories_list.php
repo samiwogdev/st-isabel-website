@@ -47,10 +47,17 @@ include_once '../includes/admin_navbar.php';
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">List of Laboratories <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Name of Laboratories <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="description" value="<?php echo $laboratories_listInfo['description'] ?>"   required="required" class="form-control">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Number of Laboratories <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" name="numbers" value="<?php echo $laboratories_listInfo['numbers'] ?>"   required="required" class="form-control">
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

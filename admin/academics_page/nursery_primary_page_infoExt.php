@@ -47,7 +47,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" name="last-name" required="required" class="form-control">
+                                    <textarea col="30" rows="10" type="text" name="description" name="last-name" required="required" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -87,21 +87,21 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                                 $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
                                                 $count = 1;
-                                                $nursery_primary_page_infoExtInfos = $nursery_primary_page_infoExt->getAll();
-                                                foreach ($nursery_primary_page_infoExtInfos as $nursery_primary_page_infoExtInfo){ 
+                                                $row = $nursery_primary_page_infoExt->getAll();
+                                               
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $nursery_primary_page_infoExtInfo['title']?></td>
-                                                <td><?php echo $nursery_primary_page_infoExtInfo['description']?></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_nursery_primary_page_infoExt?auth=<?php echo $nursery_primary_page_infoExtInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_nursery_primary_page_infoExt?auth=<?php echo $nursery_primary_page_infoExtInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_nursery_primary_page_infoExt?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_nursery_primary_page_infoExt?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

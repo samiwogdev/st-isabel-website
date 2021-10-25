@@ -1,4 +1,5 @@
 <?php
+include_once 'admin/configuration.php';
 include 'includes/header.php'
 ?>
 <!-- Start Breadcrumbs -->
@@ -55,66 +56,27 @@ include 'includes/header.php'
                                     </div>
                                 </div>
                             </section>
-                        </div>	
+                        </div>
+                        <?php 	
+                        $laboratories_list = Laboratories_list::getInstance();
+                        $result = $laboratories_list -> getAll();
+                        ?>
                         <div class="col-lg-4 col-12">
                             <!-- Course Features -->
                             <div class="course-feature">
                                 <div class="feature-main">
                                     <h4>School Laboratories</h4>
                                     <!-- Single Feature -->
+                                    <?php foreach ($result as $row) { ?>
                                     <div class="single-feature">
-                                        <i class="fa fa-files-o"></i>
-                                        <span class="label">Chemistry Laboratories</span>
-                                        <span class="value">2</span>
+                                        <i class="<?php echo $row['icons']?>"></i>
+                                        <!-- <i class="fa fa-files-o"></i> -->
+                                        <span class="label"><?php echo $row['description']?></span>
+                                        <span class="value"><?php echo $row['numbers']?></span>
+                                     
                                     </div>
-                                    <!--/ End Single Feature -->
-                                    <!-- Single Feature -->
-                                    <div class="single-feature">
-                                        <i class="fa fa-puzzle-piece"></i>
-                                        <span class="label">Physics Laboratories</span>
-                                        <span class="value">2</span>
-                                    </div>
-                                    <!--/ End Single Feature -->
-                                    <!-- Single Feature -->
-                                    <div class="single-feature">
-                                        <i class="fa fa-clock-o"></i>
-                                        <span class="label">Biology Laboratories</span>
-                                        <span class="value">2</span>
-                                    </div>
-                                    <!--/ End Single Feature -->
-                                    <!-- Single Feature -->
-                                    <div class="single-feature">
-                                        <i class="fa fa-magic"></i>
-                                        <span class="label">Agricultural Science Laboratories</span>
-                                        <span class="value">2</span>
-                                    </div>
-                                    <!--/ End Single Feature -->
-                                    <!-- Single Feature -->
-                                    <div class="single-feature">
-                                        <i class="fa fa-user"></i>
-                                        <span class="label">Food and Nutrition Laboratory</span>
-                                        <span class="value">1</span>
-                                    </div>
-                                    <!--/ End Single Feature -->
-
-                                    <!-- Single Feature -->
-                                    <div class="single-feature">
-                                        <i class="fa fa-check-square-o"></i>
-                                        <span class="label">Computer Laboratory</span>
-                                        <span class="value">1</span>
-                                    </div>
-                                    <!--/ End Single Feature -->
-                                    <div class="single-feature">
-                                        <i class="fa fa-check-square-o"></i>
-                                        <span class="label">Introductory Technology laboratory</span>
-                                        <span class="value">1</span>
-                                    </div>
-                                    <!--/ End Single Feature -->
-                                    <div class="single-feature">
-<!--                                        <i class="fa fa-check-square-o"></i>
-                                        <span class="label">Computer Laboratory</span>-->
-<!--                                        <span class="value">1</span>-->
-                                    </div>
+                                    <?php } ?>  
+                   
                                     <!--/ End Single Feature -->
                                 </div>
                             </div>
@@ -122,10 +84,16 @@ include 'includes/header.php'
                         </div>	
                     </div>	
                     <div class="row">
+                        <?php 
+                        $laboratories_info_page = Laboratories_info_page::getInstance();
+                        $row = $laboratories_info_page -> getAll();
+                        ?>
                         <div class="col-12">
                             <div class="content">
-                                <h2><a href="#">Science Laboratories</a></h2>
-                                <p>Students of Demo College are exposed to a series of well-articulated practical sessions in the course of their study. Teaching is synchronized with practical classes to facilitate teaching and learning. We develop students with balanced knowledge. Apart from science laboratories, the school has laboratories for language, electronics, introductory technology, computing and typewriting. This is unprecedented and unrivaled within and outside the country.</p>
+                                <h2><a href="#"><?php echo $row['title'] ?></a></h2>
+                                <!-- <h2><a href="#">Science Laboratories</a></h2> -->
+                                <p><?php echo $row['description'] ?></p>
+                                <!-- <p>Students of Demo College are exposed to a series of well-articulated practical sessions in the course of their study. Teaching is synchronized with practical classes to facilitate teaching and learning. We develop students with balanced knowledge. Apart from science laboratories, the school has laboratories for language, electronics, introductory technology, computing and typewriting. This is unprecedented and unrivaled within and outside the country.</p> -->
                             </div>
                         </div>
                     </div>

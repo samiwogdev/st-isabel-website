@@ -1,5 +1,6 @@
 <?php
-include 'includes/header.php' 
+include_once 'admin/configuration.php';
+include 'includes/header.php'
 ?>
 		
 		<!-- Start Breadcrumbs -->
@@ -20,16 +21,20 @@ include 'includes/header.php'
 			
 		<!-- Faqs -->
 		<section class="faq page section">
+            <?php 
+                $objective_page_info = Objective_page_info::getInstance();
+                $row = $objective_page_info -> getAll();
+            ?>
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
 						<div class="section-title">
-							<h2>Aims<span> & </span>Objectives</h2>
-							<p>Demo College aims at developing the total child in a world of inconsistencies and frustration. A child’s life is modeled by the education he receives especially at the early state of life. We deploy all resources at our disposal under God to ensuring that every child that passes through Demo College is uniquely handled. We aim to meet each child as an individual and helping him or her to achieve his or her God given purpose on earth.  </p>
+							<h2> <?php echo $row['title'] ?></h2> 
+							<p><?php echo $row['description'] ?></p>
+                            <!-- <p>Demo College aims at developing the total child in a world of inconsistencies and frustration. A child’s life is modeled by the education he receives especially at the early state of life. We deploy all resources at our disposal under God to ensuring that every child that passes through Demo College is uniquely handled. We aim to meet each child as an individual and helping him or her to achieve his or her God given purpose on earth.  </p> -->
 						</div>
 					</div>
 				</div>
-				
 			</div>
 		</section>
 <!--                <section class="ftco-services ftco-no-pb" >
@@ -75,6 +80,6 @@ include 'includes/header.php'
 </section>-->
 		<!--/ End Faqs -->
 			
-		<?php
-include 'includes/footer.php' 
+<?php
+include 'includes/footer.php'
 ?>

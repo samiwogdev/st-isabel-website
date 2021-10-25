@@ -1,6 +1,7 @@
 		<?php
+		include_once 'admin/configuration.php';
 		include 'includes/header.php' 
-?>
+		?>
 		<!-- Start Breadcrumbs -->
 		<section class="breadcrumbs overlay">
 			<div class="container">
@@ -69,34 +70,23 @@
 					</div>
 				</div>
 				<div class="contact-bottom" >
+				<?php
+                $contact_us = Contact_us::getInstance();
+                $result = $contact_us -> getAll();
+            	?>
 					<div class="row">
+					<?php foreach ($result as $row) { ?>
 						<div class="col-lg-4 col-md-4 col-12">
 							<!-- Contact-Info -->
 							<div class="contact-info">
-								<div class="icon"><i class="fa fa-map"></i></div>
-								<h3>Location</h3>
-								<p>Demo international College, Ibadan,Oyo State.</p>
+								<div class="icon"><i class="<?php echo $row['icons']?>"></i></div>
+								<h3><?php echo $row['title']?></h3>
+								<a href="mailto:information@gmail.com"><?php echo $row['description']?></a>
+								<!-- <p></p> -->
 							</div>
+							
 						</div>
-						<div class="col-lg-4 col-md-4 col-12">
-							<!-- Contact-Info -->
-							<div class="contact-info">
-								<div class="icon"><i class="fa fa-envelope"></i></div>
-								<h3>Email Address</h3>
-								<a href="mailto:information@gmail.com">demo_01@yahoo.co.uk</a>
-								<!-- <a href="mailto:admission@myuniversity.com">admission@yourwebsite.com</a> -->
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-12">
-							<!-- Contact-Info -->
-							<div class="contact-info">
-								<div class="icon"><i class="fa fa-phone"></i></div>
-								<h3>Get in Touch</h3>
-								<p>+ (234) 803 324 0047</p>
-
-								
-							</div>
-						</div>
+						<?php } ?>  	
 					</div>
 				</div>
 			</div>
