@@ -1,11 +1,19 @@
-<?php include 'includes/header.php'?>
+<?php 
+include_once 'admin/configuration.php';
+include 'includes/header.php'
+
+?>
 
 <!-- Start Breadcrumbs -->
-<section class="breadcrumbs overlay">
+<?php
+ $gallery_banner = Gallery_banner::getInstance();
+ $row = $gallery_banner->getAll();
+?>
+<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['gallery_image']?>')" data-aos='zoom-in'>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Gallery</h2>
+                <h2><?php echo $row['title']?></h2>
                 <ul class="bread-list">
                     <li><a href="#">Events & Gallery<i class="fa fa-angle-right"></i></a></li>
                     <li class="active"><a href="#">Gallery</a></li>

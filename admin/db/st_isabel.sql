@@ -71,6 +71,14 @@ CREATE TABLE `college_banner` (
   `college_image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Table structure for table `banner`
+--
+CREATE TABLE `banner` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `banner_image` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 
 --
@@ -185,7 +193,7 @@ CREATE TABLE `enrolment` (
   `id` int(11) NOT NULL,
   `bg_image` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL,
+  `description` text DEFAULT NULL,
   `enrol_title` varchar(250) NOT NULL,
   `enrol_desc` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -477,6 +485,17 @@ CREATE TABLE `page_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Table structure for table `page_info`
+--
+
+CREATE TABLE `who_we_are_page_info` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `description` text DEFAULT NULL,
+  `page_image` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Dumping data for table `page_info`
 --
 
@@ -524,7 +543,7 @@ INSERT INTO `slider_ext` (`id`, `description`, `icons`) VALUES
 CREATE TABLE `school_song` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -672,6 +691,11 @@ ALTER TABLE `creche_page_info_ext`
 --
 ALTER TABLE `director_banner`
   ADD PRIMARY KEY (`id`);
+--
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `director_page_info`
@@ -731,6 +755,12 @@ ALTER TABLE `junior_subject`
 -- Indexes for table `laboratories_banner`
 --
 ALTER TABLE `laboratories_banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `laboratories_banner`
+--
+  ALTER TABLE `who_we_are_page_info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -880,6 +910,11 @@ ADD 'icons' varchar(255);
 -- AUTO_INCREMENT for table `admission_banner`
 --
 ALTER TABLE `admission_banner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

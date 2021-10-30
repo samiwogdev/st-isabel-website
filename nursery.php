@@ -4,11 +4,16 @@ include 'includes/header.php'
 ?>
 
 <!-- Start Breadcrumbs -->
-<section class="breadcrumbs overlay" style="background-image: url('images/admission/4.jpg')" data-aos='zoom-out'>
+<?php
+$nursery_primary_banner = Nursery_primary_banner::getInstance();
+$row = $nursery_primary_banner -> getAll();
+?>		
+<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['nursery_image']?>')" data-aos='zoom-out'>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 data-aos='fade-left'>Nursery / Primary</h2>
+                <h2 data-aos='fade-left'><?php echo $row['title']?></h2>
+                <!-- <h2 data-aos='fade-left'>Nursery / Primary</h2> -->
                 <ul class="bread-list">
                     <li data-aos='fade-right'><a href="#">Academics<i class="fa fa-angle-right"></i></a></li>
                     <li class="active" data-aos='fade-left'><a href="#">Nursery / Primary</a></li>

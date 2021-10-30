@@ -35,7 +35,7 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         
-                        <form class="form-horizontal form-label-left" action="../controller/add_creche_page_info.php" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" action="../controller/add_creche_page_info_ext.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
                                 </label>
@@ -47,13 +47,13 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea type="text" name="description" name="last-name" required="required" class="form-control"></textarea>
+                                    <textarea cols="30" rows="10" type="text" name="description" name="last-name" required="required" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button type="submit" name="add_creche_page_info" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="add_creche_page_info_ext" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 
@@ -85,19 +85,19 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $creche_page_info = Creche_page_info::getInstance();
+                                                $creche_page_info_ext = Creche_page_info_ext::getInstance();
                                                 $count = 1;
-                                                $creche_page_infoInfos = $creche_page_info->getAll();
-                                                foreach ($creche_page_infoInfos as $creche_page_infoInfo){ 
+                                                $creche_page_info_extInfos = $creche_page_info_ext->getAll();
+                                                foreach ($creche_page_info_extInfos as $creche_page_info_extInfo){ 
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td> <?php echo $creche_page_infoInfo ['title'] ?> </td>
-                                                <td><?php echo $creche_page_infoInfo['description']?></td>
+                                                <td> <?php echo $creche_page_info_extInfo ['title'] ?> </td>
+                                                <td><?php echo $creche_page_info_extInfo['description']?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_creche_page_info?auth=<?php echo $creche_page_infoInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_creche_page_info?auth=<?php echo $creche_page_infoInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_creche_page_info_ext?auth=<?php echo $creche_page_info_extInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_creche_page_info_ext?auth=<?php echo $creche_page_info_extInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>

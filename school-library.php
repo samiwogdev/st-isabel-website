@@ -3,14 +3,18 @@ include_once 'admin/configuration.php';
 include 'includes/header.php'
 ?>
 <!-- Start Breadcrumbs -->
-<section class="breadcrumbs overlay" style="background-image: url('images/facilities/lib.jpg')">
+<?php 
+     $library_banner = Library_banner::getInstance();
+     $row = $library_banner->getAll();
+?>
+<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['library_image']?>')" data-aos='zoom-out'>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>School Library</h2>
+                <h2><?php echo $row['title']?></h2>
                 <ul class="bread-list">
                     <li><a href="#">Facilities<i class="fa fa-angle-right"></i></a></li>
-                    <li class="active"><a href="#">School Library  </a></li>
+                    <li class="active"><a href="#">School Library </a></li>
                 </ul>
             </div>
         </div>
@@ -21,7 +25,6 @@ include 'includes/header.php'
 <!-- Courses -->
 <section class="courses single section ">
     <div class="container shadow-lg">
-      
                 <div class="single-main">
                     <div class="row">
                         <div class="col-lg-8 col-12">

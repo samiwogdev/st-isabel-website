@@ -60,7 +60,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" required="required" value="<?php echo $enrolmentInfo['description'] ?>" class="form-control">
+                                    <textarea cols="30" rows="10" type="text" name="description" required="required" value="<?php echo $enrolmentInfo['description'] ?>" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">

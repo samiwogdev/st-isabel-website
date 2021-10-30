@@ -87,21 +87,21 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $news_banner = News_banner::getInstance();
                                                 $count = 1;
-                                                $news_bannerInfos = $news_banner->getAll();
-                                                foreach ($news_bannerInfos as $news_bannerInfo){ 
+                                                $row = $news_banner->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
-                                                <td><?php echo $news_bannerInfo['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $news_bannerInfo['news_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['news_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_news_banner?auth=<?php echo $news_bannerInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_news_banner?auth=<?php echo $news_bannerInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_news_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_news_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

@@ -3,11 +3,15 @@
 		include 'includes/header.php' 
 		?>
 		<!-- Start Breadcrumbs -->
-		<section class="breadcrumbs overlay">
+			<?php 
+			 $contact_banner = Contact_banner::getInstance();
+			 $row= $contact_banner->getAll();
+			?>
+		<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['contact_image']?>')" data-aos='zoom-out'>
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2>Contact Us</h2>
+						<h2><?php echo $row['title']?></h2>
 						<ul class="bread-list">
 							<li><a href="#">Contact Page<i class="fa fa-angle-right"></i></a></li>
 							<li class="active"><a href="#">Contact Us</a></li>

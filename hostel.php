@@ -2,12 +2,16 @@
 include_once 'admin/configuration.php';
 include 'includes/header.php'
 ?>
-<!-- Start Breadcrumbs --> hostel1
-<section class="breadcrumbs overlay" style="background-image: url('images/facilities/hostel1.jpg')">
+<!-- Start Breadcrumbs --> 
+    <?php
+    $hostel_banner = Hostel_banner::getInstance();
+    $row = $hostel_banner->getAll();                                             
+    ?>
+<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['hostel_image']?>')" data-aos='zoom-out'>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>School Hostel</h2>
+                <h2><?php echo $row['title']?></h2>
                 <ul class="bread-list">
                     <li><a href="#">Facilities<i class="fa fa-angle-right"></i></a></li>
                     <li class="active"><a href="#">School Hostel  </a></li>
