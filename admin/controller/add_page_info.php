@@ -6,7 +6,7 @@ if (isset($_POST['add_page_info'])) {
 
     //check if form input are not empty
     if (empty($_POST['title']) || empty($_POST['description'])) {
-        header("location: ../school_page/page_info?info=failed");
+        header("location: ../home_page/page_info?info=failed");
     } else {
 
         //sanitize form input
@@ -29,10 +29,10 @@ if (isset($_POST['add_page_info'])) {
                     move_uploaded_file($_FILES['page_image']['tmp_name'], "../uploads/raw/" . $page_image);
                     $imageFileName = copy('../uploads/raw/' . $page_image, '../uploads/thumbnail/' . $page_image);
                 } else {
-                    header("location: ../school_page/page_info?info=failed");
+                    header("location: ../home_page/page_info?info=failed");
                 }
             } else {
-                header("location: ../school_page/page_info?info=failed");
+                header("location: ../home_page/page_info?info=failed");
             }
         } catch (Exception $ex) {
             echo $ex->getMessage();
@@ -48,9 +48,9 @@ if (isset($_POST['add_page_info'])) {
 
         //add form input to database/check if it successful
         if ($page_info->add()) {
-            header("location: ../school_page/page_info?info=success");
+            header("location: ../home_page/page_info?info=success");
         } else {
-            header("location: ../school_page/page_info?info=failed");
+            header("location: ../home_page/page_info?info=failed");
         }
     }
 }

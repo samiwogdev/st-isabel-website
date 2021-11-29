@@ -1,13 +1,20 @@
 <?php
+include_once 'admin/configuration.php';
 include 'includes/header.php' 
 ?>
 		
 		<!-- Start Breadcrumbs -->
-                <section class="breadcrumbs overlay">
+		<?php 
+		 $banner = Banner::getInstance();
+    	 $row = $banner->getAll();
+		?>
+        <section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['banner_image']?>')" >
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2 data-aos="fade-left">About Demo College</h2>
+						<!-- <img src=""style="background: url('../../images/home.png');" alt=""> -->
+						<h2 data-aos="fade-left"><?php echo $row['title']?></h2>
+						<!-- <h2 data-aos="fade-left">About Demo College</h2> -->
 						<ul class="bread-list">
 							<li data-aos="fade-right"><a href="#">The School<i class="fa fa-angle-right"></i></a></li>
 							<li class="active" data-aos="fade-left"><a href="#">Who We Are</a></li>
@@ -20,12 +27,18 @@ include 'includes/header.php'
 		
 		<!-- About US -->
 		<section class="about-us section">
+	<?php 
+		$who_we_are_page_info = who_we_are_page_info::getInstance();
+    	$row = $who_we_are_page_info->getAll();
+	?>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-5 col-12">
 						<div class="single-image overlay" data-aos="fade-right">
 							<!-- <img src="images/about1.jpg" alt="#"> -->
-                                                    <img src="images/slider/prem.jpg" alt="#">
+							<img src="admin/uploads/raw/<?php echo $row['page_image'] ?>"  alt="#" style="height: 250px">
+
+                                                    <!-- <img src="images/slider/prem.jpg" alt="#"> -->
 							<!-- <img src="images/enroll1-bg.jpg" alt="#" style="padding-top: 20px;"> -->
 
 							<!-- <a href="https://www.youtube.com/watch?v=UalTfOIDQ7M" class="btn video-popup mfp-fade"><i class="fa fa-play"></i></a> -->
@@ -33,11 +46,11 @@ include 'includes/header.php'
 					</div>
 					<div class="col-lg-7 col-12" style="text-align: justify">
 						<div class="about-text" data-aos="fade-left">
-							<h2>About Demo College</h2>
-							<p>Demo College is an integral part of the community both educationally and socially. The school looks bright and welcoming. We have a better learning environment for students. The school offers wide range of favourable learning environments for students. We have a well equipped science laboratory, library, hostel accommodation, transport facilities, a well equipped ICT centre, wide playing ground for sports and recreational activities, drinkable water supply, constant power supply, school farm and others.</p>
-
-<p>The school is multicultural and co-educational for both male and female students. Our main concern is not all about the educational needs of the students alone, which is of paramount importance to us. We are also deeply concern about the moral and character formation of the students. One of our vision is to help our students discover their potentials, develop and maximize them.</p>
-
+							<h2><?php echo $row['title']?></h2>
+							<p><?php echo $row['description']?></p>
+							<!-- <h2>About Demo College</h2> -->
+							<!-- <p>Demo College is an integral part of the community both educationally and socially. The school looks bright and welcoming. We have a better learning environment for students. The school offers wide range of favourable learning environments for students. We have a well equipped science laboratory, library, hostel accommodation, transport facilities, a well equipped ICT centre, wide playing ground for sports and recreational activities, drinkable water supply, constant power supply, school farm and others.</p> -->
+							<!-- <p>The school is multicultural and co-educational for both male and female students. Our main concern is not all about the educational needs of the students alone, which is of paramount importance to us. We are also deeply concern about the moral and character formation of the students. One of our vision is to help our students discover their potentials, develop and maximize them.</p> -->
 						</div>
 					</div>
 				</div>

@@ -53,7 +53,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" required="required" class="form-control">
+                                    <textarea cols="30" rows="10" type="text" name="description" required="required" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -111,24 +111,24 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                             $enrolment = Enrolment::getInstance();
                                             $count = 1;
-                                            $enrolmentInfos = $enrolment->getAll();
-                                            foreach ($enrolmentInfos as $enrolmentInfo) {
+                                            $row = $enrolment->getAll();
+                                            
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $count ?></td>
-                                                    <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $enrolmentInfo['bg_image'] ?>" width="30px"></td>
-                                                    <td><?php echo $enrolmentInfo['title'] ?></td>
-                                                    <td class="text-center"><?php echo $enrolmentInfo['description'] ?></td>
-                                                    <td><?php echo $enrolmentInfo['enrol_title'] ?></td>
-                                                    <td><?php echo $enrolmentInfo['enrol_desc'] ?></td>
+                                                    <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['bg_image'] ?>" width="30px"></td>
+                                                    <td><?php echo $row['title'] ?></td>
+                                                    <td class="text-center"><?php echo $row['description'] ?></td>
+                                                    <td><?php echo $row['enrol_title'] ?></td>
+                                                    <td><?php echo $row['enrol_desc'] ?></td>
                                                     <td>
                                                         <div class="text-center">
-                                                            <a href="update_enrolment?auth=<?php echo $enrolmentInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                            <a href="../controller/delete_enrolment?auth=<?php echo $enrolmentInfo['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="update_enrolment?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="../controller/delete_enrolment?auth=<?php echo $row['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

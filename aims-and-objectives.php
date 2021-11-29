@@ -4,11 +4,16 @@ include 'includes/header.php'
 ?>
 		
 		<!-- Start Breadcrumbs -->
-		<section class="breadcrumbs overlay">
+        <?php
+            $objective_banner = Objective_banner::getInstance();
+            $row = $objective_banner -> getAll();
+        ?>
+		<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['objective_image']?>')" >
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2>Aims & Objectives</h2>
+						<h2><?php echo $row ['title']?></h2>
+						<!-- <h2>Aims & Objectives</h2> -->
 						<ul class="bread-list">
 							<li><a href="#">Home<i class="fa fa-angle-right"></i></a></li>
 							<li class="active"><a href="#">About</a></li>

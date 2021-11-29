@@ -4,11 +4,15 @@ include 'includes/header.php'
 ?>
 
 <!-- Start Breadcrumbs -->
-<section class="breadcrumbs overlay" style="background-image: url('images/admission/creche.jpg')" data-aos='zoom-out'>
+<?php
+    $creche_banner = Creche_banner::getInstance();
+    $row = $creche_banner->getAll();                                            
+ ?>
+		<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['creche_image']?>')" >
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 data-aos='fade-Left'>Creche</h2>
+            <h2 data-aos='fade-Left'><?php echo $row['title']?></h2>
                 <ul class="bread-list">
                     <li class="font-weight-bold" data-aos='fade-right'><a href="#">Academics<i class="fa fa-angle-right"></i></a></li>
                     <li class="active" data-aos='fade-right'><a href="#">Creche</a></li>

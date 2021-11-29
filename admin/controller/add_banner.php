@@ -13,7 +13,7 @@ if (isset($_POST['add_banner'])) {
      $title = Banner::sanitize_input($_POST['title']);
 
 
-        //process formm Image
+        //process form Image
         try {
             // Check if image was uploaded without errors
             if (isset($_FILES["banner_image"]) && $_FILES["banner_image"]["error"] == 0) {

@@ -4,11 +4,16 @@ include 'includes/header.php'
 ?>
 
 <!-- Start Breadcrumbs -->
-<section class="breadcrumbs overlay">
+<?php
+    $director_banner = Director_banner::getInstance();
+    $row = $director_banner -> getAll();
+?>
+<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['director_image']?>')" >
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 data-aos="fade-left">Message From The Director</h2>
+                <h2 data-aos="fade-left"><?php echo $row['title']?></h2>
+                <!-- <h2 data-aos="fade-left">Message From The Director</h2> -->
                 <ul class="bread-list">
                     <li data-aos="fade-right"><a href="#">The School<i class="fa fa-angle-right"></i></a></li>
                     <li data-aos="fade-left" class="active"><a href="#">about</a></li>
