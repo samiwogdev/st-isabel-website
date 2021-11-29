@@ -34,9 +34,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <form class="form-horizontal form-label-left" action="../controller/add_laboratories_banner.php" method="post" enctype="multipart/form-data">
-
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="title" required="required" class="form-control ">
@@ -86,21 +85,21 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $laboratories_banner = Laboratories_banner::getInstance();
                                                 $count = 1;
-                                                $laboratories_bannerInfos = $laboratories_banner->getAll();
-                                                foreach ($laboratories_bannerInfos as $laboratories_bannerInfo){ 
+                                                $row = $laboratories_banner->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
-                                                <td><?php echo $laboratories_bannerInfo['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $laboratories_bannerInfo['laboratories_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['laboratories_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_laboratories_banner?auth=<?php echo $laboratories_bannerInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_laboratories_banner?auth=<?php echo $laboratories_bannerInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_laboratories_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_laboratories_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

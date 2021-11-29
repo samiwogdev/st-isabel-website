@@ -291,7 +291,11 @@ $result = $slider_ext->getAll();
 
 
 <!-- Enroll -->
-<section class="enroll overlay section" data-stellar-background-ratio="0.5">
+<?php 
+      $enrolment = Enrolment::getInstance();
+      $row = $enrolment->getAll();
+?>
+<section class="enroll overlay section" style="background-image: url('admin/uploads/raw/<?php echo $row['bg_image']?> " data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -300,14 +304,17 @@ $result = $slider_ext->getAll();
                         <!-- Single Enroll -->
                         <div class="enroll-form">
                             <div class="form-title">
-                                <h2  style="text-shadow: 2px 2px 1px rgba(0,0,0,.5);">Enroll Your Ward With Us</h2>
+                                <h2  style="text-shadow: 2px 2px 1px rgba(0,0,0,.5);"><?php echo $row['enrol_title']?></h2>
+                                <!-- <h2  style="text-shadow: 2px 2px 1px rgba(0,0,0,.5);">Enroll Your Ward With Us</h2> -->
                                 <!-- <p>Before you miss the chance to get your seat!</p> -->
                             </div>
                             <!--                            <h2>Admission Form</h2>-->
                             <!-- Form -->
                             <div class="form">
                                 <h5>Admission Form</h5>
-                                <p>Admission into J.S.S.1 ongoing for 2020/2021 Session</p>
+                                <!-- <h5>Admission Form</h5> -->
+                                <p><?php echo $row['enrol_desc']?></p>
+                                <!-- <p>Admission into J.S.S.1 ongoing for 2020/2021 Session</p> -->
                                 <hr>
                                 <div class="form-group button">
                                     <button type="submit" class="btn"><span class="fa fa-file-pdf-o fa-1x bg-danger mr-1"></span>Download PDF</button>
@@ -320,11 +327,13 @@ $result = $slider_ext->getAll();
                     <div class="col-lg-6 col-12 " data-aos="fade-left">
                         <div class="enroll-right">
                             <div class="section-title">
-                                <h2>We meet the Academic needs and moral requirements of every child.</h2>
-                                <p>Demo College aims at developing the total child in a world of inconsistencies and frustration. 
+                                <h2><?php echo $row['title']?></h2>
+                                <!-- <h2>We meet the Academic needs and moral requirements of every child.</h2> -->
+                            <p><?php echo $row['description']?></p>
+                                <!-- <p>Demo College aims at developing the total child in a world of inconsistencies and frustration. 
                                     A child's life is modeled by the education he receives especially at the early state of life. </p>
                                 <p> We deploy all resources at our disposal under God to ensuring that every child that passes through Demo College is uniquely handled.</p>
-                                <p>   We aim to meet each child as an individual and helping him or her to achieve his or her God given purpose on earth..</p>
+                                <p>   We aim to meet each child as an individual and helping him or her to achieve his or her God given purpose on earth..</p> -->
                             </div>
                         </div>
                         <!-- Skill Main -->
@@ -452,28 +461,21 @@ $result = $slider_ext->getAll();
 
 <!-- Call To Action -->
 <section class="cta overlay" data-stellar-background-ratio="0.5" data-aos="zoom-out" style="background-image:url('images/slider/slide2.png');">
+    <?php $school_song = School_song::getInstance();
+        $result =$school_song->getAll();
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-5 offset-lg-6 col-12">
                 <div class="cta-inner overlay">
+                <?php foreach ($result as $row) { ?>
                     <div class="text-content" data-aos="zoom-out" data-aos-delay="300">
-                        <h2>School Anthem</h2>
-                        <p>Demo, the citadel of knowledge <br>
-                            Demo, my school<br>
-                            We are pattern unto God's moral life<br>
-                            Fountain of knowledge and character <br>
-                            In full stature <br>
-                            A total Nigerian Child<br>
-                            Demo Demo<br>
-                            Leads the way..</p><br>
-                        <h2>School Song</h2>
-                        <p>Demo , Demo,<br>
-                            We are the success Model<br>
-                            We are the Peculiar Students <br>
-                            We are the Future Leaders <br>
-                            We are the Future Heroes <br>
-                            In all areas of Life<br>
-                            We are the Best</p>
+                        <h2><?php echo $row['title']?></h2>
+                        <p><?php echo $row['description']?> <br>
+                            <br>
+                            <br>
+                            </p><br>
+                            <?php } ?>
                         <div class="button">
                             <a class="btn primary  " href="contact.php" >Contact Us</a>
                         </div>

@@ -87,21 +87,21 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $college_banner = College_banner::getInstance();
                                                 $count = 1;
-                                                $college_bannerInfos = $college_banner->getAll();
-                                                foreach ($college_bannerInfos as $college_bannerInfo){ 
+                                                $row = $college_banner->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
-                                                <td><?php echo $college_bannerInfo['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $college_bannerInfo['college_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['college_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_college_banner?auth=<?php echo $college_bannerInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_college_banner?auth=<?php echo $college_bannerInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_college_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_college_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

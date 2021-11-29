@@ -40,7 +40,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="title" required="required" class="form-control ">
+                                    <textarea cols="30" rows="10" type="text" name="title" required="required" class="form-control "></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -87,21 +87,21 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $admission_info_page = Admission_info_page::getInstance();
                                                 $count = 1;
-                                                $admission_info_pageInfos = $admission_info_page->getAll();
-                                                foreach ($admission_info_pageInfos as $admission_info_pageInfo){ 
+                                                $row = $admission_info_page->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
-                                                <td><?php echo $admission_info_pageInfo['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $admission_info_pageInfo['result_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['result_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_admission_info_page?auth=<?php echo $admission_info_pageInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_admission_info_page?auth=<?php echo $admission_info_pageInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_admission_info_page?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_admission_info_page?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

@@ -87,21 +87,21 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $admission_banner = Admission_banner::getInstance();
                                                 $count = 1;
-                                                $admission_bannerInfos = $admission_banner->getAll();
-                                                foreach ($admission_bannerInfos as $admission_bannerInfo){ 
+                                                $row = $admission_banner->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
-                                                <td><?php echo $admission_bannerInfo['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $admission_bannerInfo['admission_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['admission_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_admission_banner?auth=<?php echo $admission_bannerInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_admission_banner?auth=<?php echo $admission_bannerInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_admission_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_admission_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                          
                                         </tbody>
                                     </table>
                                 </div>

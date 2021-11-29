@@ -28,6 +28,7 @@
                                     <ul class="nav child_menu">
                                         <li><a href="../home_page/slider">Slider</a></li>
                                         <li><a href="../home_page/slider_ext">Slider Ext</a></li>
+                                        <li><a href="../home_page/page_info">Page Info</a></li>
                                         <li><a href="../home_page/school_qualities">School Qualities</a></li>
                                         <li><a href="../home_page/enrolment">Enrolment Info</a></li>
                                         <li><a href="../home_page/school_song">School Song</a></li>
@@ -38,7 +39,7 @@
                                         <li><a>Who we are<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="../school_page/banner">Banner</a></li>
-                                                <li><a href="../school_page/page_info">Page Info</a></li>
+                                                <li><a href="../school_page/who_we_are_page_info">Page Info</a></li>
                                             </ul>
                                         </li>
                                         <li><a>The Director<span class="fa fa-chevron-down"></span></a>

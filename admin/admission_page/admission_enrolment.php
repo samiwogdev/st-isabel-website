@@ -102,23 +102,23 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                                 $admission_enrolment = Admission_enrolment::getInstance();
                                                 $count = 1;
-                                                $admission_enrolmentInfos = $admission_enrolment->getAll();
-                                                foreach ($admission_enrolmentInfos as $admission_enrolmentInfo){ 
+                                                $row = $admission_enrolment->getAll();
+                                            
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
-                                                <td><?php echo $admission_enrolmentInfo['title']?></td>
-                                                <td><?php echo $admission_enrolmentInfo['description']?></td>
-                                                <td><?php echo $admission_enrolmentInfo['enrolment']?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $admission_enrolmentInfo['enrolment_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title']?></td>
+                                                <td><?php echo $row['description']?></td>
+                                                <td><?php echo $row['enrolment']?></td>
+                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['enrolment_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_admission_enrolment?auth=<?php echo $admission_enrolmentInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_admission_enrolment?auth=<?php echo $admission_enrolmentInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_admission_enrolment?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_admission_enrolment?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                           
                                         </tbody>
                                     </table>
                                 </div>

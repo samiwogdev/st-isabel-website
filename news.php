@@ -1,12 +1,18 @@
-<?php include 'includes/header.php' ?>
-
-
+<?php
+include_once 'admin/configuration.php';
+include 'includes/header.php'
+?>
 <!-- Start Breadcrumbs -->
-<section class="breadcrumbs overlay" data-aos="zoom-in">
+<?php
+    $news_banner = News_banner::getInstance();
+    $row = $news_banner->getAll();
+                                                
+ ?>
+<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['news_image']?>')" data-aos='zoom-in'>
     <div class="container">
         <div class="row">
             <div class="col-12" >
-                <h2> Events & Gallery</h2>
+                <h2> <?php echo $row['title']?></h2>
                 <ul class="bread-list">
                     <li><a href="#!">Events & Gallery<i class="fa fa-angle-right"></i></a></li>
                     <li class="active"><a href="#!">News</a></li>

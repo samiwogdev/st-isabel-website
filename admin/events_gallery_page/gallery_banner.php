@@ -87,21 +87,21 @@ include_once '../includes/admin_navbar.php';
                                         <?php
                                                 $gallery_banner = Gallery_banner::getInstance();
                                                 $count = 1;
-                                                $gallery_bannerInfos = $gallery_banner->getAll();
-                                                foreach ($gallery_bannerInfos as $gallery_bannerInfo){ 
+                                                $row = $gallery_banner->getAll();
+                                                
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
-                                                <td><?php echo $gallery_bannerInfo['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $gallery_bannerInfo['gallery_image'] ?>" width="30px"></td>
+                                                <td><?php echo $row['title'] ?></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['gallery_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
-                                                    <a href="update_gallery_banner?auth=<?php echo $gallery_bannerInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_gallery_banner?auth=<?php echo $gallery_bannerInfo['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="update_gallery_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_gallery_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php } ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
