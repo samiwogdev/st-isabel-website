@@ -20,7 +20,7 @@ include_once '../includes/admin_navbar.php';
             </div>
         </div>
         <div class="clearfix"></div>
-        <div class="ro
+        <div class="row">
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title"> 

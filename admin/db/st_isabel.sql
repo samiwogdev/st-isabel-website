@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admission_banner`
 --
 
-CREATE TABLE `admission_banner` (
+CREATE TABLE IF NOT EXISTS `admission_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `admission_image` varchar(250) NOT NULL
@@ -39,7 +39,7 @@ CREATE TABLE `admission_banner` (
 -- Table structure for table `admission_enrolment`
 --
 
-CREATE TABLE `admission_enrolment` (
+CREATE TABLE IF NOT EXISTS `admission_enrolment` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE `admission_enrolment` (
 -- Table structure for table `admission_info_page`
 --
 
-CREATE TABLE `admission_info_page` (
+CREATE TABLE IF NOT EXISTS `admission_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `result_image` varchar(250) NOT NULL
@@ -65,7 +65,7 @@ CREATE TABLE `admission_info_page` (
 -- Table structure for table `college_banner`
 --
 
-CREATE TABLE `college_banner` (
+CREATE TABLE IF NOT EXISTS `college_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `college_image` varchar(250) NOT NULL
@@ -74,7 +74,7 @@ CREATE TABLE `college_banner` (
 --
 -- Table structure for table `banner`
 --
-CREATE TABLE `banner` (
+CREATE TABLE IF NOT EXISTS `banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `banner_image` varchar(250) NOT NULL
@@ -85,7 +85,7 @@ CREATE TABLE `banner` (
 -- Table structure for table `college_page_info`
 --
 
-CREATE TABLE `college_page_info` (
+CREATE TABLE IF NOT EXISTS `college_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
     `description` text DEFAULT NULL
@@ -97,7 +97,7 @@ CREATE TABLE `college_page_info` (
 -- Table structure for table `contact_banner`
 --
 
-CREATE TABLE `contact_banner` (
+CREATE TABLE IF NOT EXISTS `contact_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `contact_image` varchar(250) NOT NULL
@@ -109,7 +109,7 @@ CREATE TABLE `contact_banner` (
 -- Table structure for table `contact_us`
 --
 
-CREATE TABLE `contact_us` (
+CREATE TABLE IF NOT EXISTS `contact_us` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL
@@ -121,7 +121,7 @@ CREATE TABLE `contact_us` (
 -- Table structure for table `creche_banner`
 --
 
-CREATE TABLE `creche_banner` (
+CREATE TABLE IF NOT EXISTS `creche_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `creche_image` varchar(250) NOT NULL
@@ -133,7 +133,7 @@ CREATE TABLE `creche_banner` (
 -- Table structure for table `creche_page_info`
 --
 
-CREATE TABLE `creche_page_info` (
+CREATE TABLE IF NOT EXISTS `creche_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL
@@ -146,7 +146,7 @@ CREATE TABLE `creche_page_info` (
 -- Table structure for table `creche_page_info_ext`
 --
 
-CREATE TABLE `creche_page_info_ext` (
+CREATE TABLE IF NOT EXISTS `creche_page_info_ext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL
@@ -158,7 +158,7 @@ CREATE TABLE `creche_page_info_ext` (
 -- Table structure for table `director_banner`
 --
 
-CREATE TABLE `director_banner` (
+CREATE TABLE IF NOT EXISTS `director_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `director_image` varchar(250) NOT NULL
@@ -170,7 +170,7 @@ CREATE TABLE `director_banner` (
 -- Table structure for table `director_page_info`
 --
 
-CREATE TABLE `director_page_info` (
+CREATE TABLE IF NOT EXISTS `director_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL,
@@ -189,7 +189,7 @@ INSERT INTO `director_page_info` (`id`, `title`, `description`, `page_image`) VA
 -- Table structure for table `enrolment`
 --
 
-CREATE TABLE `enrolment` (
+CREATE TABLE IF NOT EXISTS `enrolment` (
   `id` int(11) NOT NULL,
   `bg_image` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -211,7 +211,7 @@ INSERT INTO `enrolment` (`id`, `bg_image`, `title`, `description`, `enrol_title`
 -- Table structure for table `gallery_banner`
 --
 
-CREATE TABLE `gallery_banner` (
+CREATE TABLE IF NOT EXISTS `gallery_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `gallery_image` varchar(250) NOT NULL
@@ -223,7 +223,7 @@ CREATE TABLE `gallery_banner` (
 -- Table structure for table `hostel_banner`
 --
 
-CREATE TABLE `hostel_banner` (
+CREATE TABLE IF NOT EXISTS `hostel_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `hostel_image` varchar(250) NOT NULL
@@ -235,7 +235,7 @@ CREATE TABLE `hostel_banner` (
 -- Table structure for table `hostel_feature`
 --
 
-CREATE TABLE `hostel_feature` (
+CREATE TABLE IF NOT EXISTS `hostel_feature` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `feature` varchar(250) NOT NULL,
@@ -248,10 +248,10 @@ CREATE TABLE `hostel_feature` (
 -- Table structure for table `hostel_info_page`
 --
 
-CREATE TABLE `hostel_info_page` (
+CREATE TABLE IF NOT EXISTS `hostel_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
-   `description` text DEFAULT NULL,
+   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -260,7 +260,7 @@ CREATE TABLE `hostel_info_page` (
 -- Table structure for table `hostel_slider`
 --
 
-CREATE TABLE `hostel_slider` (
+CREATE TABLE IF NOT EXISTS `hostel_slider` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `slider_image` varchar(250) NOT NULL
@@ -272,7 +272,7 @@ CREATE TABLE `hostel_slider` (
 -- Table structure for table `junior_infoext`
 --
 
-CREATE TABLE `junior_infoext` (
+CREATE TABLE IF NOT EXISTS `junior_infoext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL
@@ -284,7 +284,7 @@ CREATE TABLE `junior_infoext` (
 -- Table structure for table `junior_subject`
 --
 
-CREATE TABLE `junior_subject` (
+CREATE TABLE IF NOT EXISTS  `junior_subject` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -295,7 +295,7 @@ CREATE TABLE `junior_subject` (
 -- Table structure for table `laboratories_banner`
 --
 
-CREATE TABLE `laboratories_banner` (
+CREATE TABLE IF NOT EXISTS `laboratories_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `laboratories_image` varchar(250) NOT NULL
@@ -307,7 +307,7 @@ CREATE TABLE `laboratories_banner` (
 -- Table structure for table `laboratories_info_page`
 --
 
-CREATE TABLE `laboratories_info_page` (
+CREATE TABLE IF NOT EXISTS `laboratories_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
     `description` text DEFAULT NULL
@@ -320,7 +320,7 @@ CREATE TABLE `laboratories_info_page` (
 -- Table structure for table `laboratories_list`
 --
 
-CREATE TABLE `laboratories_list` (
+CREATE TABLE IF NOT EXISTS `laboratories_list` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL
@@ -333,7 +333,7 @@ CREATE TABLE `laboratories_list` (
 -- Table structure for table `laboratories_slider`
 --
 
-CREATE TABLE `laboratories_slider` (
+CREATE TABLE IF NOT EXISTS `laboratories_slider` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `slider_image` varchar(250) NOT NULL
@@ -345,7 +345,7 @@ CREATE TABLE `laboratories_slider` (
 -- Table structure for table `library_banner`
 --
 
-CREATE TABLE `library_banner` (
+CREATE TABLE IF NOT EXISTS `library_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `library_image` varchar(250) NOT NULL
@@ -357,7 +357,7 @@ CREATE TABLE `library_banner` (
 -- Table structure for table `library_feature`
 --
 
-CREATE TABLE `library_feature` (
+CREATE TABLE IF NOT EXISTS `library_feature` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `feature` varchar(250) NOT NULL,
@@ -370,7 +370,7 @@ CREATE TABLE `library_feature` (
 -- Table structure for table `library_info_page`
 --
 
-CREATE TABLE `library_info_page` (
+CREATE TABLE IF NOT EXISTS `library_info_page` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL
@@ -382,7 +382,7 @@ CREATE TABLE `library_info_page` (
 -- Table structure for table `library_slider`
 --
 
-CREATE TABLE `library_slider` (
+CREATE TABLE IF NOT EXISTS `library_slider` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `slider_image` varchar(250) NOT NULL
@@ -394,7 +394,7 @@ CREATE TABLE `library_slider` (
 -- Table structure for table `news_banner`
 --
 
-CREATE TABLE `news_banner` (
+CREATE TABLE IF NOT EXISTS `news_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `news_image` varchar(250) NOT NULL
@@ -406,7 +406,7 @@ CREATE TABLE `news_banner` (
 -- Table structure for table `nursery_primarysubject`
 --
 
-CREATE TABLE `nursery_primarysubject` (
+CREATE TABLE IF NOT EXISTS `nursery_primarysubject` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -417,7 +417,7 @@ CREATE TABLE `nursery_primarysubject` (
 -- Table structure for table `nursery_primary_banner`
 --
 
-CREATE TABLE `nursery_primary_banner` (
+CREATE TABLE IF NOT EXISTS `nursery_primary_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `nursery_image` varchar(250) NOT NULL
@@ -429,7 +429,7 @@ CREATE TABLE `nursery_primary_banner` (
 -- Table structure for table `nursery_primary_page_info`
 --
 
-CCREATE TABLE `nursery_primary_page_info` (
+CCREATE TABLE IF NOT EXISTS `nursery_primary_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
    `description` text DEFAULT NULL
@@ -441,7 +441,7 @@ CCREATE TABLE `nursery_primary_page_info` (
 -- Table structure for table `nursery_primary_page_infoext`
 --
 
-CREATE TABLE `nursery_primary_page_infoext` (
+CREATE TABLE IF NOT EXISTS `nursery_primary_page_infoext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
      `description` text DEFAULT NULL
@@ -453,7 +453,7 @@ CREATE TABLE `nursery_primary_page_infoext` (
 -- Table structure for table `objective_banner`
 --
 
-CREATE TABLE `objective_banner` (
+CREATE TABLE IF NOT EXISTS `objective_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `objective_image` varchar(250) NOT NULL
@@ -465,7 +465,7 @@ CREATE TABLE `objective_banner` (
 -- Table structure for table `objective_page_info`
 --
 
-CREATE TABLE `objective_page_info` (
+CREATE TABLE IF NOT EXISTS `objective_page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL,
@@ -477,7 +477,7 @@ CREATE TABLE `objective_page_info` (
 -- Table structure for table `page_info`
 --
 
-CREATE TABLE `page_info` (
+CREATE TABLE IF NOT EXISTS `page_info` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL,
@@ -488,12 +488,12 @@ CREATE TABLE `page_info` (
 -- Table structure for table `page_info`
 --
 
-CREATE TABLE `who_we_are_page_info` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `who_we_are_page_info` (
+  `id` int(11) PRIMARY key AUTO_INCREMENT NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL,
   `page_image` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_info`
@@ -508,7 +508,7 @@ INSERT INTO `page_info` (`id`, `title`, `description`, `page_image`) VALUES
 -- Table structure for table `school_banner`
 --
 
-CREATE TABLE `school_banner` (
+CREATE TABLE IF NOT EXISTS `school_banner` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `banner_image` varchar(250) NOT NULL
@@ -520,7 +520,7 @@ CREATE TABLE `school_banner` (
 -- Table structure for table `school_qualities`
 --
 
-CREATE TABLE `school_qualities` (
+CREATE TABLE IF NOT EXISTS `school_qualities` (
   `id` int(11) NOT NULL,
   `qualities` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -540,7 +540,7 @@ INSERT INTO `slider_ext` (`id`, `description`, `icons`) VALUES
 -- Table structure for table `school_song`
 --
 
-CREATE TABLE `school_song` (
+CREATE TABLE IF NOT EXISTS `school_song` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text DEFAULT NULL
@@ -559,7 +559,7 @@ INSERT INTO `school_song` (`id`, `title`, `description`) VALUES
 -- Table structure for table `senior_infoext`
 --
 
-CREATE TABLE `senior_infoext` (
+CREATE TABLE IF NOT EXISTS `senior_infoext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
    `description` text DEFAULT NULL
@@ -571,7 +571,7 @@ CREATE TABLE `senior_infoext` (
 -- Table structure for table `senior_subject`
 --
 
-CREATE TABLE `senior_subject` (
+CREATE TABLE IF NOT EXISTS `senior_subject` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -582,7 +582,7 @@ CREATE TABLE `senior_subject` (
 -- Table structure for table `slider`
 --
 
-CREATE TABLE `slider` (
+CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL,
@@ -603,7 +603,7 @@ INSERT INTO `slider` (`id`, `title`, `description`, `slider_image`) VALUES
 -- Table structure for table `slider_ext`
 --
 
-CREATE TABLE `slider_ext` (
+CREATE TABLE IF NOT EXISTS `slider_ext` (
   `id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL,

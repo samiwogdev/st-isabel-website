@@ -19,8 +19,11 @@ CREATE TABLE IF NOT EXISTS `slider` (
 CREATE TABLE IF NOT EXISTS `slider_ext` (
  `id` int(11) primary key auto_increment NOT NULL,
 `title` varchar(250) NOT NULL,
-`description` varchar(250) NOT NULL
+`description` varchar(250) NOT NULL,
+bg_color VARCHAR(50) NOT NULL,
+header_color VARCHAR(50) NOT NULL,
 );
+
 ALTER TABLE slider_ext ADD COLUMN bg_color VARCHAR(50) AFTER description
 ALTER TABLE slider_ext ADD COLUMN header_color VARCHAR(50) AFTER bg_color
 
@@ -39,6 +42,8 @@ CREATE TABLE IF NOT EXISTS `school_qualities` (
  `id` int(11) primary key auto_increment NOT NULL,
 `qualities` varchar(250) NOT NULL
 );
+
+ALTER TABLE school_qualities add COLUMN icons varchar(50) AFTER `qualities`;
 
 /*SCHOOL SONG*/
 CREATE TABLE IF NOT EXISTS `school_song` (

@@ -92,7 +92,9 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                         <?php } ?>
+                                         <?php 
+                                         $count ++;
+                                            } ?>
                                         </tbody>
                                     </table>
                                 </div>

@@ -30,7 +30,9 @@
                                         <li><a href="../home_page/slider_ext">Slider Ext</a></li>
                                         <li><a href="../home_page/page_info">Page Info</a></li>
                                         <li><a href="../home_page/school_qualities">School Qualities</a></li>
-                                        <li><a href="../home_page/enrolment">Enrolment Info</a></li>
+                                        <li><a href="../home_page/facility_intro">Facility Intro</a></li>
+                                        <li><a href="../home_page/facility_data">Facility Data</a></li>
+                                        <li><a href="../home_page/enrolment">Enrollment Info</a></li>
                                         <li><a href="../home_page/school_song">School Song</a></li>
                                     </ul>
                                 </li>
@@ -87,9 +89,10 @@
                                 </li>  
                                 <li><a><i class="fa fa-sitemap"></i> Facilities <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                        <li class="sub_menu"><a href="../facilities/definition">Facility Definition</a></li>
                                         <li><a>Laboratories<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="../facilities_page/laboratories_banner">Banner</a></li>
+                                                <li class="sub_menu"><a href="../facilities_page/definition">Banner</a></li>
                                                 <li><a href="../facilities_page/laboratories_slider">Slider</a></li>
                                                 <li><a href="../facilities_page/laboratories_info_page">Page Info </a></li>
                                                 <li><a href="../facilities_page/laboratories_list">List of Laboratories </a></li>
@@ -129,14 +132,15 @@
                                         <li><a>News<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="../events_gallery_page/news_banner">Banner</a></li>
+                                                <li class="sub_menu"><a href="../events_gallery_page/page_definition.php">Page Definition</a> </li>
                                             </ul>
                                         </li>
                                         <li><a>Gallery<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="../events_gallery_page/gallery_banner">Banner</a> </li>
+                                                <li class="sub_menu"><a href="../events_gallery_page/gallery_banner">Banner</a> </li> 
                                             </ul>
                                         </li>
-                                       
+
                                     </ul>
                                 </li>     
                                 <li><a><i class="fa fa-sitemap"></i> Contact <span class="fa fa-chevron-down"></span></a>
@@ -148,7 +152,7 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                    </li>
+                                </li>
                                 </li>   
                             </ul>
                         </div>
