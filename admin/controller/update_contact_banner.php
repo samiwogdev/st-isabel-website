@@ -17,8 +17,8 @@ if (isset($_POST['update_contact_banner'])) {
     } else {
 
         //sanitize data
-        $id = Contact_banner::sanitize_input($auth);
-        $title = Contact_banner::sanitize_input($_POST['title']);
+        $id = ContactBanner::sanitize_input($auth);
+        $title = ContactBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_contact_banner'])) {
         }
 
         //get an Instance of contact_banner class
-        $contact_banner = Contact_banner::getInstance();
+        $contact_banner = ContactBanner::getInstance();
 
         //initialize class properties
 

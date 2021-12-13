@@ -85,10 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
+                                                $nursery_primary_page_infoExt = NurseryPrimaryPageInfoExt::getInstance();
                                                 $count = 1;
                                                 $row = $nursery_primary_page_infoExt->getAll();
-                                               
+                                               if ($row){
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
@@ -101,7 +101,16 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                                  <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

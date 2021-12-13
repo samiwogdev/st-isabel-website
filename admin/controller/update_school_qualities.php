@@ -17,12 +17,12 @@ if (isset($_POST['update_school_qualities'])) {
     } else {
 
         //sanitize data
-        $id = School_qualities::sanitize_input($auth);
-        $qualities = School_qualities::sanitize_input($_POST['qualities']);
+        $id = SchoolQualities::sanitize_input($auth);
+        $qualities = SchoolQualities::sanitize_input($_POST['qualities']);
        
 
         //get an Instance of slider_ext class
-        $school_qualities = School_qualities::getInstance();
+        $school_qualities = SchoolQualities::getInstance();
 
         //initialize class properties
 

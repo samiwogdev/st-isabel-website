@@ -5,7 +5,7 @@ include 'includes/header.php'
 
 <!-- Start Breadcrumbs -->
 <?php
-    $creche_banner = Creche_banner::getInstance();
+    $creche_banner = CrecheBanner::getInstance();
     $row = $creche_banner->getAll();                                            
  ?>
 		<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['creche_image']?>')" >
@@ -26,7 +26,7 @@ include 'includes/header.php'
 <section class="about-us section mt-4" style="padding: 0px; mb-0">
     <div class="container">
             <?php 
-                $creche_page_info = Creche_page_info::getInstance();
+                $creche_page_info = CrechePageInfo::getInstance();
                 $row = $creche_page_info -> getAll();
             ?>
         <div class="row">
@@ -134,7 +134,7 @@ include 'includes/header.php'
 <!-- About US -->
 <section class="about-us section mt-4 mb-5" style="padding: 0px;">
 <?php
-        $creche_page_info_ext = Creche_page_info_ext::getInstance();
+        $creche_page_info_ext = CrechePageInfoExt::getInstance();
         $result =$creche_page_info_ext -> getAll();
 ?>
     <div class="container">

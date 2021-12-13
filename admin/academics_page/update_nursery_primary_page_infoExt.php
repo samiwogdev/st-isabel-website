@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
-                        $auths = Nursery_primary_page_infoExt::sanitize_input($auth);
+                        $nursery_primary_page_infoExt = NurseryPrimaryPageInfoExt::getInstance();
+                        $auths = NurseryPrimaryPageInfoExt::sanitize_input($auth);
                         $nursery_primary_page_infoExt->setId($auths);
                         $nursery_primary_page_infoExtInfo = $nursery_primary_page_infoExt->getById();
                         ?>
@@ -50,7 +50,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea col="30" rows="10" type="text" name="description" value="<?php echo $nursery_primary_page_infoExtInfo['description'] ?>"   required="required" class="form-control"></textarea>
+                                    <textarea col="30" rows="10" type="text" name="description" value=""   required="required" class="form-control"><?php echo $nursery_primary_page_infoExtInfo['description'] ?></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

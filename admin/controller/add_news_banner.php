@@ -10,7 +10,7 @@ if (isset($_POST['add_news_banner'])) {
     } else {
 
         //sanitize form input
-     $title = News_banner::sanitize_input($_POST['title']);
+     $title = NewsBanner::sanitize_input($_POST['title']);
 
 
         //process formm Image
@@ -39,7 +39,7 @@ if (isset($_POST['add_news_banner'])) {
         }
 
         //get an Instance of banner class
-        $news_banner = News_Banner::getInstance();
+        $news_banner = NewsBanner::getInstance();
 
         //initialize class properties
         $news_banner->setTitle($title);

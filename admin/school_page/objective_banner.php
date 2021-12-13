@@ -84,15 +84,15 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $objective_banner = Objective_banner::getInstance();
+                                                $objective_banner = ObjectiveBanner::getInstance();
                                                 $count = 1;
                                                 $row = $objective_banner->getAll();
-                                                
+                                                 if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
                                                 <td><?php echo $row['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['objective_image'] ?>" width="30px"></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['objective_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
                                                     <a href="update_objective_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
@@ -101,6 +101,16 @@ include_once '../includes/admin_navbar.php';
                                                 </td>
                                             </tr>
                                            
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

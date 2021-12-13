@@ -93,9 +93,11 @@ include_once '../includes/admin_navbar.php';
                                         <tbody>
 
                                         <?php
-                                                $who_we_are_page_info = Who_we_are_page_info::getInstance();
+                                                $who_we_are_page_info = WhoWeArePageInfo::getInstance();
                                                 $count = 1;
                                                 $row = $who_we_are_page_info->getAll(); 
+                                                     
+                                                if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
@@ -105,10 +107,22 @@ include_once '../includes/admin_navbar.php';
                                                 <td>
                                                     <div class="text-center">
                                                     <a href="update_who_we_are_page_info?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                    <a href="../controller/delete_who_we_are_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

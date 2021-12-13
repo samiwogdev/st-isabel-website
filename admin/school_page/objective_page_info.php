@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $objective_page_info = Objective_page_info::getInstance();
+                                                $objective_page_info = ObjectivePageInfo::getInstance();
                                                 $count = 1;
                                                 $row = $objective_page_info->getAll();
+                                                 if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
@@ -101,6 +102,16 @@ include_once '../includes/admin_navbar.php';
                                                 </td>
                                             </tr>
                                             
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

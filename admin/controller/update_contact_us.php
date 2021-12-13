@@ -17,12 +17,12 @@ if (isset($_POST['update_contact_us'])) {
     } else {
 
         //sanitize data
-        $id = Contact_us::sanitize_input($auth);
-        $title = Contact_us::sanitize_input($_POST['title']);
-        $description = Contact_us::sanitize_input($_POST['description']);
+        $id = ContactUs::sanitize_input($auth);
+        $title = ContactUs::sanitize_input($_POST['title']);
+        $description = ContactUs::sanitize_input($_POST['description']);
 
         //get an Instance of contact_us class
-        $contact_us = Contact_us::getInstance();
+        $contact_us = ContactUs::getInstance();
 
         //initialize class properties
 

@@ -17,9 +17,9 @@ if (isset($_POST['update_director_page_info'])) {
     } else {
 
         //sanitize data
-        $id = Director_page_info::sanitize_input($auth);
-        $title = Director_page_info::sanitize_input($_POST['title']);
-        $description = Director_page_info::sanitize_input($_POST['description']);
+        $id = DirectorPageInfo::sanitize_input($auth);
+        $title = DirectorPageInfo::sanitize_input($_POST['title']);
+        $description = DirectorPageInfo::sanitize_input($_POST['description']);
 
         //process form Image
         try {
@@ -47,7 +47,7 @@ if (isset($_POST['update_director_page_info'])) {
         }
 
         //get an Instance of director_page_info class
-        $director_page_info = Director_page_info::getInstance();
+        $director_page_info = DirectorPageInfo::getInstance();
 
         //initialize class properties
 

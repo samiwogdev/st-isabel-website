@@ -85,24 +85,34 @@ include_once '../includes/admin_navbar.php';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
-                                                $nursery_primary_banner = Nursery_primary_banner::getInstance();
-                                                $count = 1;
-                                                $row= $nursery_primary_banner->getAll();
-                                                
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $count ?></td>
-                                                <td><?php echo $row['title'] ?></td>
-                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['nursery_image'] ?>" width="30px"></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                    <a href="update_nursery_primary_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_nursery_primary_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
+                                            <?php
+                                            $nursery_primary_banner = NurseryPrimaryBanner::getInstance();
+                                            $count = 1;
+                                            $row = $nursery_primary_banner->getAll();
+                                            if ($row) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $count ?></td>
+                                                    <td><?php echo $row['title'] ?></td>
+                                                    <td class="text-center"><img src="../uploads/raw/<?php echo $row['nursery_image'] ?>" width="30px"></td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <a href="update_nursery_primary_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="../controller/delete_nursery_primary_banner?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } else { ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>     
+
+                                            <?php } ?>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -147,7 +157,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "del") { ?>
+<?php } if (isset($info) && $info == "del") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
@@ -162,7 +172,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "complete") { ?>
+<?php } if (isset($info) && $info == "complete") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,

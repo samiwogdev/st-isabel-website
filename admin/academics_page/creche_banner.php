@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $creche_banner = Creche_banner::getInstance();
+                                                $creche_banner = CrecheBanner::getInstance();
                                                 $count = 1;
                                                 $row= $creche_banner->getAll();
+                                                if ($row){
                                                 
                                         ?>
                                             <tr>
@@ -101,6 +102,16 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                                <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                             
                                         </tbody>
                                     </table>

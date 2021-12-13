@@ -77,9 +77,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $school_qualities = School_qualities::getInstance();
+                                            $school_qualities = SchoolQualities::getInstance();
                                             $count = 1;
                                             $school_qualitiesInfos = $school_qualities->getAll();
+                                              if ($school_qualitiesInfos){
                                             foreach ($school_qualitiesInfos as $school_qualitiesInfo) {
                                                 ?>
                                             <tr>
@@ -92,9 +93,19 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                         <?php 
-                                         $count ++;
-                                            } ?>
+                                     
+                                 <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

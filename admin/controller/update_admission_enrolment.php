@@ -17,10 +17,10 @@ if (isset($_POST['update_admission_enrolment'])) {
     } else {
 
         //sanitize data
-        $id = Admission_enrolment::sanitize_input($auth);
-        $title = Admission_enrolment::sanitize_input($_POST['title']);
-        $description = Admission_enrolment::sanitize_input($_POST['description']);
-        $enrolment = Admission_enrolment::sanitize_input($_POST['enrolment']);
+        $id = AdmissionEnrolment::sanitize_input($auth);
+        $title = AdmissionEnrolment::sanitize_input($_POST['title']);
+        $description = AdmissionEnrolment::sanitize_input($_POST['description']);
+        $enrolment = AdmissionEnrolment::sanitize_input($_POST['enrolment']);
         
         //process form Image
         try {
@@ -50,7 +50,7 @@ if (isset($_POST['update_admission_enrolment'])) {
         
 
         //get an Instance of admission_enrolment class
-        $admission_enrolment = Admission_enrolment::getInstance();
+        $admission_enrolment = AdmissionEnrolment::getInstance();
 
         //initialize class properties
 

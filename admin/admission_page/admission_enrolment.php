@@ -60,7 +60,7 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Entrance Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" class="form-control-file" name="entrance_image" id="exampleFormControlFile1">
+                                        <input type="file" class="form-control-file" name="enrolment_image" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>
@@ -100,25 +100,34 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $admission_enrolment = Admission_enrolment::getInstance();
+                                                $admission_enrolment = AdmissionEnrolment::getInstance();
                                                 $count = 1;
                                                 $row = $admission_enrolment->getAll();
-                                            
+                                            if ($row){
                                             ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
                                                 <td><?php echo $row['title']?></td>
                                                 <td><?php echo $row['description']?></td>
                                                 <td><?php echo $row['enrolment']?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['enrolment_image'] ?>" width="30px"></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['enrolment_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
                                                     <a href="update_admission_enrolment?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
                                                     <a href="../controller/delete_admission_enrolment?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
-                                            </tr>
-                                           
+                                            </tr>   
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>     
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

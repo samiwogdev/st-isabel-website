@@ -91,12 +91,13 @@ class FacilityData extends Connection {
     }
 
     public function update() {
-        $sql = "UPDATE " . $this->table_name . " SET title = :title, description = :description, slider_image = :slider_image  WHERE id = :id";
+        $sql = "UPDATE " . $this->table_name . " SET icon = :icon, title = :title, description = :description, facility_image = :facility_image  WHERE id = :id";
         $statement = $this->getDbConnection()->prepare($sql);
         $statement->bindParam(":id", $this->id);
+        $statement->bindParam(":icon", $this->icon);
         $statement->bindParam(":title", $this->title);
         $statement->bindParam(":description", $this->description);
-        $statement->bindParam(":slider_image", $this->slider_image);
+        $statement->bindParam(":facility_image", $this->facility_image);
         $statement->execute();
         return TRUE;
     }

@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                            $school_song = School_song::getInstance();
+                                            $school_song = SchoolSong::getInstance();
                                             $count = 1;
                                             $school_songInfos = $school_song->getAll();
+                                             if ($school_songInfos){
                                             foreach ($school_songInfos as $school_songInfo) {
                                                 ?>
                                             <tr>
@@ -101,7 +102,20 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                       
+                                 <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

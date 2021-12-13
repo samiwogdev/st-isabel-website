@@ -79,6 +79,7 @@ include_once '../includes/admin_navbar.php';
                                             $facility_definition = FacilityDefinition::getInstance();
                                             $count = 1;
                                             $rows = $facility_definition->getAll();
+                                              if ($rows){
                                             foreach ($rows as $row) {
                                                 ?>
                                                 <tr>
@@ -86,16 +87,25 @@ include_once '../includes/admin_navbar.php';
                                                     <td><?php echo $row['title'] ?></td>
                                                     <td>
                                                         <div class="text-center">
-                                                            <a href="page_tags?auth=<?php echo $row['id'] ?>"><span class="fa fa-plus-circle text-success fa-2x mr-2" style="cursor: pointer"></span></a>
-                                                            <a href="update_page_tags?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x mr-2" style="cursor: pointer"></span></a>
+                                                            <a href="facility_info?auth=<?php echo $row['id'] ?>"><span class="fa fa-plus text-primary fa-2x mr-2" style="cursor: pointer" title="add facility info"></span></a>
+                                                            <a href="facility_data?auth=<?php echo $row['id'] ?>"><span class="fa fa-plus-circle text-success fa-2x mr-2" style="cursor: pointer" title="add facility Pictures"></span></a>
+                                                            <a href="update_page_tags?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-warning fa-2x mr-2" style="cursor: pointer"></span></a>
                                                             <a href="../controller/delete_page_tags?auth=<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <?php
-                                                $count++;
-                                            }
-                                            ?>
+                                                 <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

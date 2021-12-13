@@ -36,8 +36,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $contact_banner = Contact_banner::getInstance();
-                        $auths = Contact_banner::sanitize_input($auth);
+                        $contact_banner = ContactBanner::getInstance();
+                        $auths = ContactBanner::sanitize_input($auth);
                         $contact_banner->setId($auths);
                         $contact_bannerInfo = $contact_banner->getById();
                         ?>

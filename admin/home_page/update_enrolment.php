@@ -15,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Update Enrolment</h3>
+                <h3>Update Enrollment</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -23,7 +23,7 @@ include_once '../includes/admin_navbar.php';
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2><small>Add new Enrolment Information</small></h2>
+                        <h2><small>Add new Enrollment Information</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -60,18 +60,18 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea cols="30" rows="10" type="text" name="description" required="required" value="<?php echo $enrolmentInfo['description'] ?>" class="form-control"></textarea>
+                                    <textarea cols="30" rows="10" type="text" name="description" required="required" value="" class="form-control"><?php echo $enrolmentInfo['description'] ?></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="enrol_title">Enrolment Title <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="enrol_title">Enrollment Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="enrol_title" required="required" value="<?php echo $enrolmentInfo['enrol_title'] ?>" class="form-control ">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="enrol_desc">Enrolment Description <span class="required">*</span>
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="enrol_desc">Enrollment Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input type="text" name="enrol_desc" required="required" value="<?php echo $enrolmentInfo['enrol_desc'] ?>" class="form-control">

@@ -93,6 +93,7 @@ include_once '../includes/admin_navbar.php';
                                             $slider = Slider::getInstance();
                                             $count = 1;
                                             $sliderInfos = $slider->getAll();
+                                             if ($sliderInfos){
                                             foreach ($sliderInfos as $sliderInfo) {
                                                 ?>
                                                 <tr>
@@ -107,6 +108,19 @@ include_once '../includes/admin_navbar.php';
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
                                             <?php } ?>
                                         </tbody>
                                     </table>

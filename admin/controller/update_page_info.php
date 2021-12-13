@@ -17,9 +17,9 @@ if (isset($_POST['update_page_info'])) {
     } else {
 
         //sanitize data
-        $id = Page_info::sanitize_input($auth);
-        $title = Page_info::sanitize_input($_POST['title']);
-        $description = Page_info::sanitize_input($_POST['description']);
+        $id = PageInfo::sanitize_input($auth);
+        $title = PageInfo::sanitize_input($_POST['title']);
+        $description = PageInfo::sanitize_input($_POST['description']);
 
         //process form Image
         try {
@@ -47,7 +47,7 @@ if (isset($_POST['update_page_info'])) {
         }
 
         //get an Instance of page_info class
-        $page_info = Page_info::getInstance();
+        $page_info = PageInfo::getInstance();
 
         //initialize class properties
 

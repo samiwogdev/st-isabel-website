@@ -10,13 +10,13 @@ if (isset($_POST['add_school_song'])) {
     } else {
 
         //sanitize form input
-        $title = School_song::sanitize_input($_POST['title']);
-        $description = School_song::sanitize_input($_POST['description']);
+        $title = SchoolSong::sanitize_input($_POST['title']);
+        $description = SchoolSong::sanitize_input($_POST['description']);
 
         
 
         //get an Instance of slider class
-        $school_song = School_song::getInstance();
+        $school_song = SchoolSong::getInstance();
 
         //initialize class propperties
         $school_song->setTitle($title);

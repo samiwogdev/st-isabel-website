@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $admission_enrolment = Admission_enrolment::getInstance();
-                        $auths = Admission_enrolment::sanitize_input($auth);
+                        $admission_enrolment = AdmissionEnrolment::getInstance();
+                        $auths = AdmissionEnrolment::sanitize_input($auth);
                         $admission_enrolment->setId($auths);
                         $admission_enrolmentInfo = $admission_enrolment->getById();
                         ?>

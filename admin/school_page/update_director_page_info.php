@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $director_page_info = Director_page_info::getInstance();
-                        $auths = Director_page_info::sanitize_input($auth);
+                        $director_page_info = DirectorPageInfo::getInstance();
+                        $auths = DirectorPageInfo::sanitize_input($auth);
                         $director_page_info->setId($auths);
                         $director_page_infoInfo = $director_page_info->getById();
                         ?>

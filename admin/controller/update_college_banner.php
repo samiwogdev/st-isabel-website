@@ -17,8 +17,8 @@ if (isset($_POST['update_college_banner'])) {
     } else {
 
         //sanitize data
-        $id = College_banner::sanitize_input($auth);
-        $title = College_banner::sanitize_input($_POST['title']);
+        $id = CollegeBanner::sanitize_input($auth);
+        $title = CollegeBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_college_banner'])) {
         }
 
         //get an Instance of college_banner class
-        $college_banner = College_banner::getInstance();
+        $college_banner = CollegeBanner::getInstance();
 
         //initialize class properties
 

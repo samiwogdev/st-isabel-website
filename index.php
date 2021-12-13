@@ -72,7 +72,7 @@ include_once 'includes/header.php';
 </section>
 
 <?php
-$slider_ext = Slider_ext::getInstance();
+$slider_ext = SliderExt::getInstance();
 $result = $slider_ext->getAll();
 ?>
 <section class="ftco-services ftco-no-pb">
@@ -97,7 +97,7 @@ $result = $slider_ext->getAll();
 
 <section class="courses single section" style="background-color: #f5f5ff">
     <?php
-    $who_we_are_page_info = Who_we_are_page_info::getInstance();
+    $who_we_are_page_info = WhoWeArePageInfo::getInstance();
     $row = $who_we_are_page_info->getAll();
     ?>
     <div class="container">
@@ -144,7 +144,7 @@ $result = $slider_ext->getAll();
                             <!-- ======= Features Section ======= -->
                             <section id="features" class="features mt-5">
                                 <?php
-                                $school_qualities = School_qualities::getInstance();
+                                $school_qualities = SchoolQualities::getInstance();
                                 $result = $school_qualities->getAll();
                                 ?>
                                 <div class="container">
@@ -198,19 +198,20 @@ $result = $slider_ext->getAll();
                 <div class="course-slider">
                     <?php
                     $facility_data = FacilityData::getInstance();
-                    $result = $facility_data->getAll();  ?>
+                    $result = $facility_data->getAll();
+                    ?>
                     <!-- Single Course -->
-                      <?php foreach ($result as $row) { ?>
-                    <div class="single-course shadow">
-                        <div class="course-head overlay">
-                            <img src="uploads/raw/<?php echo $row['facility_image'] ?>"  alt="#" style="height: 250px" data-aos="zoom-out">
-                            <a href="school-lab.php" class="btn"><i class="<?php echo $row['icon']; ?>"></i></a>
+                    <?php foreach ($result as $row) { ?>
+                        <div class="single-course shadow">
+                            <div class="course-head overlay">
+                                <img src="admin/uploads/raw/<?php echo $row['facility_image'] ?>"  alt="#" style="height: 250px" data-aos="zoom-out">
+                                <a href="school-lab.php" class="btn"><i class="<?php echo $row['icon']; ?>"></i></a>
+                            </div>
+                            <div class="single-content">
+                                <h4><a href="school-lab.php"><span><?php echo $row['title']; ?></span> <?php echo $row['description']; ?></a></h4>
+                            </div>
                         </div>
-                        <div class="single-content">
-                            <h4><a href="school-lab.php"><span><?php echo $row['title']; ?></span> <?php echo $row['description']; ?></a></h4>
-                        </div>
-                    </div>
-                      <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -303,15 +304,165 @@ $row = $enrolment->getAll();
 </section>
 
 
-
-
-
-
+<!-- Gallery -->
+<section class="events section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="section-title">
+                    <h2 data-aos="fade-left">Events & Gallery</h2>
+                    <!-- <p>Mauris at varius </p> -->
+                </div>
+            </div>
+        </div>
+        <?php
+        $gallery_data = GalleryData::getInstance();
+        $result = $gallery_data->getAll();
+        ?>
+        <div class="row">
+            <div class="col-12">
+                <div class="event-slider">
+                    <?php foreach ($result as $row) { ?>
+                        <div class="single-event shadow-lg">
+                            <div class="head overlay">
+                                <img src="admin/uploads/raw/<?php echo $row['gallery_image'] ?>" alt="#" style="height: 250px" data-aos="zoom-out">
+                                <a href="admin/uploads/raw/<?php echo $row['gallery_image'] ?>" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
+                            </div>
+                            <div class="event-content">
+                                <div class="meta"> 
+                                </div>
+                                <p> <?php echo $row['description'] ?></p>
+                                <div class="button">
+                                    <a href="gallery.php" class="btn">more</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Gallery -->
 
 <!-- Call To Action -->
+<section class="cta overlay" data-stellar-background-ratio="0.5" data-aos="zoom-out" style="background-image:url('images/slider/slide2.png');">
+    <?php
+    $school_song = SchoolSong::getInstance();
+    $result = $school_song->getAll();
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 offset-lg-6 col-12">
+                <div class="cta-inner overlay">
+                    <?php foreach ($result as $row) { ?>
+                        <div class="text-content" data-aos="zoom-out" data-aos-delay="300">
+                            <h2><?php echo $row['title'] ?></h2>
+                            <p><?php echo $row['description'] ?> <br>
+                                <br>
+                                <br>
+                            </p><br>
+                        <?php } ?>
+                        <div class="button">
+                            <a class="btn primary  " href="contact" >Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="courses single section" style="background-color: #f5f5ff">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="single-main shadow-lg">                  
+                    <!-- ======= Features Section ======= -->
+                    <section id="features" class="features ">
+                        <div class="section-title mb-2">
+                            <div class="section-title ">
+                                <h2 style="font-size: 24px;" data-aos="zoom-in">Media Board</h2>                               
+                            </div>
+                        </div>
 
 
+                        <footer class="footer section mt-0">
+                            <!-- Footer Top -->
+                            <div class="footer-top mt-0">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mt-0" data-aos="fade-right">
+                                            <div class="icon-box shadow mt-0" >
+                                                <i class="ri-book-read-line" style="color: #e80368;"></i>
+                                                <h3><a href="">Notice Board</a></h3>
+                                            </div>
+                                            <div class="course-required ">                             
+                                                <ul>
+                                                    <li><span class="shadow fa fa-pencil" style="color: #000"></span>Oyo State Government declares Friday 31st, August 2018 a Public Holiday for all Schools <hr></li>
+                                                    <li><span class="shadow fa fa-pencil" style="color: #000"></span>2018/2019 Academic Session begins on Monday 17th, September, 2018. <hr> </li>
+                                                    <li><span class="shadow fa fa-pencil" style="color: #000"></span> 20182018 GCE O'level classes ongoing at Valencia College</li>
+                                                </ul>
+                                            </div>
+                                        </div>
 
+                                        <div class="col-lg-4 col-md-6 col-12" data-aos="zoom-out">
+                                            <!-- Latest News -->
+                                            <div class="icon-box shadow " >
+                                                <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+                                                <h3><a href="">Events & News</a></h3>
+                                            </div>
+                                            <div class="single-widget latest-news">
 
+                                                <div class="news-inner">
+                                                    <div class="single-news">
+                                                        <img src="images/blog/blog3.jpg" alt="#" >
+                                                        <h4><a href="blog-single.html">Demo College Wins NANS Award</a></h4>
+                                                        <p>National Association of Nigerian..</p>
+                                                    </div>
+                                                    <div class="single-news">
+                                                        Thursday, Jul 23, 2015
+
+                                                        <img src="images/blog/blog3.jpg" alt="#">
+                                                        <h4><a href="blog-single.html">Outstanding Private Schools Award</a></h4>
+                                                        <p>House Committee on Education..</p>
+                                                    </div>
+                                                    <div class="single-news">
+                                                        <img src="images/blog/blog3.jpg" alt="#">
+                                                        <h4><a href="blog-single.html">Examination Updates</a></h4>
+                                                        <p>Dear Parents, Please be informed..</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/ End Latest News -->
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-12" data-aos="fade-left">
+                                            <div class="icon-box shadow " >
+                                                <i class="ri-download-line" style="color: #e80368;"></i>
+                                                <h3><a href="">Downloads</a></h3>
+                                            </div>
+                                            <div class="course-required " >                             
+                                                <ul>
+                                                    <li class="downloads"><span class="shadow-sm fa fa-file-pdf-o text-dark"></span><a href="" class="downloads">2019 School Brochure</a></li>
+                                                    <li><span class="shadow-sm fa fa-file-pdf-o text-dark"></span><a href="" class="downloads">Admission Guide</a></li>
+                                                    <li><span class="shadow-sm fa fa-file-pdf-o text-dark"></span><a href="" class="downloads">Academic Calender</a></li>
+                                                    <li><span class="shadow-sm fa fa-file-pdf-o text-dark"></span><a href="" class="downloads">2018 WASSCE Result</a></li>
+                                                    <li><span class="shadow-sm fa fa-file-pdf-o text-dark"></span><a href="" class="downloads">2017 BECE Result</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ End Footer Bottom -->
+                        </footer>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Features Section -->
 
 <?php include 'includes/footer.php' ?>

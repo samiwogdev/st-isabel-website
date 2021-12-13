@@ -10,7 +10,7 @@ if (isset($_POST['add_director_banner'])) {
     } else {
 
         //sanitize form input
-        $title = Director_banner::sanitize_input($_POST['title']);
+        $title = DirectorBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_director_banner'])) {
         }
 
         //get an Instance of director_banner class
-        $director_banner = Director_banner::getInstance();
+        $director_banner = DirectorBanner::getInstance();
 
         //initialize class properties
         $director_banner->setTitle($title);

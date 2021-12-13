@@ -34,7 +34,7 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        
+
                         <form class="form-horizontal form-label-left" action="../controller/add_creche_page_info_ext.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
@@ -85,22 +85,37 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $creche_page_info_ext = Creche_page_info_ext::getInstance();
-                                                $count = 1;
-                                                $creche_page_info_extInfos = $creche_page_info_ext->getAll();
-                                                foreach ($creche_page_info_extInfos as $creche_page_info_extInfo){ 
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $count?></td>
-                                                <td> <?php echo $creche_page_info_extInfo ['title'] ?> </td>
-                                                <td><?php echo $creche_page_info_extInfo['description']?></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                    <a href="update_creche_page_info_ext?auth=<?php echo $creche_page_info_extInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_creche_page_info_ext?auth=<?php echo $creche_page_info_extInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            $creche_page_info_ext = CrechePageInfoExt::getInstance();
+                                            $count = 1;
+                                            $creche_page_info_extInfos = $creche_page_info_ext->getAll();
+                                            if ($creche_page_info_extInfos) {
+                                                foreach ($creche_page_info_extInfos as $creche_page_info_extInfo) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $count ?></td>
+                                                        <td> <?php echo $creche_page_info_extInfo ['title'] ?> </td>
+                                                        <td><?php echo $creche_page_info_extInfo['description'] ?></td>
+                                                        <td>
+                                                            <div class="text-center">
+                                                                <a href="update_creche_page_info_ext?auth=<?php echo $creche_page_info_extInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                                <a href="../controller/delete_creche_page_info_ext?auth=<?php echo $creche_page_info_extInfo['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>  
+
+
                                             <?php } ?>
                                         </tbody>
                                     </table>
@@ -148,7 +163,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "del") { ?>
+<?php } if (isset($info) && $info == "del") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
@@ -163,7 +178,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "complete") { ?>
+<?php } if (isset($info) && $info == "complete") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,

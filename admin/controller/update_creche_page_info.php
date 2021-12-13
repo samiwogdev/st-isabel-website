@@ -17,12 +17,12 @@ if (isset($_POST['update_creche_page_info'])) {
     } else {
 
         //sanitize data
-        $id = Creche_page_info::sanitize_input($auth);
-        $title = Creche_page_info::sanitize_input($_POST['title']);
-        $description = Creche_page_info::sanitize_input($_POST['description']);
+        $id = CrechePageInfo::sanitize_input($auth);
+        $title = CrechePageInfo::sanitize_input($_POST['title']);
+        $description = CrechePageInfo::sanitize_input($_POST['description']);
 
         //get an Instance of creche_page_info class
-        $creche_page_info = creche_page_info::getInstance();
+        $creche_page_info = CrechePageInfo::getInstance();
 
         //initialize class properties
 

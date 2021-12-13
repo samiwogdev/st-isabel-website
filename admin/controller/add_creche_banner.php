@@ -10,7 +10,7 @@ if (isset($_POST['add_creche_banner'])) {
     } else {
 
         //sanitize form input
-        $title = Creche_banner::sanitize_input($_POST['title']);
+        $title = CrecheBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_creche_banner'])) {
         }
 
         //get an Instance of creche_banner class
-        $creche_banner = Creche_banner::getInstance();
+        $creche_banner = CrecheBanner::getInstance();
 
         //initialize class properties
         $creche_banner->setTitle($title);

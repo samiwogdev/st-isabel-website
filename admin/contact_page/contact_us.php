@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $contact_us = Contact_us::getInstance();
+                                                $contact_us = ContactUs::getInstance();
                                                 $count = 1;
                                                 $contact_usInfos = $contact_us->getAll();
+                                                 if ($contact_usInfos){
                                                 foreach ($contact_usInfos as $contact_usInfo){ 
                                             ?>
                                             <tr>
@@ -101,6 +102,17 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                              <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
                                             <?php } ?>
                                         </tbody>
                                     </table>

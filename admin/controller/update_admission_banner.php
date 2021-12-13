@@ -17,8 +17,8 @@ if (isset($_POST['update_admission_banner'])) {
     } else {
 
         //sanitize data
-        $id = Admission_banner::sanitize_input($auth);
-        $title = Admission_banner::sanitize_input($_POST['title']);
+        $id = AdmissionBanner::sanitize_input($auth);
+        $title = AdmissionBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_admission_banner'])) {
         }
 
         //get an Instance of admission_banner class
-        $admission_banner = Admission_banner::getInstance();
+        $admission_banner = AdmissionBanner::getInstance();
 
         //initialize class properties
 

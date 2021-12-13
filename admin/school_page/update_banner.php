@@ -56,7 +56,7 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" class="form-control-file" value="<?php echo $bannerInfo['banner_image'] ?>" id="exampleFormControlFile1">
+                                        <input type="file" name="banner_image" class="form-control-file" value="<?php echo $bannerInfo['banner_image'] ?>" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>

@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $who_we_are_page_info = Who_we_are_Page_info::getInstance();
-                        $auths = Who_we_are_Page_info::sanitize_input($auth);
+                        $who_we_are_page_info = WhoWeArePageInfo::getInstance();
+                        $auths = WhoWeArePageInfo::sanitize_input($auth);
                         $who_we_are_page_info->setId($auths);
                         $who_we_are_page_infoInfo = $who_we_are_page_info->getById();
                         ?>
@@ -50,7 +50,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                   <div class="col-md-6 col-sm-6 ">
-                                    <textarea name="description" value="<?php echo $who_we_are_page_infoInfo['description'] ?>" required="required" class="form-control" name="message" data-parsley-trigger="keyup" rows="10" cols="10"></textarea>
+                                    <textarea name="description" value="" required="required" class="form-control" name="message" data-parsley-trigger="keyup" rows="10" cols="10"><?php echo $who_we_are_page_infoInfo['description'] ?></textarea>
                                 </div>
                             </div>
                             <div class="item form-group">

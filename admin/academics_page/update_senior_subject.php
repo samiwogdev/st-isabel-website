@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $senior_subject = Senior_subject::getInstance();
-                        $auths = Senior_subject::sanitize_input($auth);
+                        $senior_subject = SeniorSubject::getInstance();
+                        $auths = SeniorSubject::sanitize_input($auth);
                         $senior_subject->setId($auths);
                         $senior_subjectInfo = $senior_subject->getById();
                         ?>

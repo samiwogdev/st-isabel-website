@@ -17,8 +17,8 @@ if (isset($_POST['update_objective_banner'])) {
     } else {
 
         //sanitize data
-        $id = Objective_banner::sanitize_input($auth);
-        $title = Objective_banner::sanitize_input($_POST['title']);
+        $id = ObjectiveBanner::sanitize_input($auth);
+        $title = ObjectiveBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_objective_banner'])) {
         }
 
         //get an Instance of objective_banner class
-        $objective_banner = Objective_banner::getInstance();
+        $objective_banner = ObjectiveBanner::getInstance();
 
         //initialize class properties
 

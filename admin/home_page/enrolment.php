@@ -112,11 +112,11 @@ include_once '../includes/admin_navbar.php';
                                             $enrolment = Enrolment::getInstance();
                                             $count = 1;
                                             $row = $enrolment->getAll();
-                                            
+                                            if ($row){
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $count ?></td>
-                                                    <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['bg_image'] ?>" width="30px"></td>
+                                                    <td class="text-center"><img src="../uploads/raw/<?php echo $row['bg_image'] ?>" width="30px"></td>
                                                     <td><?php echo $row['title'] ?></td>
                                                     <td class="text-center"><?php echo $row['description'] ?></td>
                                                     <td><?php echo $row['enrol_title'] ?></td>
@@ -129,6 +129,19 @@ include_once '../includes/admin_navbar.php';
                                                     </td>
                                                 </tr>
                                             
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

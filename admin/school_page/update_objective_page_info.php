@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $objective_page_info = Objective_page_info::getInstance();
-                        $auths = Objective_page_info::sanitize_input($auth);
+                        $objective_page_info = ObjectivePageInfo::getInstance();
+                        $auths = ObjectivePageInfo::sanitize_input($auth);
                         $objective_page_info->setId($auths);
                         $objective_page_infoInfo = $objective_page_info->getById();
                         ?>

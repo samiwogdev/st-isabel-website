@@ -17,12 +17,12 @@ if (isset($_POST['update_senior_infoExt'])) {
     } else {
 
         //sanitize data
-        $id = Senior_infoExt::sanitize_input($auth);
-        $title = Senior_infoExt::sanitize_input($_POST['title']);
-        $description = Senior_infoExt::sanitize_input($_POST['description']);
+        $id = SeniorInfoExt::sanitize_input($auth);
+        $title = SeniorInfoExt::sanitize_input($_POST['title']);
+        $description = SeniorInfoExt::sanitize_input($_POST['description']);
 
         //get an Instance of senior_infoExt class
-        $senior_infoExt = Senior_infoExt::getInstance();
+        $senior_infoExt = SeniorInfoExt::getInstance();
 
         //initialize class properties
 

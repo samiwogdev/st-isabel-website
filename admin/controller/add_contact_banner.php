@@ -10,7 +10,7 @@ if (isset($_POST['add_contact_banner'])) {
     } else {
 
         //sanitize form input
-        $title = Contact_banner::sanitize_input($_POST['title']);
+        $title = ContactBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_contact_banner'])) {
         }
 
         //get an Instance of contact_banner class
-        $contact_banner = Contact_banner::getInstance();
+        $contact_banner = ContactBanner::getInstance();
 
         //initialize class properties
         $contact_banner->setTitle($title);

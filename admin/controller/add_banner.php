@@ -1,20 +1,21 @@
 <?php
+
 include_once '../configuration.php';
 
 //check if form is submitted
 if (isset($_POST['add_banner'])) {
 
     //check if form input are not empty
-    if (empty($_POST['title'])){  
+    if (empty($_POST['title'])) {
         header("location: ../school_page/banner?info=failed");
     } else {
 
         //sanitize form input
-     $title = Banner::sanitize_input($_POST['title']);
-
+        $title = Banner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
+
             // Check if image was uploaded without errors
             if (isset($_FILES["banner_image"]) && $_FILES["banner_image"]["error"] == 0) {
                 $allowedImageType = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "png" => "image/png", "gif" => "image/gif");
@@ -37,14 +38,11 @@ if (isset($_POST['add_banner'])) {
         } catch (Exception $ex) {
             echo $ex->getMessage();
         }
-
         //get an Instance of banner class
         $banner = Banner::getInstance();
-
         //initialize class properties
         $banner->setTitle($title);
         $banner->setBanner_image($banner_image);
-
         //add form input to database/check if it successful
         if ($banner->add()) {
             header("location: ../school_page/banner?info=success");

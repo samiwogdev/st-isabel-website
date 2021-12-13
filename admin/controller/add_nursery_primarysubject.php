@@ -10,11 +10,11 @@ if (isset($_POST['add_nursery_primarysubject'])) {
     } else {
 
         //sanitize form input
-        $title = Nursery_primarysubject::sanitize_input($_POST['title']);
+        $title = NurseryPrimarysubject::sanitize_input($_POST['title']);
         
 
         //get an Instance of page_info class
-        $nursery_primarysubject = Nursery_primarysubject::getInstance();
+        $nursery_primarysubject = NurseryPrimarysubject::getInstance();
 
         //initialize class properties
         $nursery_primarysubject->setTitle($title);

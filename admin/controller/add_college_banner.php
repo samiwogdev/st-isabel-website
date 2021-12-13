@@ -10,7 +10,7 @@ if (isset($_POST['add_college_banner'])) {
     } else {
 
         //sanitize form input
-        $title = College_banner::sanitize_input($_POST['title']);
+        $title = CollegeBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_college_banner'])) {
         }
 
         //get an Instance of college_banner class
-        $college_banner = College_banner::getInstance();
+        $college_banner = CollegeBanner::getInstance();
 
         //initialize class properties
         $college_banner->setTitle($title);

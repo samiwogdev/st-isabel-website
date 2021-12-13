@@ -10,7 +10,7 @@ if (isset($_POST['add_gallery_banner'])) {
     } else {
 
         //sanitize form input
-        $title = Gallery_banner::sanitize_input($_POST['title']);
+        $title = GalleryBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_gallery_banner'])) {
         }
 
         //get an Instance of gallery_banner class
-        $gallery_banner = Gallery_banner::getInstance();
+        $gallery_banner = GalleryBanner::getInstance();
 
         //initialize class properties
         $gallery_banner->setTitle($title);

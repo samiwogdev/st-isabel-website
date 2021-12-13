@@ -92,10 +92,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $director_page_info = Director_page_info::getInstance();
+                                                $director_page_info = DirectorPageInfo::getInstance();
                                                 $count = 1;
                                                 $row = $director_page_info->getAll();
-                                                
+                                                  if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count?></td>
@@ -110,6 +110,17 @@ include_once '../includes/admin_navbar.php';
                                                 </td>
                                             </tr>
                                            
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

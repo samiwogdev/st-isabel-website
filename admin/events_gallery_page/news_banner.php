@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $news_banner = News_banner::getInstance();
+                                                $news_banner = NewsBanner::getInstance();
                                                 $count = 1;
                                                 $row = $news_banner->getAll();
+                                                  if ($row){
                                                 
                                         ?>
                                             <tr>
@@ -102,6 +103,16 @@ include_once '../includes/admin_navbar.php';
                                                 </td>
                                             </tr>
                                             
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

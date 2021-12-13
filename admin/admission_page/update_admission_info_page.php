@@ -35,8 +35,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $admission_info_page = Admission_info_page::getInstance();
-                        $auths = Admission_info_page::sanitize_input($auth);
+                        $admission_info_page = AdmissionInfoPage::getInstance();
+                        $auths = AdmissionInfoPage::sanitize_input($auth);
                         $admission_info_page->setId($auths);
                         $admission_info_pageInfo = $admission_info_page->getById();
                         ?>
@@ -46,14 +46,14 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea cols="30" rows="10" type="text" name="title" value="<?php echo $admission_info_pageInfo['title'] ?>" required="required" class="form-control "></textarea>
+                                    <textarea cols="30" rows="10" type="text" name="title" value=" required="required" class="form-control "><?php echo $admission_info_pageInfo['title'] ?>"</textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align"> Result Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" name="result_image" value="<?php echo $admission_info_pageInfo['result_image'] ?>" class="form-control-file" id="exampleFormControlFile1">
+                                        <input type="file" name="result_image" value="" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>

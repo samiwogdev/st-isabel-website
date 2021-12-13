@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $creche_page_info_ext = Creche_page_info_ext::getInstance();
-                        $auths = Creche_page_info_ext::sanitize_input($auth);
+                        $creche_page_info_ext = CrechePageInfoExt::getInstance();
+                        $auths = CrechePageInfoExt::sanitize_input($auth);
                         $creche_page_info_ext->setId($auths);
                         $creche_page_info_extInfo = $creche_page_info_ext->getById();
                         ?>

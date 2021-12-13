@@ -17,12 +17,12 @@ if (isset($_POST['update_nursery_primary_page_info'])) {
     } else {
 
         //sanitize data
-        $id = Nursery_primary_page_info::sanitize_input($auth);
-        $title = Nursery_primary_page_info::sanitize_input($_POST['title']);
-        $description = Nursery_primary_page_info::sanitize_input($_POST['description']);
+        $id = NurseryPrimaryPageInfo::sanitize_input($auth);
+        $title = NurseryPrimaryPageInfo::sanitize_input($_POST['title']);
+        $description = NurseryPrimaryPageInfo::sanitize_input($_POST['description']);
 
         //get an Instance of nursery_primary_page_info class
-        $nursery_primary_page_info = Nursery_primary_page_info::getInstance();
+        $nursery_primary_page_info = NurseryPrimaryPageInfo::getInstance();
 
         //initialize class properties
 

@@ -15,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>The Director</h3>
+                <h3>Who We Are Banner</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -47,7 +47,7 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" class="form-control-file" name="director_image" id="exampleFormControlFile1">
+                                        <input type="file" class="form-control-file" name="banner_image" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@ include_once '../includes/admin_navbar.php';
                                                 $banner = Banner::getInstance();
                                                 $count = 1;
                                                 $row = $banner->getAll();
-                                                
+                                                   if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
@@ -101,7 +101,15 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                          
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>                           
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

@@ -33,6 +33,8 @@
                                         <li><a href="../home_page/facility_intro">Facility Intro</a></li>
                                         <li><a href="../home_page/facility_data">Facility Data</a></li>
                                         <li><a href="../home_page/enrolment">Enrollment Info</a></li>
+                                        <li><a href="../home_page/gallery_data">Events & Gallery</a></li>
+                                        <li><a href="../home_page/song_banner">School Song Banner</a></li>
                                         <li><a href="../home_page/school_song">School Song</a></li>
                                     </ul>
                                 </li>
@@ -64,7 +66,7 @@
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="../academics_page/creche_banner">Banner</a></li>
                                                 <li><a href="../academics_page/creche_page_info">Page Info</a></li>
-                                                <li><a href="../academics_page/creche_page_info_ext">Page Info Ext</a></li>
+<!--                                                <li><a href="../academics_page/creche_page_info_ext">Page Info Ext</a></li>-->
                                             </ul>
                                         </li>
                                         <li><a>Nursery/Primary<span class="fa fa-chevron-down"></span></a>
@@ -89,31 +91,9 @@
                                 </li>  
                                 <li><a><i class="fa fa-sitemap"></i> Facilities <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                        <li class="sub_menu"><a href="../facilities/facility-banner">Facility Banner</a></li>
                                         <li class="sub_menu"><a href="../facilities/definition">Facility Definition</a></li>
-                                        <li><a>Laboratories<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="../facilities_page/definition">Banner</a></li>
-                                                <li><a href="../facilities_page/laboratories_slider">Slider</a></li>
-                                                <li><a href="../facilities_page/laboratories_info_page">Page Info </a></li>
-                                                <li><a href="../facilities_page/laboratories_list">List of Laboratories </a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a>Library<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="../facilities_page/library_banner">Banner</a> </li>
-                                                <li><a href="../facilities_page/library_slider">Slider</a> </li>
-                                                <li><a href="../facilities_page/library_info_page">Page Info</a> </li>
-                                                <li><a href="../facilities_page/library_feature">Feature</a> </li>
-                                            </ul>
-                                        </li>
-                                        <li><a>Hostel<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu"><a href="../facilities_page/hostel_banner">Banner</a></li>
-                                                <li class="sub_menu"><a href="../facilities_page/hostel_slider">Slider</a></li>
-                                                <li class="sub_menu"><a href="../facilities_page/hostel_info_page">Page Info</a></li>
-                                                <li class="sub_menu"><a href="../facilities_page/hostel_feature">Feature</a></li>
-                                            </ul>
-                                        </li>
+                                        <li class="sub_menu"><a href="../facilities/laboratory_info">Laboratory Information</a></li>
                                     </ul>
                                 </li>  
                                 <li><a><i class="fa fa-sitemap"></i> Admission <span class="fa fa-chevron-down"></span></a>
@@ -132,12 +112,15 @@
                                         <li><a>News<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="../events_gallery_page/news_banner">Banner</a></li>
-                                                <li class="sub_menu"><a href="../events_gallery_page/page_definition.php">Page Definition</a> </li>
+                                                <li class="sub_menu"><a href="../events_gallery_page/notice_board">Notice Board</a> </li>
+                                                <li class="sub_menu"><a href="../events_gallery_page/news_info">Events & News</a> </li>
+                                                <li class="sub_menu"><a href="../events_gallery_page/downloads">Downloads</a> </li>
                                             </ul>
                                         </li>
                                         <li><a>Gallery<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu"><a href="../events_gallery_page/gallery_banner">Banner</a> </li> 
+                                                <li class="sub_menu"><a href="../events_gallery_page/gallery_definition">Gallery Definition</a> </li> 
                                             </ul>
                                         </li>
 

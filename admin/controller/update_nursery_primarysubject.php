@@ -17,11 +17,11 @@ if (isset($_POST['update_nursery_primarysubject'])) {
     } else {
 
         //sanitize data
-        $id = Nursery_primarysubject::sanitize_input($auth);
-        $title = Nursery_primarysubject::sanitize_input($_POST['title']);
+        $id = NurseryPrimarysubject::sanitize_input($auth);
+        $title = NurseryPrimarysubject::sanitize_input($_POST['title']);
 
         //get an Instance of nursery_primarysubject class
-        $nursery_primarysubject = Nursery_primarysubject::getInstance();
+        $nursery_primarysubject = NurseryPrimarysubject::getInstance();
 
         //initialize class properties
 

@@ -10,12 +10,12 @@ if (isset($_POST['add_college_page_info'])) {
     } else {
 
         //sanitize form input
-        $title = College_page_info::sanitize_input($_POST['title']);
-        $description = College_page_info::sanitize_input($_POST['description']);
+        $title = CollegePageInfo::sanitize_input($_POST['title']);
+        $description = CollegePageInfo::sanitize_input($_POST['description']);
         
 
         //get an Instance of page_info class
-        $college_page_info = College_page_info::getInstance();
+        $college_page_info = CollegePageInfo::getInstance();
 
         //initialize class properties
         $college_page_info->setTitle($title);

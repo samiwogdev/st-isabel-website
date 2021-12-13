@@ -10,12 +10,12 @@ if (isset($_POST['add_creche_page_info'])) {
     } else {
 
         //sanitize form input
-        $title = Creche_page_info::sanitize_input($_POST['title']);
-        $description = Creche_page_info::sanitize_input($_POST['description']);
+        $title = CrechePageInfo::sanitize_input($_POST['title']);
+        $description = CrechePageInfo::sanitize_input($_POST['description']);
         
 
         //get an Instance of page_info class
-        $creche_page_info = Creche_page_info::getInstance();
+        $creche_page_info = CrechePageInfo::getInstance();
 
         //initialize class properties
         $creche_page_info->setTitle($title);

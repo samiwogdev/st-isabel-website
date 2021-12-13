@@ -35,8 +35,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $admission_banner = admission_banner::getInstance();
-                        $auths = admission_banner::sanitize_input($auth);
+                        $admission_banner = AdmissionBanner::getInstance();
+                        $auths = AdmissionBanner::sanitize_input($auth);
                         $admission_banner->setId($auths);
                         $admission_bannerInfo = $admission_banner->getById();
                         ?>

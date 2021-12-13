@@ -85,15 +85,15 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $admission_info_page = Admission_info_page::getInstance();
+                                                $admission_info_page = AdmissionInfoPage::getInstance();
                                                 $count = 1;
                                                 $row = $admission_info_page->getAll();
-                                                
+                                                if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
                                                 <td><?php echo $row['title'] ?></td>
-                                                <td class="text-center"><img src="../admin-assets/images/media.jpg<?php echo $row['result_image'] ?>" width="30px"></td>
+                                                <td class="text-center"><img src="../uploads/raw/<?php echo $row['result_image'] ?>" width="30px"></td>
                                                 <td>
                                                     <div class="text-center">
                                                     <a href="update_admission_info_page?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
@@ -101,7 +101,16 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                           
+                                                  <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>
