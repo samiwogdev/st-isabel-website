@@ -36,8 +36,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $college_banner = College_banner::getInstance();
-                        $auths = College_banner::sanitize_input($auth);
+                        $college_banner = CollegeBanner::getInstance();
+                        $auths = CollegeBanner::sanitize_input($auth);
                         $college_banner->setId($auths);
                         $college_bannerInfo = $college_banner->getById();
                         ?>
@@ -54,7 +54,7 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" name="college_image" value="<?php echo $college_bannerInfo['college_banner'] ?>" class="form-control-file" id="exampleFormControlFile1">
+                                        <input type="file" name="college_image" value="" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>

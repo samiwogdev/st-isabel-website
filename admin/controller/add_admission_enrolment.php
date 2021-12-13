@@ -10,9 +10,9 @@ if (isset($_POST['add_admission_enrolment'])) {
     } else {
 
         //sanitize form input
-        $title = Admission_enrolment::sanitize_input($_POST['title']);
-        $description = Admission_enrolment::sanitize_input($_POST['description']);
-        $enrolment = Admission_enrolment::sanitize_input($_POST['enrolment']);
+        $title = AdmissionEnrolment::sanitize_input($_POST['title']);
+        $description = AdmissionEnrolment::sanitize_input($_POST['description']);
+        $enrolment = AdmissionEnrolment::sanitize_input($_POST['enrolment']);
         
 //process formm Image
 try {
@@ -30,9 +30,11 @@ try {
             move_uploaded_file($_FILES['enrolment_image']['tmp_name'], "../uploads/raw/" . $enrolment_image);
             $imageFileName = copy('../uploads/raw/' . $enrolment_image, '../uploads/thumbnail/' . $enrolment_image);
         } else {
+                echo 'yes'; exit;
             header("location: ../admission_page/admission_enrolment?info=failed");
         }
     } else {
+            echo 'no'; exit;
         header("location: ../admission_page/admission_enrolment?info=failed");
     }
 } catch (Exception $ex) {
@@ -41,7 +43,7 @@ try {
 
 
         //get an Instance of page_info class
-        $admission_enrolment = Admission_enrolment::getInstance();
+        $admission_enrolment = AdmissionEnrolment::getInstance();
 
         //initialize class properties
         $admission_enrolment->setTitle($title);

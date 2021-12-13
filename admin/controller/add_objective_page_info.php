@@ -10,12 +10,12 @@ if (isset($_POST['add_objective_page_info'])) {
     } else {
 
         //sanitize form input
-        $title = Objective_page_info::sanitize_input($_POST['title']);
-        $description = Objective_page_info::sanitize_input($_POST['description']);
+        $title = ObjectivePageInfo::sanitize_input($_POST['title']);
+        $description = ObjectivePageInfo::sanitize_input($_POST['description']);
         
 
         //get an Instance of page_info class
-        $objective_page_info = Objective_page_info::getInstance();
+        $objective_page_info = ObjectivePageInfo::getInstance();
 
         //initialize class properties
         $objective_page_info->setTitle($title);

@@ -33,7 +33,7 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        
+
                         <form class="form-horizontal form-label-left" action="../controller/add_college_page_info.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Title <span class="required">*</span>
@@ -84,23 +84,32 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $college_page_info = College_page_info::getInstance();
-                                                $count = 1;
-                                                $row = $college_page_info->getAll();
-                                                
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $count?></td>
-                                                <td><?php echo $row['title']?></td>
-                                                <td><?php echo $row['description']?></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                    <a href="update_college_page_info?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_college_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
+                                            $college_page_info = CollegePageInfo::getInstance();
+                                            $count = 1;
+                                            $row = $college_page_info->getAll();
+                                            if ($row) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $count ?></td>
+                                                    <td><?php echo $row['title'] ?></td>
+                                                    <td><?php echo $row['description'] ?></td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <a href="update_college_page_info?auth=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="../controller/delete_college_page_info?auth=<?php echo $row['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } else { ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>     
+
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -147,7 +156,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "del") { ?>
+<?php } if (isset($info) && $info == "del") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
@@ -162,7 +171,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "complete") { ?>
+<?php } if (isset($info) && $info == "complete") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,

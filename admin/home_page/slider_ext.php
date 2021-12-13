@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $slider_ext = Slider_ext::getInstance();
+                                            $slider_ext = SliderExt::getInstance();
                                             $count = 1;
                                             $slider_extInfos = $slider_ext->getAll();
+                                             if ($slider_extInfos){
                                             foreach ($slider_extInfos as $slider_extInfo) {
                                                 ?>
                                             <tr>
@@ -101,7 +102,18 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                             <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

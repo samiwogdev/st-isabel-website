@@ -10,9 +10,9 @@ if (isset($_POST['add_facility_data'])) {
     } else {
 
         //sanitize form input
-        $icon = Slider::sanitize_input($_POST['icon']);
-        $title = Slider::sanitize_input($_POST['title']);
-        $description = Slider::sanitize_input($_POST['description']);
+        $icon = FacilityData::sanitize_input($_POST['icon']);
+        $title = FacilityData::sanitize_input($_POST['title']);
+        $description = FacilityData::sanitize_input($_POST['description']);
         
 
         //process formm Image

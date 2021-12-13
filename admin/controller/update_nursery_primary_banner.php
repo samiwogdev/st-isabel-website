@@ -17,8 +17,8 @@ if (isset($_POST['update_nursery_primary_banner'])) {
     } else {
 
         //sanitize data
-        $id = Nursery_primary_banner::sanitize_input($auth);
-        $title = Nursery_primary_banner::sanitize_input($_POST['title']);
+        $id = NurseryPrimaryBanner::sanitize_input($auth);
+        $title = NurseryPrimaryBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_nursery_primary_banner'])) {
         }
 
         //get an Instance of nursery_primary_banner class
-        $nursery_primary_banner = Nursery_primary_banner::getInstance();
+        $nursery_primary_banner = NurseryPrimaryBanner::getInstance();
 
         //initialize class properties
 

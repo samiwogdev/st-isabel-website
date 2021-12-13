@@ -28,7 +28,7 @@ include 'includes/header.php'
 		<!-- About US -->
 		<section class="about-us section">
 	<?php 
-		$who_we_are_page_info = who_we_are_page_info::getInstance();
+		$who_we_are_page_info = WhoWeArePageInfo::getInstance();
     	$row = $who_we_are_page_info->getAll();
 	?>
 			<div class="container">

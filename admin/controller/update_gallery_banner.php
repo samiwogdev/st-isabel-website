@@ -17,8 +17,8 @@ if (isset($_POST['update_gallery_banner'])) {
     } else {
 
         //sanitize data
-        $id = Gallery_banner::sanitize_input($auth);
-        $title = Gallery_banner::sanitize_input($_POST['title']);
+        $id = GalleryBanner::sanitize_input($auth);
+        $title = GalleryBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,13 +46,13 @@ if (isset($_POST['update_gallery_banner'])) {
         }
 
         //get an Instance of gallery_banner class
-        $gallery_banner = Gallery_banner::getInstance();
+        $gallery_banner = GalleryBanner::getInstance();
 
         //initialize class properties
 
         $gallery_banner->setId($auth);
         $gallery_banner->setTitle($title);
-        $gallery_banner->setGallery_image($gallery_image);
+        $gallery_banner->GalleryBanner($gallery_image);
 
         //update form input to database & check if it successful
         if ($gallery_banner->update()) {

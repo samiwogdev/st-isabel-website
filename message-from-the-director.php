@@ -5,8 +5,8 @@ include 'includes/header.php'
 
 <!-- Start Breadcrumbs -->
 <?php
-    $director_banner = Director_banner::getInstance();
-    $row = $director_banner -> getAll();
+    $director_banner = DirectorBanner::getInstance();
+    $row = $director_banner->getAll();
 ?>
 <section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['director_image']?>')" >
     <div class="container">
@@ -27,7 +27,7 @@ include 'includes/header.php'
 <!-- About US -->
 <section class="about-us section">
     <?php 
-        $director_page_info = Director_page_info::getInstance();
+        $director_page_info = DirectorPageInfo::getInstance();
         $row = $director_page_info -> getAll();
     ?>
     <div class="container">
@@ -53,7 +53,7 @@ include 'includes/header.php'
                     <p class="mb-0">Chief (Mrs) Isabel</p>
                     <p class="mt-0"><strong>Director @ St. Isabel</strong></p>
                     <div class="button">
-                            <a href="#" class="btn">Contact Us</a>
+                        <a href="contact" class="btn">Contact Us</a>
                     </div> 
                 </div>
             </div>
@@ -61,10 +61,6 @@ include 'includes/header.php'
     </div>
 </section>
 <!--/ End About US -->
-
-
-
-
 
 <?php
 include 'includes/footer.php'

@@ -5,7 +5,7 @@ include 'includes/header.php'
 		
 		<!-- Start Breadcrumbs -->
         <?php
-            $objective_banner = Objective_banner::getInstance();
+            $objective_banner = ObjectiveBanner::getInstance();
             $row = $objective_banner -> getAll();
         ?>
 		<section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['objective_image']?>')" >
@@ -27,7 +27,7 @@ include 'includes/header.php'
 		<!-- Faqs -->
 		<section class="faq page section">
             <?php 
-                $objective_page_info = Objective_page_info::getInstance();
+                $objective_page_info = ObjectivePageInfo::getInstance();
                 $row = $objective_page_info -> getAll();
             ?>
 			<div class="container">

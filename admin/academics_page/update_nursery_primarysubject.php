@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $nursery_primarysubject = Nursery_primarysubject::getInstance();
-                        $auths = Nursery_primarysubject::sanitize_input($auth);
+                        $nursery_primarysubject = NurseryPrimarysubject::getInstance();
+                        $auths = NurseryPrimarysubject::sanitize_input($auth);
                         $nursery_primarysubject->setId($auths);
                         $nursery_primarysubjectInfo = $nursery_primarysubject->getById();
                         ?>

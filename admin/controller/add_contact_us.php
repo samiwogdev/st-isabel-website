@@ -10,12 +10,12 @@ if (isset($_POST['add_contact_us'])) {
     } else {
 
         //sanitize form input
-        $title = Contact_us::sanitize_input($_POST['title']);
-        $description = Contact_us::sanitize_input($_POST['description']);
+        $title = ContactUs::sanitize_input($_POST['title']);
+        $description = ContactUs::sanitize_input($_POST['description']);
         
 
         //get an Instance of page_info class
-        $contact_us = contact_us::getInstance();
+        $contact_us = ContactUs::getInstance();
 
         //initialize class properties
         $contact_us->setTitle($title);

@@ -49,7 +49,7 @@ if (isset($_POST['update_enrolment'])) {
     }
 
     //get an Instance of Enrolment class
-    $enrolment =Enrolment::getInstance();
+    $enrolment = Enrolment::getInstance();
 
     //initialize class properties
     $enrolment->setId($auth);

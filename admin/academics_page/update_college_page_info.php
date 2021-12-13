@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $college_page_info = College_page_info::getInstance();
-                        $auths = College_page_info::sanitize_input($auth);
+                        $college_page_info = CollegePageInfo::getInstance();
+                        $auths = CollegePageInfo::sanitize_input($auth);
                         $college_page_info->setId($auths);
                         $college_page_infoInfo = $college_page_info->getById();
                         ?>
@@ -50,7 +50,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea cols="30" rows="10" type="text" name="description" value="<?php echo $college_page_infoInfo['description'] ?>"   required="required" class="form-control"></textarea>
+                                    <textarea cols="30" rows="10" type="text" name="description" value=""   required="required" class="form-control"><?php echo $college_page_infoInfo['description'] ?></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

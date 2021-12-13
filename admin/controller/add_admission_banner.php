@@ -10,7 +10,7 @@ if (isset($_POST['add_admission_banner'])) {
     } else {
 
         //sanitize form input
-        $title = admission_banner::sanitize_input($_POST['title']);
+        $title = AdmissionBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_admission_banner'])) {
         }
 
         //get an Instance of admission_banner class
-        $admission_banner = admission_banner::getInstance();
+        $admission_banner = AdmissionBanner::getInstance();
 
         //initialize class properties
         $admission_banner->setTitle($title);

@@ -17,8 +17,8 @@ if (isset($_POST['update_news_banner'])) {
     } else {
 
         //sanitize data
-        $id = News_banner::sanitize_input($auth);
-        $title = News_banner::sanitize_input($_POST['title']);
+        $id = NewsBanner::sanitize_input($auth);
+        $title = NewsBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_news_banner'])) {
         }
 
         //get an Instance of news_banner class
-        $news_banner = News_banner::getInstance();
+        $news_banner = NewsBanner::getInstance();
 
         //initialize class properties
 

@@ -17,12 +17,12 @@ if (isset($_POST['update_slider_ext'])) {
     } else {
 
         //sanitize data
-        $id = Slider_ext::sanitize_input($auth);
-        $title = Slider_ext::sanitize_input($_POST['title']);
-        $description = Slider_ext::sanitize_input($_POST['description']);
+        $id = SliderExt::sanitize_input($auth);
+        $title = SliderExt::sanitize_input($_POST['title']);
+        $description = SliderExt::sanitize_input($_POST['description']);
 
         //get an Instance of slider_ext class
-        $slider_ext = Slider_ext::getInstance();
+        $slider_ext = SliderExt::getInstance();
 
         //initialize class properties
 

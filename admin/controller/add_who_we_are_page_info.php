@@ -10,8 +10,8 @@ if (isset($_POST['add_who_we_are_page_info'])) {
     } else {
 
         //sanitize form input
-        $title = Who_we_are_page_info::sanitize_input($_POST['title']);
-        $description = Who_we_are_page_info::sanitize_input($_POST['description']);
+        $title = WhoWeArePageInfo::sanitize_input($_POST['title']);
+        $description = WhoWeArePageInfo::sanitize_input($_POST['description']);
 
         //process formm Image
         try {
@@ -39,7 +39,7 @@ if (isset($_POST['add_who_we_are_page_info'])) {
         }
 
         //get an Instance of page_info class
-        $who_we_are_page_info = Who_we_are_page_info::getInstance();
+        $who_we_are_page_info = WhoWeArePageInfo::getInstance();
 
         //initialize class properties
         $who_we_are_page_info->setTitle($title);
@@ -47,10 +47,10 @@ if (isset($_POST['add_who_we_are_page_info'])) {
         $who_we_are_page_info->setPage_image($page_image);
 
         //add form input to database/check if it successful
-        if ($page_info->add()) {
-            header("location: ../school_page/page_info?info=success");
+        if ($who_we_are_page_info->add()) {
+            header("location: ../school_page/who_we_are_page_info?info=success");
         } else {
-            header("location: ../school_page/page_info?info=failed");
+            header("location: ../school_page/who_we_are_page_info?info=failed");
         }
     }
 }

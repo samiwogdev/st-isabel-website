@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $school_qualities = School_qualities::getInstance();
-                        $auths = School_qualities::sanitize_input($auth);
+                        $school_qualities = SchoolQualities::getInstance();
+                        $auths = SchoolQualities::sanitize_input($auth);
                         $school_qualities->setId($auths);
                         $school_qualitiesInfo = $school_qualities->getById();
                         ?>

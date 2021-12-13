@@ -1,8 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
  * Author:  samiwog
  * Created: Oct 11, 2021
@@ -14,6 +10,11 @@ CREATE TABLE IF NOT EXISTS `slider` (
 `description` varchar(250) NOT NULL,
 `slider_image` varchar(250) NOT NULL
 -- `user_type` int(1) comment '1 => user, 2 => admin 3 => superAdmin'
+);
+
+CREATE TABLE IF NOT EXISTS `song_banner` (
+ `id` int(11) primary key auto_increment NOT NULL,
+`banner_image` varchar(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `slider_ext` (
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `school_banner` (
 CREATE TABLE IF NOT EXISTS `page_info` (
  `id` int(11) primary key auto_increment NOT NULL,
 `title` varchar(250) NOT NULL,
-`description` varchar(250) NOT NULL
+`description` varchar(250) NOT NULL,
 `page_image` varchar(250) NOT NULL
 );
 ALTER TABLE page_info MODIFY COLUMN description Text
@@ -187,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `senior_infoExt` (
 /* Junior_SUBJECTS */
 CREATE TABLE IF NOT EXISTS `junior_subject` (
  `id` int(11) primary key auto_increment NOT NULL,
-`title` varchar(250) NOT NULL,
+`title` varchar(250) NOT NULL
 );
 /* SENIOR_SUBJECTS */
 CREATE TABLE IF NOT EXISTS `senior_subject` (

@@ -17,8 +17,8 @@ if (isset($_POST['update_director_banner'])) {
     } else {
 
         //sanitize data
-        $id = Director_banner::sanitize_input($auth);
-        $title = Director_banner::sanitize_input($_POST['title']);
+        $id = DirectorBanner::sanitize_input($auth);
+        $title = DirectorBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_director_banner'])) {
         }
 
         //get an Instance of director_banner class
-        $director_banner = Director_banner::getInstance();
+        $director_banner = DirectorBanner::getInstance();
 
         //initialize class properties
 

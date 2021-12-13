@@ -77,9 +77,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $senior_subject = Senior_subject::getInstance();
+                                                $senior_subject = SeniorSubject::getInstance();
                                                 $count = 1;
                                                 $senior_subjectInfos = $senior_subject->getAll();
+                                                  if ($senior_subjectInfos){
                                                 foreach ($senior_subjectInfos as $senior_subjectInfo){ 
                                             ?>
                                             <tr>
@@ -92,6 +93,17 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                             <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
                                             <?php } ?>
                                         </tbody>
                                     </table>

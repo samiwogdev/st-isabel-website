@@ -36,8 +36,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $director_banner = Director_banner::getInstance();
-                        $auths = Director_banner::sanitize_input($auth);
+                        $director_banner = DirectorBanner::getInstance();
+                        $auths = DirectorBanner::sanitize_input($auth);
                         $director_banner->setId($auths);
                         $director_bannerInfo = $director_banner->getById();
                         ?>
@@ -54,7 +54,7 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" name="director_image" value="<?php echo $director_bannerInfo['director_banner'] ?>" class="form-control-file" id="exampleFormControlFile1">
+                                        <input type="file" name="director_image" value="" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>

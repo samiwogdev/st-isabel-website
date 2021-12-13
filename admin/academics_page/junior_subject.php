@@ -33,7 +33,7 @@ include_once '../includes/admin_navbar.php';
                     </div>
                     <div class="x_content">
                         <br />
-                        
+
                         <form class="form-horizontal form-label-left" action="../controller/add_junior_subject.php" method="post" enctype="multipart/form-data">
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Subject <span class="required">*</span>
@@ -42,7 +42,7 @@ include_once '../includes/admin_navbar.php';
                                     <input type="text" name="title" required="required" class="form-control ">
                                 </div>
                             </div>
-                            
+
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
@@ -77,21 +77,33 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $junior_subject = Junior_subject::getInstance();
-                                                $count = 1;
-                                                $junior_subjectInfos = $junior_subject->getAll();
-                                                foreach ($junior_subjectInfos as $junior_subjectInfo){ 
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $count?></td>
-                                                <td><?php echo $junior_subjectInfo['title']?></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                    <a href="update_junior_subject?auth=<?php echo $junior_subjectInfo['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                    <a href="../controller/delete_junior_subject?auth=<?php echo $junior_subjectInfo['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            $junior_subject = JuniorSubject::getInstance();
+                                            $count = 1;
+                                            $junior_subjectInfos = $junior_subject->getAll();
+                                            if ($junior_subjectInfos) {
+                                                foreach ($junior_subjectInfos as $junior_subjectInfo) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $count ?></td>
+                                                        <td><?php echo $junior_subjectInfo['title'] ?></td>
+                                                        <td>
+                                                            <div class="text-center">
+                                                                <a href="update_junior_subject?auth=<?php echo $junior_subjectInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                                <a href="../controller/delete_junior_subject?auth=<?php echo $junior_subjectInfo['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
                                             <?php } ?>
                                         </tbody>
                                     </table>
@@ -139,7 +151,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "del") { ?>
+<?php } if (isset($info) && $info == "del") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,
@@ -154,7 +166,7 @@ include_once '../includes/admin_navbar.php';
             })
         });
     </script> 
-    <?php } if (isset($info) && $info == "complete") { ?>
+<?php } if (isset($info) && $info == "complete") { ?>
     <script type="text/javascript">
         const Toast = Swal.mixin({
             toast: true,

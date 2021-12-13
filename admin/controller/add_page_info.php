@@ -10,8 +10,8 @@ if (isset($_POST['add_page_info'])) {
     } else {
 
         //sanitize form input
-        $title = Page_info::sanitize_input($_POST['title']);
-        $description = Page_info::sanitize_input($_POST['description']);
+        $title = PageInfo::sanitize_input($_POST['title']);
+        $description = PageInfo::sanitize_input($_POST['description']);
 
         //process formm Image
         try {
@@ -39,7 +39,7 @@ if (isset($_POST['add_page_info'])) {
         }
 
         //get an Instance of page_info class
-        $page_info = Page_info::getInstance();
+        $page_info = PageInfo::getInstance();
 
         //initialize class properties
         $page_info->setTitle($title);

@@ -17,9 +17,9 @@ if (isset($_POST['update_who_we_are_page_info'])) {
     } else {
 
         //sanitize data
-        $id = Who_we_are_page_info::sanitize_input($auth);
-        $title = Who_we_are_page_info::sanitize_input($_POST['title']);
-        $description = Who_we_are_page_info::sanitize_input($_POST['description']);
+        $id = WhoWeArePageInfo::sanitize_input($auth);
+        $title = WhoWeArePageInfo::sanitize_input($_POST['title']);
+        $description = WhoWeArePageInfo::sanitize_input($_POST['description']);
 
         //process form Image
         try {
@@ -47,7 +47,7 @@ if (isset($_POST['update_who_we_are_page_info'])) {
         }
 
         //get an Instance of page_info class
-        $who_we_are_page_info = Who_we_are_Page_info::getInstance();
+        $who_we_are_page_info = WhoWeArePageInfo::getInstance();
 
         //initialize class properties
 
@@ -57,7 +57,7 @@ if (isset($_POST['update_who_we_are_page_info'])) {
         $who_we_are_page_info->setPage_image($page_image);
 
         //update form input to database & check if it successful
-        if ($page_info->update()) {
+        if ($who_we_are_page_info->update()) {
             header("location: ../school_page/who_we_are_page_info?info=complete");
         } else {
             header("location: ../school_page/who_we_are_page_info?info=failed");

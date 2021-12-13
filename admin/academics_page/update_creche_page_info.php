@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $creche_page_info = Creche_page_info::getInstance();
-                        $auths = Creche_page_info::sanitize_input($auth);
+                        $creche_page_info = CrechePageInfo::getInstance();
+                        $auths = CollegePageInfo::sanitize_input($auth);
                         $creche_page_info->setId($auths);
                         $creche_page_infoInfo = $creche_page_info->getById();
                         ?>
@@ -50,7 +50,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea type="text" name="description" value="<?php echo $creche_page_infoInfo['description'] ?>" required="required" class="form-control"> </textarea>
+                                    <textarea type="text" name="description" value="" required="required" class="form-control"><?php echo $creche_page_infoInfo['description'] ?> </textarea>
 
                                 </div>
                             </div>

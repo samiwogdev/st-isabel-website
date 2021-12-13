@@ -17,8 +17,8 @@ if (isset($_POST['update_creche_banner'])) {
     } else {
 
         //sanitize data
-        $id = Creche_banner::sanitize_input($auth);
-        $title = Creche_banner::sanitize_input($_POST['title']);
+        $id = CrecheBanner::sanitize_input($auth);
+        $title = CrecheBanner::sanitize_input($_POST['title']);
 
         //process form Image
         try {
@@ -46,7 +46,7 @@ if (isset($_POST['update_creche_banner'])) {
         }
 
         //get an Instance of creche_banner class
-        $creche_banner = Creche_banner::getInstance();
+        $creche_banner = CrecheBanner::getInstance();
 
         //initialize class properties
 

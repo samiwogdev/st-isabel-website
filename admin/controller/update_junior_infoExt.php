@@ -17,12 +17,12 @@ if (isset($_POST['update_junior_infoExt'])) {
     } else {
 
         //sanitize data
-        $id = Junior_infoExt::sanitize_input($auth);
-        $title = Junior_infoExt::sanitize_input($_POST['title']);
-        $description = Junior_infoExt::sanitize_input($_POST['description']);
+        $id = JuniorInfoExt::sanitize_input($auth);
+        $title = JuniorInfoExt::sanitize_input($_POST['title']);
+        $description = JuniorInfoExt::sanitize_input($_POST['description']);
 
         //get an Instance of junior_infoExt class
-        $junior_infoExt = Junior_infoExt::getInstance();
+        $junior_infoExt = JuniorInfoExt::getInstance();
 
         //initialize class properties
 

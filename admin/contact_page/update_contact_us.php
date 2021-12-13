@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $contact_us = Contact_us::getInstance();
-                        $auths = Contact_us::sanitize_input($auth);
+                        $contact_us = ContactUs::getInstance();
+                        $auths = ContactUs::sanitize_input($auth);
                         $contact_us->setId($auths);
                         $contact_usInfo = $contact_us->getById();
                         ?>

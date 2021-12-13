@@ -47,7 +47,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" name="description" required="required" class="form-control">
+                                     <textarea name="description"  required="required" class="form-control"  data-parsley-trigger="keyup" rows="10" cols="10"></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
@@ -87,19 +87,31 @@ include_once '../includes/admin_navbar.php';
                                             <?php
                                             $slider_ext = FacilityIntro::getInstance();
                                             $count = 1;
-                                            $facility_intro = $slider_ext->getAll();
-                                                ?>
+                                            $row = $slider_ext->getAll();
+                                               if ($row){
+//                                             foreach ($facility_intros as $facility_intro) {
+//                                                ?>
                                             <tr>
                                                 <td> <?php echo $count ?></td>
-                                                <td> <?php echo $facility_intro ['title'] ?> </td>
-                                                <td> <?php echo $facility_intro ['description']?> </td>
+                                                <td> <?php echo $row ['title'] ?> </td>
+                                                <td> <?php echo $row ['description']?> </td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <a href="update_slider_ext?auth=<?php echo $facility_intro['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                        <a href="../controller/delete_slider_ext?auth=<?php echo $facility_intro['id']?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                        <a href="update_facility_intro?auth=<?php echo $row['id']?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                        <a href="../controller/delete_facility_intro?auth=<?php echo $row['id']?>"><span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                                   <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

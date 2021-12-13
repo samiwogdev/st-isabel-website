@@ -10,7 +10,7 @@ if (isset($_POST['add_objective_banner'])) {
     } else {
 
         //sanitize form input
-        $title = Objective_banner::sanitize_input($_POST['title']);
+        $title = ObjectiveBanner::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_objective_banner'])) {
         }
 
         //get an Instance of objective_banner class
-        $objective_banner = Objective_banner::getInstance();
+        $objective_banner = ObjectiveBanner::getInstance();
 
         //initialize class properties
         $objective_banner->setTitle($title);

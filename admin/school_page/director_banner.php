@@ -15,7 +15,7 @@ include_once '../includes/admin_navbar.php';
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>The Director</h3>
+                <h3> Director Page Banner</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -85,10 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $director_banner = Director_banner::getInstance();
+                                                $director_banner = DirectorBanner::getInstance();
                                                 $count = 1;
                                                 $row = $director_banner->getAll();
-                                                
+                                                  if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
@@ -102,6 +102,16 @@ include_once '../includes/admin_navbar.php';
                                                 </td>
                                             </tr>
                                            
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

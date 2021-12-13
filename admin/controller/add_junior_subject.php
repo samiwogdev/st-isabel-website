@@ -10,11 +10,11 @@ if (isset($_POST['add_junior_subject'])) {
     } else {
 
         //sanitize form input
-        $title = Junior_subject::sanitize_input($_POST['title']);
+        $title = JuniorSubject::sanitize_input($_POST['title']);
         
 
         //get an Instance of page_info class
-        $junior_subject = Junior_subject::getInstance();
+        $junior_subject = JuniorSubject::getInstance();
 
         //initialize class properties
         $junior_subject->setTitle($title);

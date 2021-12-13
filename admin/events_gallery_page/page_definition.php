@@ -79,6 +79,8 @@ include_once '../includes/admin_navbar.php';
                                                 $page_definition= PageDefinition::getInstance();
                                                 $count = 1;
                                                 $rows = $page_definition->getAll();
+                                                         if ($rows){
+
                                                 foreach ($rows as $row){  ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
@@ -91,9 +93,18 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
-                                                <?php 
-                                                $count ++;
-                                                }?>
+                                                 <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

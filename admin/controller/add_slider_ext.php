@@ -10,13 +10,13 @@ if (isset($_POST['add_slider_ext'])) {
     } else {
 
         //sanitize form input
-        $title = Slider_ext::sanitize_input($_POST['title']);
-        $description = Slider_ext::sanitize_input($_POST['description']);
+        $title = SliderExt::sanitize_input($_POST['title']);
+        $description = SliderExt::sanitize_input($_POST['description']);
 
         
 
         //get an Instance of slider class
-        $slider_ext = Slider_ext::getInstance();
+        $slider_ext = SliderExt::getInstance();
 
         //initialize class propperties
         $slider_ext->setTitle($title);

@@ -40,7 +40,6 @@ if (isset($_POST['add_slider'])) {
 
         //get an Instance of slider class
         $slider = Slider::getInstance();
-
         //initialize class propperties
         $slider->setTitle($title);
         $slider->setDescription($description);

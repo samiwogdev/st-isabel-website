@@ -17,12 +17,12 @@ if (isset($_POST['update_college_page_info'])) {
     } else {
 
         //sanitize data
-        $id = College_page_info::sanitize_input($auth);
-        $title = College_page_info::sanitize_input($_POST['title']);
-        $description = College_page_info::sanitize_input($_POST['description']);
+        $id = CollegePageInfo::sanitize_input($auth);
+        $title = CollegePageInfo::sanitize_input($_POST['title']);
+        $description = CollegePageInfo::sanitize_input($_POST['description']);
 
         //get an Instance of college_page_info class
-        $college_page_info = College_page_info::getInstance();
+        $college_page_info = CollegePageInfo::getInstance();
 
         //initialize class properties
 

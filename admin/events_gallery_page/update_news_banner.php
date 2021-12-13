@@ -36,8 +36,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $news_banner = News_banner::getInstance();
-                        $auths = News_banner::sanitize_input($auth);
+                        $news_banner = NewsBanner::getInstance();
+                        $auths = NewsBanner::sanitize_input($auth);
                         $news_banner->setId($auths);
                         $news_bannerInfo = $news_banner->getById();
                         ?>

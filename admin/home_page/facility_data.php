@@ -101,6 +101,7 @@ include_once '../includes/admin_navbar.php';
                                             $facility_data = FacilityData::getInstance();
                                             $count = 1;
                                             $facility_datas = $facility_data->getAll();
+                                             if ($facility_datas){
                                             foreach ($facility_datas as $facility) {
                                                 ?>
                                                 <tr>
@@ -111,11 +112,22 @@ include_once '../includes/admin_navbar.php';
                                                     <td class="text-center"><img src="../uploads/raw/<?php echo $facility['facility_image'] ?>" width="30px"></td>
                                                     <td>
                                                         <div class="text-center">
-                                                            <a href="update_slider?auth=<?php echo $sliderInfo['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
-                                                            <a href="../controller/delete_slider?auth=<?php echo $sliderInfo['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="update_facility_data?auth=<?php echo $facility['id'] ?>"><span class="fa fa-edit text-primary fa-2x" style="cursor: pointer"></span></a>
+                                                            <a href="../controller/delete_facility_data?auth=<?php echo $facility['id'] ?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                         </div>
                                                     </td>
                                                 </tr>
+                                           <?php
+                                                    $count++;
+                                                }
+                                            } else {
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>     
+
                                             <?php } ?>
                                         </tbody>
                                     </table>

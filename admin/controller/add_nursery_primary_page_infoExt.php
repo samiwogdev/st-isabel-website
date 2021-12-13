@@ -10,12 +10,12 @@ if (isset($_POST['add_nursery_primary_page_infoExt'])) {
     } else {
 
         //sanitize form input
-        $title = Nursery_primary_page_infoExt::sanitize_input($_POST['title']);
-        $description = Nursery_primary_page_infoExt::sanitize_input($_POST['description']);
+        $title = NurseryPrimaryPageInfoExt::sanitize_input($_POST['title']);
+        $description = NurseryPrimaryPageInfoExt::sanitize_input($_POST['description']);
         
 
         //get an Instance of page_info class
-        $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
+        $nursery_primary_page_infoExt = NurseryPrimaryPageInfoExt::getInstance();
 
         //initialize class properties
         $nursery_primary_page_infoExt->setTitle($title);

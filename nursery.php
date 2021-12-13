@@ -5,8 +5,8 @@ include 'includes/header.php'
 
 <!-- Start Breadcrumbs -->
 <?php
-$nursery_primary_banner = Nursery_primary_banner::getInstance();
-$row = $nursery_primary_banner -> getAll();
+$nursery_primary_banner = NurseryPrimaryBanner::getInstance();
+$row = $nursery_primary_banner->getAll();
 ?>		
 <section class="breadcrumbs overlay" style="background-image: url('admin/uploads/raw/<?php echo $row['nursery_image']?>')" data-aos='zoom-out'>
     <div class="container">
@@ -26,8 +26,8 @@ $row = $nursery_primary_banner -> getAll();
 
 <section class="about-us section mt-4" style="padding: 0px; mb-0">
             <?php 
-            $nursery_primary_page_info = Nursery_primary_page_info::getInstance();
-            $row = $nursery_primary_page_info -> getAll();
+            $nursery_primary_page_info = NurseryPrimaryPageInfo::getInstance();
+            $row = $nursery_primary_page_info->getAll();
             ?>
     <div class="container">
         <div class="row">
@@ -136,7 +136,7 @@ $row = $nursery_primary_banner -> getAll();
     </section>
     <div class="container">
         <?php
-            $nursery_primary_page_infoExt = Nursery_primary_page_infoExt::getInstance();
+            $nursery_primary_page_infoExt = NurseryPrimaryPageInfoExt::getInstance();
             $row = $nursery_primary_page_infoExt->getAll();
         ?>
         <div class="row">
@@ -154,8 +154,8 @@ $row = $nursery_primary_banner -> getAll();
         <!-- NURSERY/ PRIMARY SUBJECTS -->
         <div class="row ml-3">
             <?php
-                $nursery_primarysubject = Nursery_primarysubject::getInstance();
-                $result = $nursery_primarysubject -> getAll();
+                $nursery_primarysubject = NurseryPrimarysubject::getInstance();
+                $result = $nursery_primarysubject->getAll();
             ?>
              
             <div class="col-lg-4 col-12" style="text-align: justify">

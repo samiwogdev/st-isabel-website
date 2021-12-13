@@ -17,12 +17,12 @@ if (isset($_POST['update_objective_page_info'])) {
     } else {
 
         //sanitize data
-        $id = Objective_page_info::sanitize_input($auth);
-        $title = Objective_page_info::sanitize_input($_POST['title']);
-        $description = Objective_page_info::sanitize_input($_POST['description']);
+        $id = ObjectivePageInfo::sanitize_input($auth);
+        $title = ObjectivePageInfo::sanitize_input($_POST['title']);
+        $description = ObjectivePageInfo::sanitize_input($_POST['description']);
 
         //get an Instance of objective_page_info class
-        $objective_page_info = Objective_page_info::getInstance();
+        $objective_page_info = ObjectivePageInfo::getInstance();
 
         //initialize class properties
 

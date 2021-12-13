@@ -10,7 +10,7 @@ if (isset($_POST['add_admission_info_page'])) {
     } else {
 
         //sanitize form input
-        $title = Admission_info_page::sanitize_input($_POST['title']);
+        $title = AdmissionInfoPage::sanitize_input($_POST['title']);
 
         //process formm Image
         try {
@@ -38,7 +38,7 @@ if (isset($_POST['add_admission_info_page'])) {
         }
 
         //get an Instance of admission_info_page class
-        $admission_info_page = Admission_info_page::getInstance();
+        $admission_info_page = AdmissionInfoPage::getInstance();
 
         //initialize class properties
         $admission_info_page->setTitle($title);

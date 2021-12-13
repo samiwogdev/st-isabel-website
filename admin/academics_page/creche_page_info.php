@@ -85,9 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $creche_page_info = Creche_page_info::getInstance();
+                                                $creche_page_info = CrechePageInfo::getInstance();
                                                 $count = 1;
                                                 $row = $creche_page_info->getAll();
+                                                    if ($row){
                                                 
                                             ?>
                                             <tr>
@@ -100,7 +101,17 @@ include_once '../includes/admin_navbar.php';
                                                     <a href="../controller/delete_creche_page_info?auth=<?php echo $row['id']?>"> <span class="fa fa-trash text-danger fa-2x" style="cursor: pointer"></span></a>
                                                     </div>
                                                 </td>
-                                            </tr>
+                                            </tr
+                                                      <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         
                                         </tbody>
                                     </table>

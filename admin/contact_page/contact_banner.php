@@ -85,10 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $contact_banner = Contact_banner::getInstance();
+                                                $contact_banner = ContactBanner::getInstance();
                                                 $count = 1;
                                                 $row= $contact_banner->getAll();
-                                                
+                                                if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
@@ -101,7 +101,16 @@ include_once '../includes/admin_navbar.php';
                                                     </div>
                                                 </td>
                                             </tr>
+                                               <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

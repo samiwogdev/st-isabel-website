@@ -33,8 +33,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $senior_infoExt = Senior_infoExt::getInstance();
-                        $auths = Senior_infoExt::sanitize_input($auth);
+                        $senior_infoExt = SeniorInfoExt::getInstance();
+                        $auths = SeniorInfoExt::sanitize_input($auth);
                         $senior_infoExt->setId($auths);
                         $senior_infoExtInfo = $senior_infoExt->getById();
                         ?>
@@ -50,7 +50,7 @@ include_once '../includes/admin_navbar.php';
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea cols="30" rows="10" type="text" name="description" value="<?php echo $senior_infoExtInfo['description'] ?>"   required="required" class="form-control"></textarea>
+                                    <textarea cols="30" rows="10" type="text" name="description" value=""   required="required" class="form-control"><?php echo $senior_infoExtInfo['description'] ?></textarea>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>

@@ -36,8 +36,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $creche_banner = Creche_banner::getInstance();
-                        $auths = Creche_banner::sanitize_input($auth);
+                        $creche_banner = CrecheBanner::getInstance();
+                        $auths = CollegePageInfo::sanitize_input($auth);
                         $creche_banner->setId($auths);
                         $creche_bannerInfo = $creche_banner->getById();
                         ?>
@@ -54,7 +54,7 @@ include_once '../includes/admin_navbar.php';
                                 <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Banner Image</label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <div class="form-group">
-                                        <input type="file" name="creche_image" value="<?php echo $creche_bannerInfo['creche_banner'] ?>" class="form-control-file" id="exampleFormControlFile1">
+                                        <input type="file" name="creche_image" value="" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                 </div>
                             </div>

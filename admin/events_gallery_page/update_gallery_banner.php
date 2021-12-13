@@ -35,8 +35,8 @@ include_once '../includes/admin_navbar.php';
                     <div class="x_content">
                         <br />
                         <?php
-                        $gallery_banner = Gallery_banner::getInstance();
-                        $auths = Gallery_banner::sanitize_input($auth);
+                        $gallery_banner = GalleryBanner::getInstance();
+                        $auths = GalleryBanner::sanitize_input($auth);
                         $gallery_banner->setId($auths);
                         $gallery_bannerInfo = $gallery_banner->getById();
                         ?>

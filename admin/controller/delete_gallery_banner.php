@@ -1,8 +1,8 @@
 <?php
 
 include_once '../configuration.php';
-$id = Gallery_banner::sanitize_input($_GET['auth']);
-$gallery_banner = Gallery_banner::getInstance();
+$id = GalleryBanner::sanitize_input($_GET['auth']);
+$gallery_banner = GalleryBanner::getInstance();
 $gallery_banner->setId($id);
 if ($gallery_banner->delete()) {
     header("location: ../events_gallery_page/gallery_banner?info=del");

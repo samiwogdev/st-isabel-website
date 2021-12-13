@@ -10,8 +10,8 @@ if (isset($_POST['add_director_page_info'])) {
     } else {
 
         //sanitize form input
-        $title = Director_page_info::sanitize_input($_POST['title']);
-        $description = Director_page_info::sanitize_input($_POST['description']);
+        $title = DirectorPageInfo::sanitize_input($_POST['title']);
+        $description = DirectorPageInfo::sanitize_input($_POST['description']);
 
         //process formm Image
         try {
@@ -39,7 +39,7 @@ if (isset($_POST['add_director_page_info'])) {
         }
 
         //get an Instance of page_info class
-        $director_page_info = Director_page_info::getInstance();
+        $director_page_info = DirectorPageInfo::getInstance();
 
         //initialize class properties
         $director_page_info->setTitle($title);

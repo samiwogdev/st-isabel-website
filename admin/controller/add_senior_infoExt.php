@@ -10,12 +10,12 @@ if (isset($_POST['add_senior_infoExt'])) {
     } else {
 
         //sanitize form input
-        $title = Senior_infoExt::sanitize_input($_POST['title']);
-        $description = Senior_infoExt::sanitize_input($_POST['description']);
+        $title = SeniorInfoExt::sanitize_input($_POST['title']);
+        $description = SeniorInfoExt::sanitize_input($_POST['description']);
         
 
         //get an Instance of page_info class
-        $senior_infoExt = senior_infoExt::getInstance();
+        $senior_infoExt = SeniorInfoExt::getInstance();
 
         //initialize class properties
         $senior_infoExt->setTitle($title);

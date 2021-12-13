@@ -85,10 +85,10 @@ include_once '../includes/admin_navbar.php';
                                         </thead>
                                         <tbody>
                                         <?php
-                                                $admission_banner = Admission_banner::getInstance();
+                                                $admission_banner = AdmissionBanner::getInstance();
                                                 $count = 1;
                                                 $row = $admission_banner->getAll();
-                                                
+                                                if ($row){
                                         ?>
                                             <tr>
                                                 <td><?php echo $count ?></td>
@@ -102,6 +102,16 @@ include_once '../includes/admin_navbar.php';
                                                 </td>
                                             </tr>
                                           
+                                         <?php } else { ?>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            
+                                            </tr>     
+                                        
+                                 <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

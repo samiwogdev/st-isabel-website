@@ -9,11 +9,11 @@ if (isset($_POST['add_school_qualities'])){
         header("location: ../home_page/school_qualities?info=failed");
     }else {
         //sanitize form input
-        $qualities = School_qualities::sanitize_input($_POST['qualities']);
+        $qualities = SchoolQualities::sanitize_input($_POST['qualities']);
     
 
     //get an Instance of School_qualities class
-    $school_qualities = School_qualities::getInstance();
+    $school_qualities = SchoolQualities::getInstance();
 
     //initialize class properties
     $school_qualities -> setQualities($qualities);

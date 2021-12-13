@@ -17,12 +17,12 @@ if (isset($_POST['update_school_song'])) {
     } else {
 
         //sanitize data
-        $id = School_song::sanitize_input($auth);
-        $title = School_song::sanitize_input($_POST['title']);
-        $description = School_song::sanitize_input($_POST['description']);
+        $id = SchoolSong::sanitize_input($auth);
+        $title = SchoolSong::sanitize_input($_POST['title']);
+        $description = SchoolSong::sanitize_input($_POST['description']);
 
         //get an Instance of Slider_ext class
-        $school_song = School_song::getInstance();
+        $school_song = SchoolSong::getInstance();
 
         //initialize class properties
 

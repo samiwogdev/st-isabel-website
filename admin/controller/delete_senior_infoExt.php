@@ -1,8 +1,8 @@
 <?php
 
 include_once '../configuration.php';
-$id = Senior_infoExt::sanitize_input($_GET['auth']);
-$senior_infoExt = Senior_infoExt::getInstance();
+$id = SeniorInfoExt::sanitize_input($_GET['auth']);
+$senior_infoExt = SeniorInfoExt::getInstance();
 $senior_infoExt->setId($id);
 if ($senior_infoExt->delete()) {
     header("location: ../academics_page/senior_infoExt?info=del");

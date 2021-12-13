@@ -10,7 +10,6 @@ include_once '../configuration.php';
 
 //check if form is submitted
 if (isset($_POST['update_banner'])) {
-
     //check if form input are not empty
     if (empty($_POST['title'])){  
         header("location: ../school_page/banner?info=failed");
@@ -36,9 +35,11 @@ if (isset($_POST['update_banner'])) {
                 move_uploaded_file($_FILES['banner_image']['tmp_name'], "../uploads/raw/" . $banner_image);
                 $imageFileName = copy('../uploads/raw/' . $banner_image, '../uploads/thumbnail/' . $banner_image);
             } else {
+                    echo 'yes'; exit;
                 header("location: ../school_page/banner?info=failed");
             }
         } else {
+                echo 'no'; exit;
             header("location: ../school_page/banner?info=failed");
         }
     } catch (Exception $ex) {
@@ -46,7 +47,7 @@ if (isset($_POST['update_banner'])) {
     }
 
     //get an Instance of Banner class
-    $banner =Banner::getInstance();
+    $banner = Banner::getInstance();
 
     //initialize class properties
     $banner->setId($auth);

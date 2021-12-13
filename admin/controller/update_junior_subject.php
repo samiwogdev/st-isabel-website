@@ -17,11 +17,11 @@ if (isset($_POST['update_junior_subject'])) {
     } else {
 
         //sanitize data
-        $id = Junior_subject::sanitize_input($auth);
-        $title = Junior_subject::sanitize_input($_POST['title']);
+        $id = JuniorSubject::sanitize_input($auth);
+        $title = JuniorSubject::sanitize_input($_POST['title']);
 
         //get an Instance of junior_subject class
-        $junior_subject = Junior_subject::getInstance();
+        $junior_subject = JuniorSubject::getInstance();
 
         //initialize class properties
 
